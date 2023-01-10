@@ -29,7 +29,6 @@ jobs:
         cp dist/cashback-alarm/index.html dist/cashback-alarm/termsofuse.html
         cp dist/cashback-alarm/index.html dist/cashback-alarm/privacy.html
         cp dist/cashback-alarm/index.html dist/cashback-alarm/imprint.html
-        cp dist/cashback-alarm/index.html dist/cashback-alarm/account-deletion.html
 
     - name: Deploy
       if: success()

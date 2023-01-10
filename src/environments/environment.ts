@@ -1,7 +1,6 @@
 export const environment = {
   production: false,
-  facebookClientId: '485957230302704',
-  backend: 'freundewerbenfreunde-local.deta.dev',
+  backend: 'cashbackalarm-local.deta.dev',
   frontend: 'localhost',
-  googleTagManagerId: 'GTM-MGGQZMV'
+  googleTagManagerId: 'GTM-T73JXHP'
 };

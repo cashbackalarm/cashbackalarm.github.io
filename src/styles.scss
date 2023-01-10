@@ -1,1 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use './src/card-theme' as card;
+
+@include mat.core();
+
+$cashback-alarm-primary: mat.define-palette(mat.$grey-palette);
+$cashback-alarm-accent: mat.define-palette(mat.$deep-orange-palette);
+$cashback-alarm-warn: mat.define-palette(mat.$red-palette);
+
+$cashback-alarm-light-theme: mat.define-light-theme((color: (primary: $cashback-alarm-primary,
+        accent: $cashback-alarm-accent,
+        warn: $cashback-alarm-warn,
+      )));
+
+$cashback-alarm-dark-theme: mat.define-dark-theme((color: (primary: $cashback-alarm-primary,
+        accent: $cashback-alarm-accent,
+        warn: $cashback-alarm-warn,
+      )));
+
+@include mat.all-component-themes($cashback-alarm-light-theme);
+@include card.theme($cashback-alarm-light-theme);
+
+.dark-theme {
+  @include mat.all-component-colors($cashback-alarm-dark-theme);
+  @include card.theme($cashback-alarm-dark-theme);
+}
+
+@import "@fontsource/roboto/latin-400.css";
+@import '@material-design-icons/font/filled.css';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  .cc-revoke.cc-bottom {
+    left: 16px;
+    bottom: 16px;
+    border-radius: 50%;
+    background-color: #ff5722;
+  }
+}
+
+.header div {
+  text-align: center;
+  margin-left: 16px;
+  margin-right: 16px;
+}

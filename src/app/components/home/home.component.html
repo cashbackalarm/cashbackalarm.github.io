@@ -1,0 +1,20 @@
+<div #container>
+    <mat-card>
+        <mat-card-header>
+            <mat-icon color="accent" mat-card-avatar>alarm</mat-icon>
+            <b>{{'home.description.1' | translate}}</b>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{'home.description.2' | translate}}</p>
+        </mat-card-content>
+    </mat-card>
+    <mat-card *ngFor="let cashback of cashbacks">
+        <mat-card-header>
+            <b>{{cashback.title}}</b>
+        </mat-card-header>
+        <img mat-card-image src="{{cashback.img}}">
+        <mat-card-actions>
+            <a mat-flat-button color="accent" href="{{cashback.link}}">{{'open-page' | translate}}</a>
+          </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,78 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+
+  .mat-app-background {
+    mat-card {
+      margin-left: 166px;
+      margin-right: 166px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+
+      @media (max-width: 799px) {
+        margin-left: 16px;
+        margin-right: 16px;
+      }
+
+      @media (min-width: 1200px) {
+        margin-left: 316px;
+        margin-right: 316px;
+      }
+
+      .mat-mdc-card-avatar {
+        height: 64px;
+        width: auto;
+        border-radius: 0%;
+        margin-bottom: 0px;
+
+        &.material-icons {
+          height: 96px;
+          font-size: 96px;
+        }
+      }
+
+      .mat-mdc-card-title,
+      .mat-mdc-card-subtitle {
+        display: flex;
+        align-items: center;
+      }
+
+      .mat-mdc-card-title {
+        mat-icon {
+          margin-left: 4px;
+        }
+      }
+
+      .mat-mdc-card-subtitle {
+        img {
+          margin-right: 8px;
+        }
+        mat-icon {
+          margin-right: 4px;
+        }
+      }
+
+      .mat-mdc-card-header {
+        align-items: center;
+      }
+
+      .mat-mdc-card-footer {
+        height: 84px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 16px;
+        margin-right: 16px;
+      }
+    }
+  }
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+
+  @if $color-config !=null {
+    @include color($theme);
+  }
+}
