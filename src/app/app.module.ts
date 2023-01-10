@@ -63,7 +63,7 @@ const cookieConfig: NgcCookieConsentConfig = {
       background: '#000'
     },
     button: {
-      background: '#2196f3'
+      background: '#ff5722'
     }
   },
   revokable: true,
