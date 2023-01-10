@@ -1,0 +1,34 @@
+{
+    "source": "Quellcode",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "termsofuse": "AGB",
+    "login": "Login",
+    "cancel": "Abbrechen",
+    "open-page": "Zur Aktionsseite",
+    "user": {
+        "profile": "Profil",
+        "id": "User ID",
+        "name": "Name",
+        "last-login": "Letzte Anmeldung",
+        "delete": "Profil löschen",
+        "confirmation": "Ja, ich will mein Konto unwiderruflich löschen. Die damit verbundenen Daten werden umgehend gelöscht. Eine Wiederherstellung der gelöschten Daten is nicht möglich.",
+        "participations": "Meine Teilhanmen",
+        "logout": "Abmelden",
+        "copy-user-id-to-clipboard": "User ID kopieren"
+    },
+    "home": {
+        "description": {
+            "1": "Alarm!",
+            "2": "Mit Cashback Alarm hast du den Überblick über aktuelle Cashback Aktionen, kannst deine Teilnahme erfassen und wirst daran erinnert, dein Kontoauszug zu kontrollieren."
+        }
+    },
+    "cookie": {
+        "message": "Auf dieser Website werden Cookies eingesetzt. Durch die Nutzung dieser Seite werden die Verwendung von notwendigen Cookies und unseren Datenschutzbestimmungen zugestimmt. Optional kann die Verwendung von Cookies zur statistischen Zwecke zugestimmt werden.",
+        "link": "Mehr dazu",
+        "href": "/privacy",
+        "allow": "Alle Cookies",
+        "deny": "Nur notwendige Cookies",
+        "policy": "Cookie-Richtlinie"
+    }
+}
