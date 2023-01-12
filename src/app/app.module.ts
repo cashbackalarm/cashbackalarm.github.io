@@ -42,6 +42,7 @@ import { registerLocaleData } from '@angular/common';
 
 import { environment } from '../environments/environment';
 import { NgcCookieConsentConfig, NgcCookieConsentModule } from 'ngx-cookieconsent';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -138,7 +139,11 @@ registerLocaleData(localeDe);
         skipWhenExpired: true
       },
     }),
-    NgcCookieConsentModule.forRoot(cookieConfig)
+    NgcCookieConsentModule.forRoot(cookieConfig),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [{ provide: DateAdapter, useClass: MomentDateAdapter },
   { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },

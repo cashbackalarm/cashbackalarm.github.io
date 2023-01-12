@@ -89,13 +89,17 @@ export class CashbackService {
     if (!this.userKey) {
       return of();
     }
-    return this.http.put<void>(this.baseUrl + '/users/' + this.userKey + '/notifications', notifications);
+    return this.http.put(this.baseUrl + '/users/' + this.userKey + '/notifications', notifications, { observe: 'response', responseType: 'text' }).pipe(
+      catchError(() => of()),
+      map(response => {
+        this.handleToken(response.body);
+      })
+    );
   }
 
   logout(): Observable<void> {
     return this.http.post<void>(this.baseUrl + '/logout', null).pipe(tap(_ => {
-      localStorage.removeItem(this.tokenKey);
-      this._user.next(undefined);
+      this.handleToken(null)
     }));
   }
 

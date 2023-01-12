@@ -6,6 +6,7 @@ import { User } from 'src/app/models/user';
 import { CashbackService } from 'src/app/services/cashback.service';
 import { AbstractComponent } from '../abstract/abstract.component';
 import { environment } from '../../../environments/environment';
+import { SwPush } from '@angular/service-worker';
 
 @Component({
   selector: 'app-notifications',
@@ -16,7 +17,8 @@ export class NotificationsComponent extends AbstractComponent {
   form: FormGroup;
   notificationTypes: NotificationType[] = ['email', 'notification'];
 
-  constructor(cashbackService: CashbackService, formBuilder: FormBuilder) {
+  constructor(cashbackService: CashbackService, formBuilder: FormBuilder,
+    private swPush: SwPush) {
     super(cashbackService);
     this.form = formBuilder.group({
       cashbacks: new FormArray([]),
@@ -27,15 +29,18 @@ export class NotificationsComponent extends AbstractComponent {
   protected override handleUser(user?: User): void {
     super.handleUser(user);
     if (user) {
-      let types: NotificationType[] = ['email', 'notification'];
-      types.forEach((value: NotificationType) => {
-        this.cashbacksFormArray.push(new FormControl(user.notifications.cashbacks.includes(value)))
-        this.participationsFormArray.push(new FormControl(user.notifications.participations.includes(value)))
+      this.notificationTypes.forEach((notificationType: NotificationType) => {
+        this.cashbacksFormArray.push(new FormControl(this.getControlValue(user.notifications.cashbacks, notificationType)))
+        this.participationsFormArray.push(new FormControl(this.getControlValue(user.notifications.participations, notificationType)))
       });
     } else {
       this.cashbacksFormArray.clear();
       this.participationsFormArray.clear();
     }
+  }
+
+  private getControlValue(values: NotificationType[], value: NotificationType): boolean {
+    return values != null && values.includes(value)
   }
 
   get cashbacksFormArray() {
@@ -56,9 +61,18 @@ export class NotificationsComponent extends AbstractComponent {
   submit(): void {
     let notifications: Notifications = {
       cashbacks: this.getNotificationTypes(this.form.value.cashbacks),
-      participations: this.getNotificationTypes(this.form.value.participations),
-      sub: ''
+      participations: this.getNotificationTypes(this.form.value.participations)
     };
+    if (notifications.cashbacks.includes('notification') || notifications.participations.includes('notification')) {
+      this.swPush.requestSubscription({
+        serverPublicKey: environment.vapidPublicKey
+      }).then((sub: PushSubscription) => {
+        console.log(sub)
+        notifications.sub = sub;
+        this.cashbackService.updateNotifications(notifications).subscribe();
+      })
+        .catch(err => console.error("Could not subscribe to notifications", err));
+    }
     this.cashbackService.updateNotifications(notifications).subscribe();
   }
 
