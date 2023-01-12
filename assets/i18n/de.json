@@ -3,25 +3,66 @@
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "termsofuse": "AGB",
-    "login": "Login",
+    "registration": {
+        "title": "Konto erstellen",
+        "to-login": "Hast du schon ein Konto?"
+    },
+    "login": {
+        "title": "Anmelden",
+        "to-registration": "Kein Konto?",
+        "to-password-forgotten": "Passwort vergessen?"
+    },
+    "password-forgotten": {
+        "title": "Password vergessen"
+    },
+    "password-reset": {
+        "title": "Password zurücksetzen"
+    },
+    "send": "Los geht's!",
+    "save": "Speichern",
     "cancel": "Abbrechen",
     "open-page": "Zur Aktionsseite",
+    "cashback": {
+        "period": "Aktionszeitraum: {{start}} - {{end}}",
+        "end": "Aktionszeitraum: bis zum {{end}}",
+        "upload": "Einsendeschluss: {{upload}}"
+    },
     "user": {
         "profile": "Profil",
-        "id": "User ID",
         "name": "Name",
+        "email": "Email",
+        "password": "Password",
+        "token": "Token",
         "last-login": "Letzte Anmeldung",
-        "delete": "Profil löschen",
+        "delete": "Konto löschen",
         "confirmation": "Ja, ich will mein Konto unwiderruflich löschen. Die damit verbundenen Daten werden umgehend gelöscht. Eine Wiederherstellung der gelöschten Daten is nicht möglich.",
-        "participations": "Meine Teilhanmen",
-        "logout": "Abmelden",
-        "copy-user-id-to-clipboard": "User ID kopieren"
+        "logout": "Abmelden"
+    },
+    "notifications": {
+        "title": "Notifizierungen",
+        "cashbacks": "Zu Cashback Aktionen (Veröffentlichung, Aktionstart, baldige Aktionsende)",
+        "participations": "Zu deinen Teilnahmen (Erinnerung zu prüfen, ob das Geld gezahlt worden ist)",
+        "email": "Email",
+        "notification": "Notifizierung"
+    },
+    "participations": {
+        "title": "Teilnahmen"
     },
     "home": {
-        "description": {
-            "1": "Alarm!",
-            "2": "Mit Cashback Alarm hast du den Überblick über aktuelle Cashback Aktionen, kannst deine Teilnahme erfassen und wirst daran erinnert, dein Kontoauszug zu kontrollieren."
-        }
+        "cashback": {
+            "1": "Aktuelle Cashback Aktionen",
+            "2": "Hier hast du den Überblick über aktuelle Cashback Aktionen."
+        },
+        "participation": {
+            "1": "Erfassung deiner Teilnahmen",
+            "2": "In deinem persönlichen Bereich kannst deine Teilnahmen erfassen und nachverfolgen."
+        },
+        "notification": {
+            "1": "Notifizierung",
+            "2": "Auf Wunsch wirst du per Email oder Push Notifizierung über wichtige Erreignisse informiert."
+        },
+        "advantages": "Die Vorteile",
+        "cashbacks": "Aktuelle Cashback Aktionen"
     },
     "cookie": {
         "message": "Auf dieser Website werden Cookies eingesetzt. Durch die Nutzung dieser Seite werden die Verwendung von notwendigen Cookies und unseren Datenschutzbestimmungen zugestimmt. Optional kann die Verwendung von Cookies zur statistischen Zwecke zugestimmt werden.",
