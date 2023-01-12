@@ -21,23 +21,27 @@
           </ng-template>
         </div>
         <div>
-          <button *ngIf="(isLoggedIn | async); else loggedOutTemplate" mat-flat-button color="accent">
+          <button *ngIf="me; else loggedOutTemplate" mat-flat-button color="accent" [matMenuTriggerFor]="menu">
             <mat-icon>face</mat-icon>
+            <span>{{me.name}}</span>
           </button>
           <ng-template #loggedOutTemplate>
-            <button mat-flat-button color="accent">
+            <a mat-flat-button color="accent" routerLink="/login">
               <mat-icon>login</mat-icon>
-              <span>{{'login'|translate}}</span>
-            </button>
+              <span>{{'login.title'|translate}}</span>
+            </a>
           </ng-template>
           <mat-menu #menu="matMenu">
             <a mat-menu-item routerLink="/profile">
               <mat-icon>person</mat-icon><span>{{'user.profile' | translate}}</span>
             </a>
             <a mat-menu-item routerLink="/participations">
-              <mat-icon>local_offer</mat-icon><span>{{'user.offers' | translate}}</span>
+              <mat-icon>local_offer</mat-icon><span>{{'participations.title' | translate}}</span>
             </a>
-            <button mat-menu-item>
+            <a mat-menu-item routerLink="/notifications">
+              <mat-icon>notifications</mat-icon><span>{{'notifications.title' | translate}}</span>
+            </a>
+            <button mat-menu-item (click)="logout()">
               <mat-icon>logout</mat-icon>{{'user.logout' | translate}}
             </button>
           </mat-menu>
@@ -51,7 +55,7 @@
       <mat-toolbar>
         <div class="mat-small">
           <a class="github" mat-button
-            href="https://github.com/freundewerbenfreunde/freundewerbenfreunde.github.io"><img
+            href="https://github.com/cashbackalarm/cashbackalarm.github.io"><img
               src="{{'assets/GitHub-Mark' + ((isDarkTheme | async) ? '-Light' : '') + '-32px.png'}}" height="24px"
               matTooltip="{{'source' | translate}}" /></a>
           <a mat-button routerLink="/termsofuse">

@@ -50,8 +50,10 @@ header {
             }
         }
 
-        .mat-icon {
-            margin-right: 0px;
+        .mat-mdc-mini-fab {
+            .mat-icon {
+                margin-right: 0px;
+            }
         }
 
         a {
@@ -67,17 +69,19 @@ header {
             display: inline-block;
             vertical-align: middle;
             background: #1877f2;
-        
-            img, .mat-icon {
+
+            img,
+            .mat-icon {
                 vertical-align: middle;
                 display: inline-block;
                 margin-right: 8px;
                 border-radius: 4px;
+
                 @media (max-width: 599px) {
                     margin-right: 0px;
                 }
             }
-        
+
             span {
                 display: inline-block;
                 color: #fff;
@@ -87,6 +91,7 @@ header {
                 white-space: nowrap;
                 font-family: Helvetica, Arial, sans-serif;
                 font-size: 16px;
+
                 @media (max-width: 599px) {
                     display: none;
                 }
@@ -112,4 +117,3 @@ footer {
         }
     }
 }
-

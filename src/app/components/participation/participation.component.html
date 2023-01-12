@@ -1,0 +1,28 @@
+<form name="participation" [formGroup]="form">
+    <mat-card>
+        <mat-card-header>
+            <mat-icon mat-card-avatar>password</mat-icon>
+            <mat-card-title>
+                {{'password-reset.title' | translate}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>{{'user.email' | translate}}</mat-label>
+                <input type="email" matInput name="email" formControlName="email" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{'user.password' | translate}}</mat-label>
+                <input type="password" matInput name="password" formControlName="password" />
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{'user.token' | translate}}</mat-label>
+                <input type="text" matInput name="token" formControlName="token" />
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
+                {{'send' | translate}}</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

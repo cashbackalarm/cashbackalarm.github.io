@@ -7,30 +7,35 @@ import { NgcCookieConsentService } from 'ngx-cookieconsent';
 import { TranslateService } from '@ngx-translate/core';
 import { DateAdapter } from '@angular/material/core';
 import { Moment } from 'moment';
+import { CashbackService } from './services/cashback.service';
+import { AbstractComponent } from './components/abstract/abstract.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  isLoggedIn?: Observable<boolean>;
+export class AppComponent extends AbstractComponent {
   isDarkTheme: Observable<boolean>;
   private statusChangeSubscription: Subscription;
   private initializedSubscription: Subscription;
   private gtmEnabled: boolean = false;
 
-  constructor(private overlayContainer: OverlayContainer,
+  constructor(private router: Router,
+    private overlayContainer: OverlayContainer,
     public translate: TranslateService, dateAdapter: DateAdapter<Moment>,
     private themeService: ThemeService,
     private gtmService: GoogleTagManagerService,
-    private ccService: NgcCookieConsentService) {
+    private ccService: NgcCookieConsentService,
+    cashbackService: CashbackService) {
+    super(cashbackService);
     translate.addLangs(['de']);
     translate.setDefaultLang('de');
     translate.use('de');
     dateAdapter.setLocale('de');
     this.isDarkTheme = this.themeService.isDarkTheme;
-    
+
     this.initializedSubscription = ccService.initialized$.subscribe(
       () => this.handleCookie()
     );
@@ -64,12 +69,12 @@ export class AppComponent {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.initializedSubscription.unsubscribe();
     this.statusChangeSubscription.unsubscribe();
   }
 
-  setDarkTheme(checked: boolean) {
+  setDarkTheme(checked: boolean): void {
     this.themeService.setDarkTheme(checked);
     const overlayContainerClasses = this.overlayContainer.getContainerElement().classList;
     if (checked) {
@@ -77,6 +82,14 @@ export class AppComponent {
     } else {
       overlayContainerClasses.remove('dark-theme');
     }
+  }
+
+  logout(): void {
+    this.cashbackService.logout().subscribe({
+      next: () => {
+        this.router.navigateByUrl('/');
+      }
+    });
   }
 
 }

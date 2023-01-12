@@ -2,5 +2,7 @@ export interface Cashback {
     title: string;
     img: string;
     link: string;
-    end: Date;
+    start?: number;
+    end: number;
+    upload?: number;
 }

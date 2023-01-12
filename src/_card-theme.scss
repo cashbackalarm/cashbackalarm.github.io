@@ -2,9 +2,86 @@
 @use '@angular/material' as mat;
 
 @mixin color($theme) {
+  $config: mat.get-color-config($theme);
+  $foreground: map.get($config, foreground);
 
   .mat-app-background {
+
+    .mat-toolbar {
+      .logo {
+        color: mat.get-color-from-palette($foreground, text);
+      }
+    }
+
+    form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      place-content: center;
+      align-items: center;
+
+      mat-card {
+        width: auto;
+
+        mat-form-field {
+          width: 100%;
+        }
+
+        label {
+          max-width: 400px;
+        }
+      }
+    }
+
     mat-card {
+      margin: 8px 8px 8px 8px;
+      min-width: 300px;
+      width: 300px;
+
+      .mat-mdc-card-header {
+        min-height: 40px;
+        padding: 16px 16px 16px 16px;
+        align-items: center;
+
+        .mat-mdc-card-avatar {
+          height: auto;
+          width: auto;
+          border-radius: 0%;
+          margin-bottom: 0px;
+
+          &.material-icons {
+            height: 32px;
+            font-size: 32px;
+          }
+        }
+      }
+
+      img {
+        min-width: 300px;
+        min-height: 200px;
+        width: 300px;
+        height: 200px;
+      }
+
+      .mat-mdc-card-content {
+        display: flex;
+        flex-direction: column;
+
+        p {
+          min-height: 60px;
+        }
+
+        .cashback {
+          min-height: 40px;
+        }
+      }
+
+      .mdc-card__actions {
+        justify-content: center;
+      }
+    }
+
+    /*mat-card {
       margin-left: 166px;
       margin-right: 166px;
       margin-top: 16px;
@@ -48,6 +125,7 @@
         img {
           margin-right: 8px;
         }
+
         mat-icon {
           margin-right: 4px;
         }
@@ -65,7 +143,7 @@
         margin-left: 16px;
         margin-right: 16px;
       }
-    }
+    }*/
   }
 }
 

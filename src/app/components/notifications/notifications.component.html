@@ -1,0 +1,29 @@
+<form name="notifications" [formGroup]="form">
+    <mat-card>
+        <mat-card-header>
+            <mat-icon mat-card-avatar>notifications</mat-icon>
+            <mat-card-title>
+                {{'notifications.title' | translate}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>{{'notifications.cashbacks' | translate}}</div>
+            <label formArrayName="cashbacks"
+                *ngFor="let notificationType of notificationTypes; let i = index">
+                <input type="checkbox" [formControlName]="i">
+                {{'notifications.' + notificationType | translate}}
+            </label>
+            <br/>
+            <div>{{'notifications.participations' | translate}}</div>
+            <label formArrayName="participations"
+                *ngFor="let notificationType of notificationTypes; let i = index">
+                <input type="checkbox" [formControlName]="i">
+                {{'notifications.' + notificationType | translate}}
+            </label>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
+                {{'save' | translate}}</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

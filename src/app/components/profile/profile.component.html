@@ -1,0 +1,45 @@
+<form name="profile" [formGroup]="form">
+    <mat-card *ngIf="me">
+        <mat-card-header>
+            <mat-icon mat-card-avatar>face</mat-icon>
+            <mat-card-title>
+                {{'user.profile' | translate}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>{{'user.name' | translate}}</mat-label>
+                <input type="text" matInput name="name" formControlName="name" />
+                <button matSuffix mat-button (click)="cancelEdit('name')">
+                    <mat-icon>cancel</mat-icon>
+                </button>
+                <button matSuffix mat-button (click)="updateName()" [disabled]="name.invalid">
+                    <mat-icon>save</mat-icon>
+                </button>
+            </mat-form-field>
+            <div>
+                <span>{{'user.email' | translate}}: </span>
+                <span>{{me.email}}</span>
+            </div>
+            <div>
+                <span>{{'user.last-login' | translate}}: </span>
+                <span>{{(me.lastLogin * 1000) | date : 'short' : 'UTC+1' : 'de'}}</span>
+            </div>
+            <br/>
+            <br/>
+            <div>{{'user.delete' | translate}}</div>
+            <br/>
+            <div>
+                <mat-checkbox name="confirmation" formControlName="confirmation">
+                    {{'user.confirmation' | translate}}
+                </mat-checkbox>
+            </div>
+            <br/>
+            <div>
+                <button mat-flat-button color="warn" (click)="deleteUser()" [disabled]="confirmation.invalid">
+                    <mat-icon>delete</mat-icon><span>{{'user.delete'|translate}}</span>
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</form>
