@@ -91,6 +91,9 @@ MIT
 @angular/router
 MIT
 
+@angular/service-worker
+MIT
+
 @auth0/angular-jwt
 MIT
 The MIT License (MIT)
