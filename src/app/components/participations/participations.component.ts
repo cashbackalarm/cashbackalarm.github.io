@@ -1,31 +1,49 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { PasswordReset } from 'src/app/models/password-reset';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Participation } from 'src/app/models/participation';
+import { User } from 'src/app/models/user';
 import { CashbackService } from 'src/app/services/cashback.service';
+import { AbstractComponent } from '../abstract/abstract.component';
 
 @Component({
   selector: 'app-participations',
-  templateUrl: './participations.component.html'
+  templateUrl: './participations.component.html',
+  styleUrls: ['./participations.component.scss']
 })
-export class ParticipationsComponent {
+export class ParticipationsComponent extends AbstractComponent implements AfterViewInit {
 
-  form: FormGroup;
+  @ViewChild(MatSort, { static: true }) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  displayedColumns: string[] = ['cashback', 'amount', 'reminder', 'edit', 'delete'];
+  dataSource = new MatTableDataSource<Participation>();
 
-  constructor(private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
-    let url = router.parseUrl(router.url);
-    let token = url.queryParamMap.get('token');
-    this.form = formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(12)]],
-      token: [token, [Validators.required]]
+  constructor(cashbackService: CashbackService) {
+    super(cashbackService);
+  }
+
+  protected override handleUser(user: User | null): void {
+    super.handleUser(user);
+    this.refreshParticipations();
+  }
+
+  private refreshParticipations(): void {
+    this.cashbackService.getParticipations().subscribe({
+      next: (participations: Participation[]) => {
+        this.dataSource.data = participations;
+      }
     });
   }
 
-  submit(): void {
-    let passwordReset: PasswordReset = { email: this.form.value.email, password: this.form.value.password, token: this.form.value.token };
-    this.cashbackService.resetPassword(passwordReset).subscribe({
-      next: () => this.router.navigateByUrl('/login')
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+  }
+
+  deleteParticipation(participationKey: string): void {
+    this.cashbackService.deleteParticipation(participationKey).subscribe({
+      next: () => this.refreshParticipations()
     });
   }
 

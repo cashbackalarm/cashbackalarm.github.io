@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { authGuard } from './auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
@@ -15,10 +16,26 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'password-forgotten', component: PasswordForgottenComponent },
   { path: 'password-reset', component: PasswordResetComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'participations', component: ParticipationsComponent },
-  { path: 'participation', component: ParticipationComponent },
-  { path: 'notifications', component: NotificationsComponent },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'participations',
+    component: ParticipationsComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'participations/:participationKey',
+    component: ParticipationComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'notifications',
+    component: NotificationsComponent,
+    canActivate: [authGuard]
+  },
   { path: '**', component: HomeComponent }
 ];
 

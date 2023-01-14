@@ -1,23 +1,45 @@
 <form name="participation" [formGroup]="form">
     <mat-card>
         <mat-card-header>
-            <mat-icon mat-card-avatar>password</mat-icon>
+            <mat-icon mat-card-avatar>attach_money</mat-icon>
             <mat-card-title>
-                {{'password-reset.title' | translate}}
+                {{'participation.' + (participationKey == 'new'? 'add' : 'edit') | translate}}
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <mat-form-field appearance="fill">
-                <mat-label>{{'user.email' | translate}}</mat-label>
-                <input type="email" matInput name="email" formControlName="email" />
+                <mat-label>{{'participation.cashback' | translate}}</mat-label>
+                <mat-select formControlName="cashback">
+                    <mat-select-trigger>
+                        <ng-container [ngTemplateOutlet]="triggerTemplate"
+                            [ngTemplateOutletContext]="{$implicit: getCashback()}">
+                        </ng-container>
+                        <ng-template #triggerTemplate let-cb>
+                            <span *ngIf="cb">
+                                <img src="{{cb.img}}" /><span>{{cb.title}}</span>
+                            </span>
+                        </ng-template>
+                    </mat-select-trigger>
+                    <mat-option *ngFor="let cashback of cashbacks" [value]="cashback.key">
+                        <img src="{{cashback.img}}" /><span>{{cashback.title}}</span>
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
-                <mat-label>{{'user.password' | translate}}</mat-label>
-                <input type="password" matInput name="password" formControlName="password" />
+                <mat-label>{{'participation.amount' | translate}}</mat-label>
+                <input type="number" matInput name="amount" formControlName="amount" />
             </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>{{'user.token' | translate}}</mat-label>
-                <input type="text" matInput name="token" formControlName="token" />
+            <mat-form-field appearance="fill" class="example-form-field">
+                <mat-label>{{'participation.reminder'|translate}}</mat-label>
+                <input matInput [matDatepicker]="datepicker" name="reminder" formControlName="reminder">
+                <mat-hint>DD.MM.YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                    <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="accent" matDatepickerApply>Apply</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
             </mat-form-field>
         </mat-card-content>
         <mat-card-actions>

@@ -7,13 +7,22 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
+            <div *ngIf="error" class="mat-form-field error mat-mdc-form-field-error">
+                {{'login.' + error | translate}}
+                <br />
+            </div>
             <mat-form-field appearance="fill">
                 <mat-label>{{'user.email' | translate}}</mat-label>
                 <input type="email" matInput name="email" formControlName="email" />
+                <mat-error *ngIf="email.invalid">{{'user.invalid-email'|translate}}</mat-error>
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>{{'user.password' | translate}}</mat-label>
-                <input type="password" matInput name="password" formControlName="password" />
+                <input [type]="showPassword? 'text' : 'password'" matInput name="password" formControlName="password" />
+                <mat-icon matSuffix (click)="showPassword = !showPassword">{{showPassword ? 'visibility' :
+                    'visibility_off'}}
+                </mat-icon>
+                <mat-error *ngIf="password.invalid">{{'user.invalid-password'|translate}}</mat-error>
             </mat-form-field>
             <div class="mat-form-field links">
                 <a mat-button routerLink="/registration">

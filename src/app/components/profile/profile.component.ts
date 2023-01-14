@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Profile } from 'src/app/models/profile';
 import { User } from 'src/app/models/user';
 import { CashbackService } from 'src/app/services/cashback.service';
 import { AbstractComponent } from '../abstract/abstract.component';
@@ -11,6 +12,7 @@ import { AbstractComponent } from '../abstract/abstract.component';
 })
 export class ProfileComponent extends AbstractComponent {
 
+  profile?: Profile;
   edit?: string;
   form: FormGroup;
 
@@ -22,16 +24,22 @@ export class ProfileComponent extends AbstractComponent {
     });
   }
 
-  protected override handleUser(user?: User): void {
+  protected override handleUser(user: User | null): void {
     super.handleUser(user);
     if (user) {
       this.form.patchValue({
         name: user.name
       });
+      this.cashbackService.getProfile().subscribe({
+        next: (profile: Profile) => {
+          this.profile = profile;
+        }
+      });
     } else {
       this.form.patchValue({
         name: ''
       });
+      this.profile = undefined;
     }
   }
 

@@ -7,20 +7,20 @@ import { CashbackService } from 'src/app/services/cashback.service';
 })
 export abstract class AbstractComponent implements OnInit {
 
-  me?: User;
+  me: User | null = null;
 
   constructor(protected cashbackService: CashbackService) {
   }
 
   ngOnInit(): void {
     this.cashbackService.user$.subscribe({
-      next: (user?: User) => {
+      next: (user: User | null) => {
         this.handleUser(user);
       }
     });
   }
 
-  protected handleUser(user?: User): void {
+  protected handleUser(user: User | null): void {
     this.me = user;
   }
 

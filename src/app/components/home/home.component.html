@@ -40,14 +40,14 @@
             <div class="cashback">
                 <div *ngIf="cashback.start">
                     {{'cashback.period' | translate: {
-                    start: ((cashback.start * 1000) | date : 'shortDate' : 'UTC+1' : 'de'),
-                    end: ((cashback.end * 1000) | date : 'shortDate' : 'UTC+1' : 'de')
+                    start: ((cashback.start * 1000) | date : 'shortDate'),
+                    end: ((cashback.end * 1000) | date : 'shortDate')
                     } }}</div>
                 <div *ngIf="!cashback.start">{{'cashback.end' | translate: {
-                    end: ((cashback.end * 1000) | date : 'shortDate' : 'UTC+1' : 'de')
+                    end: ((cashback.end * 1000) | date : 'shortDate')
                     } }}</div>
                 <div *ngIf="cashback.upload">{{'cashback.upload' | translate: {
-                    upload: ((cashback.upload * 1000) | date : 'shortDate' : 'UTC+1' : 'de')
+                    upload: ((cashback.upload * 1000) | date : 'shortDate')
                     } }}</div>
             </div>
         </mat-card-content>

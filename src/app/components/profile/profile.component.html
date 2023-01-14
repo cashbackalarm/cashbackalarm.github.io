@@ -1,5 +1,5 @@
 <form name="profile" [formGroup]="form">
-    <mat-card *ngIf="me">
+    <mat-card *ngIf="me && profile">
         <mat-card-header>
             <mat-icon mat-card-avatar>face</mat-icon>
             <mat-card-title>
@@ -19,11 +19,11 @@
             </mat-form-field>
             <div>
                 <span>{{'user.email' | translate}}: </span>
-                <span>{{me.email}}</span>
+                <span>{{profile.email}}</span>
             </div>
             <div>
                 <span>{{'user.last-login' | translate}}: </span>
-                <span>{{(me.lastLogin * 1000) | date : 'short' : 'UTC+1' : 'de'}}</span>
+                <span>{{(profile.lastLogin * 1000) | date : 'short'}}</span>
             </div>
             <br/>
             <br/>

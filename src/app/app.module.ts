@@ -12,6 +12,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -43,6 +46,7 @@ import { registerLocaleData } from '@angular/common';
 import { environment } from '../environments/environment';
 import { NgcCookieConsentConfig, NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { CustomMatPaginatorIntl } from './custom-mat-paginator-intl';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
@@ -129,6 +133,9 @@ registerLocaleData(localeDe);
     MatInputModule,
     MatMenuModule,
     MatMomentDateModule,
+    MatSelectModule,
+    MatTableModule,
+    MatPaginatorModule,
     MatToolbarModule,
     MatTooltipModule,
     HttpClientModule,
@@ -150,7 +157,11 @@ registerLocaleData(localeDe);
   { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
     MatDatepickerModule,
   { provide: 'googleTagManagerId', useValue: environment.googleTagManagerId },
-  { provide: LOCALE_ID, useValue: 'de' }],
+  { provide: LOCALE_ID, useValue: 'de' },
+  {
+    provide: MatPaginatorIntl,
+    useClass: CustomMatPaginatorIntl,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

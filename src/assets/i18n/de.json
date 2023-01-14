@@ -9,6 +9,9 @@
     },
     "login": {
         "title": "Anmelden",
+        "tokenexpired": "Melde dich bitte erneut an.",
+        "wrongcredentials": "Hast du dich vertippt?",
+        "locked": "Warst du böse?",
         "to-registration": "Kein Konto?",
         "to-password-forgotten": "Passwort vergessen?"
     },
@@ -36,17 +39,38 @@
         "last-login": "Letzte Anmeldung",
         "delete": "Konto löschen",
         "confirmation": "Ja, ich will mein Konto unwiderruflich löschen. Die damit verbundenen Daten werden umgehend gelöscht. Eine Wiederherstellung der gelöschten Daten is nicht möglich.",
-        "logout": "Abmelden"
+        "logout": "Abmelden",
+        "invalid-name": "Der Name ist ungültig",
+        "invalid-email": "Die Email Adresse ist ungültig",
+        "invalid-password": "Mindestens 12 Zeichen lang sein"
     },
     "notifications": {
-        "title": "Notifizierungen",
-        "cashbacks": "Zu Cashback Aktionen (Veröffentlichung, Aktionstart, baldige Aktionsende)",
-        "participations": "Zu deinen Teilnahmen (Erinnerung zu prüfen, ob das Geld gezahlt worden ist)",
+        "title": "Benachrichtigungen",
+        "hint1": "Hier kannst du einstellen zu welchem Anlass und über welchen Kanal du benachrichtigt werden möchtest.",
+        "hint2": "Falls du Web-Push-Benachrichtigungen erhalten möchtest, musst du unter Abonnements Benachrichtigungen für dein Gerät erlauben.",
+        "cashbacks": "Zu Cashback Aktionen",
+        "cashbacks-hint": "Veröffentlichung, Aktionstart, baldige Aktionsende",
+        "participations": "Zu deinen Teilnahmen",
+        "participations-hint": "Erinnerung zu prüfen, ob das Geld gezahlt worden ist",
         "email": "Email",
-        "notification": "Notifizierung"
+        "notification": "Web-Push-Benachrichtigung",
+        "subscriptions": "Web-Push-Benachrichtigungen Abonnements",
+        "subscriptions-hint": "Welche Geräte dürfen Benachrichigungen empfangen?",
+        "add-subscription": "Mit diesem Gerät abonnieren",
+        "test-subscription": "Testbenachrichtigung schicken",
+        "delete-subscription": "Nicht mehr abonnieren",
+        "subscriptionname": "Gerätname",
+        "invalid-subscriptionname": "Der Gerätname darf nicht leer sein"
     },
     "participations": {
         "title": "Teilnahmen"
+    },
+    "participation": {
+        "add": "Teilnahme hinzufügen",
+        "edit": "Teilnahme bearbeiten",
+        "cashback": "Cashback Aktion",
+        "amount": "Betrag",
+        "reminder": "Erinnerung am"
     },
     "home": {
         "cashback": {
@@ -58,8 +82,8 @@
             "2": "In deinem persönlichen Bereich kannst deine Teilnahmen erfassen und nachverfolgen."
         },
         "notification": {
-            "1": "Notifizierung",
-            "2": "Auf Wunsch wirst du per Email oder Push Notifizierung über wichtige Erreignisse informiert."
+            "1": "Benachrichtigungen",
+            "2": "Auf Wunsch wirst du per Email oder Push Benachrichtigung über wichtige Erreignisse informiert."
         },
         "advantages": "Die Vorteile",
         "cashbacks": "Aktuelle Cashback Aktionen"
@@ -71,5 +95,10 @@
         "allow": "Alle Cookies",
         "deny": "Nur notwendige Cookies",
         "policy": "Cookie-Richtlinie"
+    },
+    "paginator": {
+        "itemsPerPage": "Elemente pro Seite",
+        "page": "Seite",
+        "of": "von"
     }
 }
