@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { Cashback } from 'src/app/models/cashback';
@@ -33,10 +33,21 @@ export class ParticipationComponent extends AbstractComponent {
     });
     this.form = formBuilder.group({
       cashback: [null, [Validators.required]],
-      amount: [0, [Validators.min(0.01)]],
-      reminder: null,
+      amount: [0, [Validators.min(0)]],
+      reminder: [null, [this.dateValidator]],
       completed: false
     });
+  }
+
+  private dateValidator(control: AbstractControl): ValidationErrors | null {
+    let mom = control.value;
+    if (mom == null) {
+      return null;
+    }
+    if (mom <= moment()) {
+      return { 'Invalid date': true };
+    }
+    return null;
   }
 
   protected override handleUser(user: User | null): void {
@@ -58,6 +69,18 @@ export class ParticipationComponent extends AbstractComponent {
         });
       }
     });
+  }
+
+  get cashback() {
+    return this.form.controls['cashback'];
+  }
+
+  get amount() {
+    return this.form.controls['amount'];
+  }
+
+  get reminder() {
+    return this.form.controls['reminder'];
   }
 
   getCashback(): Cashback | undefined {

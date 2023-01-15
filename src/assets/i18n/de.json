@@ -92,6 +92,8 @@
         "amount": "Betrag (Euro)",
         "reminder": "Erinnerung am",
         "completed": "Geld erhalten",
+        "invalid-amount": "muss positiv sein",
+        "invalid-reminder": "muss in der Zukunft liegen",
         "error": {
             "error": "Es hat nicht geklappt, überprüfe deine Eingaben."
         }
