@@ -48,21 +48,22 @@
     },
     "notifications": {
         "title": "Benachrichtigungen",
-        "hint1": "Hier kannst du einstellen zu welchem Anlass und über welchen Kanal du benachrichtigt werden möchtest.",
-        "hint2": "Falls du Web-Push-Benachrichtigungen erhalten möchtest, musst du unter Abonnements Benachrichtigungen für dein Gerät erlauben.",
         "cashbacks": "Zu Cashback Aktionen",
         "cashbacks-hint": "Veröffentlichung, Aktionstart, baldige Aktionsende",
         "participations": "Zu deinen Teilnahmen",
-        "participations-hint": "Erinnerung zu prüfen, ob das Geld gezahlt worden ist",
+        "participations-hint": "Erinnerung zu prüfen, ob das Geld erstattet worden ist",
         "email": "Email",
+        "email-info": "Die Email-Adresse womit du dich registriert hast wird verwendet.",
         "notification": "Web-Push-Benachrichtigung",
+        "notification-info": "Dafür musst du unter Abonnements Benachrichtigungen für dein Gerät erlauben.",
         "subscriptions": "Web-Push-Benachrichtigungen Abonnements",
         "subscriptions-hint": "Welche Geräte dürfen Benachrichigungen empfangen?",
         "add-subscription": "Mit diesem Gerät abonnieren",
         "test-subscription": "Testbenachrichtigung schicken",
         "delete-subscription": "Nicht mehr abonnieren",
         "subscriptionname": "Gerätname",
-        "invalid-subscriptionname": "Der Gerätname darf nicht leer sein"
+        "invalid-subscriptionname": "Der Gerätname darf nicht leer sein",
+        "subscription-failed": "Es hat leider nicht geklappt. Entweder hast du Benachrichtigungen für diese Seite blockiert oder dein Browser unterstützt Web-Push-Benachrichtigungen noch nicht (Apple Geräte)."
     },
     "participations": {
         "title": "Teilnahmen"

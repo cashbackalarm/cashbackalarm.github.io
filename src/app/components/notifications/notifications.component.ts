@@ -15,6 +15,7 @@ import { Subscription } from 'src/app/models/subscription';
 })
 export class NotificationsComponent extends AbstractComponent {
 
+  error: string | null = null;
   form: FormGroup;
   notificationTypes: NotificationType[] = ['email', 'notification'];
   subscriptions: PushSubscriptionJSON[] = [];
@@ -72,26 +73,17 @@ export class NotificationsComponent extends AbstractComponent {
   }
 
   addSubscription(): void {
-    if (environment.production) {
-      this.swPush.requestSubscription({
-        serverPublicKey: environment.vapidPublicKey
+    this.swPush.requestSubscription({
+      serverPublicKey: environment.vapidPublicKey
+    })
+      .then((sub: PushSubscription) => {
+        this.subscriptionsFormArray.push(new FormControl('', Validators.required));
+        this.subscriptions.push(sub);
       })
-        .then((sub: PushSubscription) => {
-          this.subscriptionsFormArray.push(new FormControl('', Validators.required));
-          this.subscriptions.push(sub);
-        })
-        .catch(err => console.error("Could not subscribe to notifications", err));
-    } else {
-      this.subscriptionsFormArray.push(new FormControl('', Validators.required));
-      this.subscriptions.push({
-        endpoint: "https://fcm.googleapis.com/fcm/send/ccWcZOadtzY:APA91bFsbTfkOnxyGQAaKgUJXIY5yGZ2fGqSy2iejixuwuAg_JIWwGuq-g-2_hbioOYbZNwkKBfD2c42IcD7wimosgmd9vATtmohS01Co5KFpagO5hxxeJrR5Ts8qoi9iqaisnqPEiUR",
-        expirationTime: null,
-        keys: {
-          auth: "XmB0uqiSGq2frgLioft4Yw",
-          p256dh: "BKpFNwlKcCk1jnPPOtCZnOrkOFgB-XwlDDHJZmeaF4Ytxc9IJB-HsN9VFzflKBST7aXz3PRkjLMvg6rspjkZZLI"
-        }
+      .catch(err => {
+        this.error = 'subscription-failed';
+        console.error("Could not subscribe to notifications", err);
       });
-    }
   }
 
   testSubscription(index: number): void {

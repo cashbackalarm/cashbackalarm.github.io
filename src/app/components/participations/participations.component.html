@@ -44,7 +44,7 @@
                                     </a>
                                     <ng-container *ngIf="element.reminder && element.reminder < moment().unix()">
                                         <a *ngIf="element.cashback.contact.includes('@')" mat-mini-fab color="accent"
-                                            href="{{'mailto:' + element.cashback.contact}}">
+                                            href="{{'mailto:' + element.cashback.contact}}" target="_blank" rel="noopener noreferrer">
                                             <mat-icon>mail</mat-icon>
                                         </a>
                                         <a *ngIf="element.cashback.contact.startsWith('https://')" mat-mini-fab

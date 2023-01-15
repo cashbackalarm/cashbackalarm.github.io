@@ -7,22 +7,32 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <p>{{'notifications.hint1' | translate}}<br/><br/>
-            {{'notifications.hint2' | translate}}</p>
+            <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
+                {{'notifications.' + error | translate}}
+                <br />
+            </p>
             <div>{{'notifications.cashbacks' | translate}}</div>
             <div><small>{{'notifications.cashbacks-hint' | translate}}</small></div>
             <label formArrayName="cashbacks"
                 *ngFor="let notificationType of cashbacksFormArray.controls; let i = index">
-                <input type="checkbox" [formControlName]="i" />
-                {{'notifications.' + notificationTypes[i] | translate}}
+                <mat-checkbox [formControlName]="i">
+                    {{'notifications.' + notificationTypes[i] | translate}}
+                    <mat-icon color="accent"
+                        matTooltip="{{'notifications.' + notificationTypes[i] + '-info' | translate}}">info
+                    </mat-icon>
+                </mat-checkbox>
             </label>
             <br />
             <div>{{'notifications.participations' | translate}}</div>
             <div><small>{{'notifications.participations-hint' | translate}}</small></div>
             <label formArrayName="participations"
                 *ngFor="let notificationType of participationsFormArray.controls; let i = index">
-                <input type="checkbox" [formControlName]="i" />
-                {{'notifications.' + notificationTypes[i] | translate}}
+                <mat-checkbox [formControlName]="i">
+                    {{'notifications.' + notificationTypes[i] | translate}}
+                    <mat-icon color="accent"
+                        matTooltip="{{'notifications.' + notificationTypes[i] + '-info' | translate}}">info
+                    </mat-icon>
+                </mat-checkbox>
             </label>
             <br />
             <div>{{'notifications.subscriptions' | translate}}</div>
