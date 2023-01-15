@@ -74,6 +74,9 @@
         "invalid-subscriptionname": "Der Gerätname darf nicht leer sein",
         "error": {
             "subscription-failed": "Es hat leider nicht geklappt. Entweder hast du Benachrichtigungen für diese Seite blockiert oder dein Browser unterstützt Web-Push-Benachrichtigungen noch nicht (Apple Geräte)."
+        },
+        "info": {
+            "info": "Deine Änderungen wurden gespeichert."
         }
     },
     "participations": {
