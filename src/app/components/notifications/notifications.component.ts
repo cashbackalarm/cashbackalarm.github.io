@@ -4,26 +4,25 @@ import { NotificationType } from 'src/app/models/notification-type';
 import { Notifications } from 'src/app/models/notifications';
 import { User } from 'src/app/models/user';
 import { CashbackService } from 'src/app/services/cashback.service';
-import { AbstractComponent } from '../abstract/abstract.component';
+import { AuthenticatedComponent } from '../authenticated/authenticated.component';
 import { environment } from '../../../environments/environment';
 import { SwPush } from '@angular/service-worker';
 import { Subscription } from 'src/app/models/subscription';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html'
 })
-export class NotificationsComponent extends AbstractComponent {
+export class NotificationsComponent extends AuthenticatedComponent {
 
-  info: string | null = null;
-  error: string | null = null;
   form: FormGroup;
   notificationTypes: NotificationType[] = ['email', 'notification'];
   subscriptions: PushSubscriptionJSON[] = [];
 
-  constructor(cashbackService: CashbackService, formBuilder: FormBuilder,
+  constructor(private router: Router, route: ActivatedRoute, cashbackService: CashbackService, formBuilder: FormBuilder,
     private swPush: SwPush) {
-    super(cashbackService);
+    super(route, cashbackService);
     this.form = formBuilder.group({
       cashbacks: new FormArray([new FormControl(false), new FormControl(false)]),
       participations: new FormArray([new FormControl(false), new FormControl(false)]),
@@ -82,15 +81,17 @@ export class NotificationsComponent extends AbstractComponent {
         this.subscriptions.push(sub);
       })
       .catch(err => {
-        this.info = null;
-        this.error = 'subscription-failed';
         console.error("Could not subscribe to notifications", err);
+        this.router.navigateByUrl('/notifications?error=subscriptionfailed')
       });
   }
 
   testSubscription(index: number): void {
     let sub = this.subscriptions[index];
-    this.cashbackService.testSubscription(sub).subscribe();
+    this.cashbackService.testSubscription(sub).subscribe({
+      next: () => this.router.navigateByUrl('/notifications?info=tested'),
+      error: () => this.router.navigateByUrl('/notifications?error=testfailed')
+    });
   }
 
   deleteSubscription(index: number): void {
@@ -119,11 +120,8 @@ export class NotificationsComponent extends AbstractComponent {
       subscriptions: this.getSubscriptions()
     };
     this.cashbackService.updateNotifications(notifications).subscribe({
-      next: () => {
-        this.info = 'info';
-        this.error = null;
-        this.refreshNotifications();
-      }
+      next: () => this.router.navigateByUrl('/notifications?info=updated'),
+      error: () => this.router.navigateByUrl('/notifications?error=updatefailed')
     });
   }
 

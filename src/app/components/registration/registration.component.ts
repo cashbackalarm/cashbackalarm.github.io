@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Registration } from 'src/app/models/registration';
 import { CashbackService } from 'src/app/services/cashback.service';
+import { ParamMapSubscriberComponent } from '../param-map-subscriber/param-map-subscriber.component';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html'
 })
-export class RegistrationComponent {
+export class RegistrationComponent extends ParamMapSubscriberComponent {
 
   form: FormGroup;
 
-  constructor(private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
+  constructor(route: ActivatedRoute, private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
+    super(route);
     this.form = formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -33,12 +35,14 @@ export class RegistrationComponent {
   }
 
   submit(): void {
-    let registration: Registration = { 
-      name: this.form.value.name, 
-      email: this.form.value.email, 
-      password: this.form.value.password};
-    this.cashbackService.register(registration).subscribe({ 
-      next: () => this.router.navigateByUrl('/login?info=emailconfirmationrequired') 
+    let registration: Registration = {
+      name: this.form.value.name,
+      email: this.form.value.email,
+      password: this.form.value.password
+    };
+    this.cashbackService.register(registration).subscribe({
+      next: () => this.router.navigateByUrl('/registration?info=emailconfirmationrequired'),
+      error: () => this.router.navigateByUrl('/registration?error=registrationfailed')
     });
   }
 

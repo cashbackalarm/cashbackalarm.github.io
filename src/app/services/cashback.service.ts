@@ -207,7 +207,8 @@ export class CashbackService {
       return of();
     }
     return this.http.delete<void>(this.baseUrl + '/users/' + this.userKey).pipe(
-      catchError((error: HttpErrorResponse) => this.handleError(error))
+      catchError((error: HttpErrorResponse) => this.handleError(error)),
+      tap(_ => this.handleToken(null))
     );
   }
 

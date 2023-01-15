@@ -1,38 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
 import { CashbackService } from 'src/app/services/cashback.service';
+import { ParamMapSubscriberComponent } from '../param-map-subscriber/param-map-subscriber.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends ParamMapSubscriberComponent {
 
   showPassword = false;
-  info: string | null;
-  error: string | null;
-  redirectUrl: string | null;
+  redirectUrl: string | null = null;
   form: FormGroup;
-  private token: string | null;
 
-  constructor(private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
-    let url = router.parseUrl(router.url);
-    this.info = url.queryParamMap.get('info');
-    this.error = url.queryParamMap.get('error');
-    this.redirectUrl = url.queryParamMap.get('redirect_url');
-    this.token = url.queryParamMap.get('token');
+  constructor(route: ActivatedRoute, private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
+    super(route);
     this.form = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(12)]]
     });
   }
 
-  ngOnInit(): void {
-    if (this.token) {
-      this.cashbackService.confirmRegistration(this.token).subscribe({
-        next: () => this.info = 'emailconfirmed'
+  protected override handleParamMap(paramMap: ParamMap): void {
+    super.handleParamMap(paramMap);
+    this.redirectUrl = paramMap.get('redirect_url');
+    let token = paramMap.get('token');
+    if (token) {
+      this.cashbackService.confirmRegistration(token).subscribe({
+        next: () => this.router.navigateByUrl('/login?info=emailconfirmed'),
+        error: () => this.router.navigateByUrl('/login?error=emailconfirmationfailed')
       });
     }
   }
@@ -51,9 +49,8 @@ export class LoginComponent implements OnInit {
       password: this.form.value.password
     };
     this.cashbackService.login(login).subscribe({
-      next: () => {
-        this.router.navigateByUrl(this.redirectUrl ? this.redirectUrl : '/');
-      }
+      next: () => this.router.navigateByUrl(this.redirectUrl ? this.redirectUrl : '/'),
+      error: () => this.router.navigateByUrl('/login?error=unknown')
     });
   }
 

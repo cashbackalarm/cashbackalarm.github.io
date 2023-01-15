@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import * as moment from 'moment';
 import { Cashback } from 'src/app/models/cashback';
 import { Participation } from 'src/app/models/participation';
@@ -8,22 +8,21 @@ import { ParticipationCreation } from 'src/app/models/participation-creation';
 import { ParticipationUpdate } from 'src/app/models/participation-update';
 import { User } from 'src/app/models/user';
 import { CashbackService } from 'src/app/services/cashback.service';
-import { AbstractComponent } from '../abstract/abstract.component';
+import { AuthenticatedComponent } from '../authenticated/authenticated.component';
 
 @Component({
   selector: 'app-participation',
   templateUrl: './participation.component.html'
 })
-export class ParticipationComponent extends AbstractComponent {
+export class ParticipationComponent extends AuthenticatedComponent {
 
-  error: string | null = null;
   form: FormGroup;
   cashbacks: Cashback[] = [];
   participationKey: string;
   private cashbackByKey = new Map<string, Cashback>();
 
-  constructor(private router: Router, cashbackService: CashbackService, formBuilder: FormBuilder) {
-    super(cashbackService);
+  constructor(route: ActivatedRoute, private router: Router, cashbackService: CashbackService, formBuilder: FormBuilder) {
+    super(route, cashbackService);
     this.participationKey = router.url.split('/')[2];
     cashbackService.getCashbacks().subscribe({
       next: (cashbacks: Cashback[]) => {
@@ -109,7 +108,7 @@ export class ParticipationComponent extends AbstractComponent {
       };
       this.cashbackService.addParticipation(participation).subscribe({
         next: () => this.router.navigateByUrl('/participations'),
-        error: () => this.error = 'error'
+        error: () => this.router.navigateByUrl('/participation/new?error=creationfailed')
       });
     } else {
       let participation: ParticipationUpdate = {
@@ -119,7 +118,7 @@ export class ParticipationComponent extends AbstractComponent {
       };
       this.cashbackService.updateParticipation(this.participationKey, participation).subscribe({
         next: () => this.router.navigateByUrl('/participations'),
-        error: () => this.error = 'error'
+        error: () => this.router.navigateByUrl(this.getCurrentUrl() + '?error=updatefailed')
       });
     }
   }

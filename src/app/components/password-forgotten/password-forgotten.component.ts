@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CashbackService } from 'src/app/services/cashback.service';
+import { ParamMapSubscriberComponent } from '../param-map-subscriber/param-map-subscriber.component';
 
 @Component({
   selector: 'app-password-forgotten',
   templateUrl: './password-forgotten.component.html'
 })
-export class PasswordForgottenComponent {
+export class PasswordForgottenComponent extends ParamMapSubscriberComponent {
 
   form: FormGroup;
 
-  constructor(private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
+  constructor(route: ActivatedRoute, private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
+    super(route);
     this.form = formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
     });
@@ -19,7 +21,8 @@ export class PasswordForgottenComponent {
 
   submit(): void {
     this.cashbackService.passwordForgotten(this.form.value.email).subscribe({ 
-      next: () => this.router.navigateByUrl('/login?info=passwordresetmailsent') 
+      next: () => this.router.navigateByUrl('/password-forgotten?info=mailsent'),
+      error: () => this.router.navigateByUrl('/password-forgotten?error=mailsendfailed')
     });
   }
 

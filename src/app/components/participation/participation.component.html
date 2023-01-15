@@ -11,6 +11,10 @@
                 {{'participation.error.' + error | translate}}
                 <br />
             </p>
+            <p *ngIf="info" class="mat-form-field banner">
+                {{'participation.info.' + info | translate}}
+                <br />
+            </p>
             <mat-form-field appearance="fill">
                 <mat-label>{{'participation.cashback' | translate}}</mat-label>
                 <mat-select formControlName="cashback">
@@ -50,7 +54,7 @@
         </mat-card-content>
         <mat-card-actions>
             <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
-                {{'send' | translate}}</button>
+                {{'save' | translate}}</button>
         </mat-card-actions>
     </mat-card>
 </form>

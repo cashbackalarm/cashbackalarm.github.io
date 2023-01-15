@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Profile } from 'src/app/models/profile';
 import { User } from 'src/app/models/user';
 import { CashbackService } from 'src/app/services/cashback.service';
-import { AbstractComponent } from '../abstract/abstract.component';
+import { AuthenticatedComponent } from '../authenticated/authenticated.component';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html'
 })
-export class ProfileComponent extends AbstractComponent {
+export class ProfileComponent extends AuthenticatedComponent {
 
   profile?: Profile;
   edit?: string;
   form: FormGroup;
 
-  constructor(cashbackService: CashbackService, private formBuilder: FormBuilder, private router: Router) {
-    super(cashbackService);
+  constructor(route: ActivatedRoute, cashbackService: CashbackService, private formBuilder: FormBuilder, private router: Router) {
+    super(route, cashbackService);
     this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(50)]],
       confirmation: [false, [Validators.requiredTrue]]
@@ -58,15 +58,17 @@ export class ProfileComponent extends AbstractComponent {
   }
 
   updateName(): void {
-    this.cashbackService.updateName(this.form.value.name).subscribe();
+    this.cashbackService.updateName(this.form.value.name).subscribe({
+      next: () => this.router.navigateByUrl('/profile?info=updated'),
+      error: () => this.router.navigateByUrl('/profile?error=updatefailed')
+    });
     this.edit = undefined;
   }
 
   deleteUser(): void {
     this.cashbackService.deleteUser().subscribe({
-      next: () => {
-        this.router.navigateByUrl('/');
-      }
+      next: () => this.router.navigateByUrl('/'),
+      error: () => this.router.navigateByUrl('/profile?error=deletionfailed')
     });
   }
 

@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -136,6 +137,7 @@ registerLocaleData(localeDe);
     MatMenuModule,
     MatMomentDateModule,
     MatSelectModule,
+    MatSortModule,
     MatTableModule,
     MatPaginatorModule,
     MatToolbarModule,

@@ -2,28 +2,28 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment';
 import { Participation } from 'src/app/models/participation';
 import { User } from 'src/app/models/user';
 import { CashbackService } from 'src/app/services/cashback.service';
-import { AbstractComponent } from '../abstract/abstract.component';
+import { AuthenticatedComponent } from '../authenticated/authenticated.component';
 
 @Component({
   selector: 'app-participations',
   templateUrl: './participations.component.html'
 })
-export class ParticipationsComponent extends AbstractComponent implements AfterViewInit {
+export class ParticipationsComponent extends AuthenticatedComponent implements AfterViewInit {
 
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = ['cashback', 'amount', 'reminder', 'completed', 'actions'];
   dataSource = new MatTableDataSource<Participation>();
-  error: string | null = null;
 
   readonly moment = moment;
 
-  constructor(cashbackService: CashbackService) {
-    super(cashbackService);
+  constructor(route: ActivatedRoute, cashbackService: CashbackService, private router: Router) {
+    super(route, cashbackService);
   }
 
   protected override handleUser(user: User | null): void {
@@ -47,15 +47,15 @@ export class ParticipationsComponent extends AbstractComponent implements AfterV
 
   completeParticipation(participationKey: string): void {
     this.cashbackService.completeParticipation(participationKey).subscribe({
-      next: () => this.refreshParticipations(),
-      error: () => this.error = 'error'
+      next: () => { this.error = null; this.refreshParticipations() },
+      error: () => this.router.navigateByUrl('/participations?error=completionfailed')
     });
   }
 
   deleteParticipation(participationKey: string): void {
     this.cashbackService.deleteParticipation(participationKey).subscribe({
-      next: () => this.refreshParticipations(),
-      error: () => this.error = 'error'
+      next: () => { this.error = null; this.refreshParticipations() },
+      error: () => this.router.navigateByUrl('/participations?error=deletionfailed')
     });
   }
 

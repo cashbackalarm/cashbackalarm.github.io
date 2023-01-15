@@ -8,15 +8,15 @@ import { TranslateService } from '@ngx-translate/core';
 import { DateAdapter } from '@angular/material/core';
 import { Moment } from 'moment';
 import { CashbackService } from './services/cashback.service';
-import { Router } from '@angular/router';
-import { AbstractComponent } from './components/abstract/abstract.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticatedComponent } from './components/authenticated/authenticated.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent extends AbstractComponent {
+export class AppComponent extends AuthenticatedComponent {
   isDarkTheme: Observable<boolean>;
   private statusChangeSubscription: Subscription;
   private initializedSubscription: Subscription;
@@ -29,8 +29,9 @@ export class AppComponent extends AbstractComponent {
     private themeService: ThemeService,
     private gtmService: GoogleTagManagerService,
     private ccService: NgcCookieConsentService,
+    route: ActivatedRoute,
     cashbackService: CashbackService) {
-    super(cashbackService);
+    super(route, cashbackService);
     this.isDarkTheme = this.themeService.isDarkTheme;
     this.initializedSubscription = ccService.initialized$.subscribe(
       () => this.handleCookie()

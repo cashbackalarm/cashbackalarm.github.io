@@ -1,31 +1,40 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { PasswordReset } from 'src/app/models/password-reset';
 import { CashbackService } from 'src/app/services/cashback.service';
+import { ParamMapSubscriberComponent } from '../param-map-subscriber/param-map-subscriber.component';
 
 @Component({
   selector: 'app-password-reset',
   templateUrl: './password-reset.component.html'
 })
-export class PasswordResetComponent {
+export class PasswordResetComponent extends ParamMapSubscriberComponent {
 
   form: FormGroup;
 
-  constructor(private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
-    let url = router.parseUrl(router.url);
-    let token = url.queryParamMap.get('token');
+  constructor(route: ActivatedRoute, private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
+    super(route);
     this.form = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(12)]],
-      token: [token, [Validators.required]]
+      token: ['', [Validators.required]]
     });
+  }
+
+  protected override handleParamMap(paramMap: ParamMap): void {
+    super.handleParamMap(paramMap);
+    let token = paramMap.get('token');
+    if (token) {
+      this.form.patchValue({ token: token });
+    }
   }
 
   submit(): void {
     let passwordReset: PasswordReset = { email: this.form.value.email, password: this.form.value.password, token: this.form.value.token };
     this.cashbackService.resetPassword(passwordReset).subscribe({
-      next: () => this.router.navigateByUrl('/login?info=passwordresetted')
+      next: () => this.router.navigateByUrl('/login?info=passwordresetted'),
+      error: () => this.router.navigateByUrl('/password-reset?error=passwordresetfailed')
     });
   }
 
