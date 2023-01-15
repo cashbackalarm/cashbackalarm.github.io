@@ -72,10 +72,15 @@
         "delete-subscription": "Nicht mehr abonnieren",
         "subscriptionname": "Gerätname",
         "invalid-subscriptionname": "Der Gerätname darf nicht leer sein",
-        "subscription-failed": "Es hat leider nicht geklappt. Entweder hast du Benachrichtigungen für diese Seite blockiert oder dein Browser unterstützt Web-Push-Benachrichtigungen noch nicht (Apple Geräte)."
+        "error": {
+            "subscription-failed": "Es hat leider nicht geklappt. Entweder hast du Benachrichtigungen für diese Seite blockiert oder dein Browser unterstützt Web-Push-Benachrichtigungen noch nicht (Apple Geräte)."
+        }
     },
     "participations": {
-        "title": "Teilnahmen"
+        "title": "Teilnahmen",
+        "error": {
+            "error": "Es hat nicht geklappt, überprüfe deine Eingaben."
+        }
     },
     "participation": {
         "add": "Teilnahme hinzufügen",
@@ -83,7 +88,10 @@
         "cashback": "Cashback Aktion",
         "amount": "Betrag (Euro)",
         "reminder": "Erinnerung am",
-        "completed": "Geld erhalten"
+        "completed": "Geld erhalten",
+        "error": {
+            "error": "Es hat nicht geklappt, überprüfe deine Eingaben."
+        }
     },
     "home": {
         "cashback": {
