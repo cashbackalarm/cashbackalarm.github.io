@@ -11,6 +11,10 @@
                 {{'notifications.error.' + error | translate}}
                 <br />
             </p>
+            <p *ngIf="info" class="mat-form-field banner">
+                {{'notifications.info.' + info | translate}}
+                <br />
+            </p>
             <div>{{'notifications.cashbacks' | translate}}</div>
             <div><small>{{'notifications.cashbacks-hint' | translate}}</small></div>
             <label formArrayName="cashbacks"

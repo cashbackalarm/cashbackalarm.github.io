@@ -15,6 +15,7 @@ import { Subscription } from 'src/app/models/subscription';
 })
 export class NotificationsComponent extends AbstractComponent {
 
+  info: string | null = null;
   error: string | null = null;
   form: FormGroup;
   notificationTypes: NotificationType[] = ['email', 'notification'];
@@ -81,6 +82,7 @@ export class NotificationsComponent extends AbstractComponent {
         this.subscriptions.push(sub);
       })
       .catch(err => {
+        this.info = null;
         this.error = 'subscription-failed';
         console.error("Could not subscribe to notifications", err);
       });
@@ -117,7 +119,11 @@ export class NotificationsComponent extends AbstractComponent {
       subscriptions: this.getSubscriptions()
     };
     this.cashbackService.updateNotifications(notifications).subscribe({
-      next: () => this.refreshNotifications()
+      next: () => {
+        this.info = 'info';
+        this.error = null;
+        this.refreshNotifications();
+      }
     });
   }
 
