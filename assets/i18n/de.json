@@ -3,13 +3,18 @@
     "imprint": "Impressum",
     "privacy": "Datenschutz",
     "termsofuse": "AGB",
+    "send": "Los geht's!",
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "yes": "ja",
+    "no": "nein",
     "registration": {
         "title": "Konto erstellen",
         "to-login": "Hast du schon ein Konto?"
     },
     "login": {
         "title": "Anmelden",
-        "tokenexpired": "Melde dich bitte erneut an.",
+        "tokenexpired": "Melde dich bitte an.",
         "wrongcredentials": "Hast du dich vertippt?",
         "locked": "Warst du böse?",
         "to-registration": "Kein Konto?",
@@ -21,9 +26,6 @@
     "password-reset": {
         "title": "Password zurücksetzen"
     },
-    "send": "Los geht's!",
-    "save": "Speichern",
-    "cancel": "Abbrechen",
     "open-page": "Zur Aktionsseite",
     "cashback": {
         "period": "Aktionszeitraum: {{start}} - {{end}}",
@@ -69,8 +71,9 @@
         "add": "Teilnahme hinzufügen",
         "edit": "Teilnahme bearbeiten",
         "cashback": "Cashback Aktion",
-        "amount": "Betrag",
-        "reminder": "Erinnerung am"
+        "amount": "Betrag (Euro)",
+        "reminder": "Erinnerung am",
+        "completed": "Geld erhalten"
     },
     "home": {
         "cashback": {
