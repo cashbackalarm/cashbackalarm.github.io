@@ -22,7 +22,7 @@
         },
         "info": {
             "emailconfirmationrequired": "Gehe bitte zu deiner Mailbox und bestätige deine Email-Adresse.",
-            "emailconfirmed": "Deine Email-Adresse wurde bestätigt.",
+            "emailconfirmed": "Deine Email-Adresse wurde bestätigt, es kann los gehen! Denke daran Benachrichtigungen in deinem persönlichen Bereich zu konfigurieren, falls du welche erhlaten möchtest.",
             "passwordresetmailsent": "Weitere Informationen erhälst du per Mail.",
             "passwordresetted": "Dein Password wurde zurückgesetzt."
         },
