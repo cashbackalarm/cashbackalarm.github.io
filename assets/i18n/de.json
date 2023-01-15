@@ -10,30 +10,45 @@
     "no": "nein",
     "registration": {
         "title": "Konto erstellen",
+        "error": {
+            "registrationfailed": "Die Registrierung ist fehlgeschlagen."
+        },
+        "info": {
+            "emailconfirmationrequired": "Gehe bitte zu deiner Mailbox und bestätige deine Email-Adresse."
+        },
         "to-login": "Hast du schon ein Konto?"
     },
     "login": {
         "title": "Anmelden",
         "error": {
             "tokenexpired": "Melde dich bitte an.",
-            "wrongcredentials": "Hast du dich vertippt?",
-            "userlocked": "Warst du böse?",
-            "emailnotconfirmed": "Bitte bestätige deine Email-Adresse, indem du auf den Link in der Registrierungsbestätigung klickst."
+            "wrongcredentials": "Die Anmeldedaten sind falsch.",
+            "userlocked": "Dein Konto ist gesperrt.",
+            "emailnotconfirmed": "Bitte bestätige deine Email-Adresse, indem du auf den Link in der Registrierungsbestätigung klickst.",
+            "emailconfirmationfailed": "Die Bestätgigung deiner Email-Adresse ist fehlgeschlagen.",
+            "unknown": "Ein unerwarteter Fehler ist aufgetreten."
         },
         "info": {
-            "emailconfirmationrequired": "Gehe bitte zu deiner Mailbox und bestätige deine Email-Adresse.",
             "emailconfirmed": "Deine Email-Adresse wurde bestätigt, es kann los gehen! Denke daran Benachrichtigungen in deinem persönlichen Bereich zu konfigurieren, falls du welche erhlaten möchtest.",
-            "passwordresetmailsent": "Weitere Informationen erhälst du per Mail.",
             "passwordresetted": "Dein Password wurde zurückgesetzt."
         },
         "to-registration": "Kein Konto?",
         "to-password-forgotten": "Passwort vergessen?"
     },
     "password-forgotten": {
-        "title": "Password vergessen"
+        "title": "Password vergessen",
+        "error": {
+            "mailsendfailed": "Die Anfrage ist fehlgeschlagen."
+        },
+        "info": {
+            "mailsent": "Gehe bitte zu deiner Mailbox und folge die Anweisungen, um dein Passwort zurückzusetzen."
+        }
     },
     "password-reset": {
-        "title": "Password zurücksetzen"
+        "title": "Password zurücksetzen",
+        "error": {
+            "passwordresetfailed": "Das Zürucksetzen deines Passwortes ist fehlgeschlagen."
+        }
     },
     "open-page": "Zur Aktionsseite",
     "cashback": {
@@ -53,7 +68,14 @@
         "logout": "Abmelden",
         "invalid-name": "Der Name ist ungültig",
         "invalid-email": "Die Email Adresse ist ungültig",
-        "invalid-password": "Mindestens 12 Zeichen lang sein"
+        "invalid-password": "Mindestens 12 Zeichen lang sein",
+        "error": {
+            "updatefailed": "Deine Änderungen konnten nicht gespeichert werden.",
+            "deletionfailed": "Das Löschen ist fehlgeschlagen."
+        },
+        "info": {
+            "updated": "Deine Änderungen wurden gespeichert."
+        }
     },
     "notifications": {
         "title": "Benachrichtigungen",
@@ -73,16 +95,20 @@
         "subscriptionname": "Gerätname",
         "invalid-subscriptionname": "Der Gerätname darf nicht leer sein",
         "error": {
-            "subscription-failed": "Es hat leider nicht geklappt. Entweder hast du Benachrichtigungen für diese Seite blockiert oder dein Browser unterstützt Web-Push-Benachrichtigungen noch nicht (Apple Geräte)."
+            "subscriptionfailed": "Es hat leider nicht geklappt. Entweder hast du Benachrichtigungen für diese Seite blockiert oder dein Browser unterstützt Web-Push-Benachrichtigungen noch nicht (Apple Geräte).",
+            "updatefailed": "Deine Änderungen konntent nicht gespeichert werden.",
+            "testfailed": "Der Test ist fehlgeschlagen."
         },
         "info": {
-            "info": "Deine Änderungen wurden gespeichert."
+            "updated": "Deine Änderungen wurden gespeichert.",
+            "tested": "Der Test wurde gestartet."
         }
     },
     "participations": {
         "title": "Teilnahmen",
         "error": {
-            "error": "Es hat nicht geklappt, überprüfe deine Eingaben."
+            "completionfailed": "Das Markieren als abgeschlossen ist fehlgeschlagen.",
+            "deletionfailed": "Das Löschen ist fehlgeschlagen."
         }
     },
     "participation": {
@@ -95,7 +121,8 @@
         "invalid-amount": "muss positiv sein",
         "invalid-reminder": "muss in der Zukunft liegen",
         "error": {
-            "error": "Es hat nicht geklappt, überprüfe deine Eingaben."
+            "creationfailed": "Das Hinzufügen ist fehlgeschlagen.",
+            "updatefailed": "Deine Änderungen könntent nicht gespeichert werden."
         }
     },
     "home": {
