@@ -68,6 +68,12 @@ export class CashbackService {
     );
   }
 
+  confirmRegistration(token: string): Observable<void> {
+    return this.http.post<void>(this.baseUrl + '/users/confirmation', { token: token }).pipe(
+      catchError((error: HttpErrorResponse) => this.handleError(error))
+    );
+  }
+
   login(login: Login): Observable<void> {
     return this.http.post(this.baseUrl + '/login', login, { observe: 'response', responseType: 'text' })
       .pipe(
@@ -78,7 +84,11 @@ export class CashbackService {
             return of();
           }
           if (error.status === 403) {
-            this.router.navigateByUrl('/login?error=locked');
+            this.router.navigateByUrl('/login?error=userlocked');
+            return of();
+          }
+          if (error.status === 428) {
+            this.router.navigateByUrl('/login?error=emailnotconfirmed');
             return of();
           }
           return throwError(() => new Error('' + error.status));

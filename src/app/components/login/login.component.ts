@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Login } from 'src/app/models/login';
@@ -8,23 +8,33 @@ import { CashbackService } from 'src/app/services/cashback.service';
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   showPassword = false;
-  error: string | null = null;
-  redirectUrl: string | null = null;
+  info: string | null;
+  error: string | null;
+  redirectUrl: string | null;
   form: FormGroup;
+  private token: string | null;
 
-  constructor(private route: ActivatedRoute, private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
-    this.route.queryParamMap
-      .subscribe((paramMap: ParamMap) => {
-        this.error = paramMap.get('error')
-        this.redirectUrl = paramMap.get('redirect_url')
-      });
+  constructor(private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
+    let url = router.parseUrl(router.url);
+    this.info = url.queryParamMap.get('info');
+    this.error = url.queryParamMap.get('error');
+    this.redirectUrl = url.queryParamMap.get('redirect_url');
+    this.token = url.queryParamMap.get('token');
     this.form = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(12)]]
     });
+  }
+
+  ngOnInit(): void {
+    if (this.token) {
+      this.cashbackService.confirmRegistration(this.token).subscribe({
+        next: () => this.info = 'emailconfirmed'
+      });
+    }
   }
 
   get email() {

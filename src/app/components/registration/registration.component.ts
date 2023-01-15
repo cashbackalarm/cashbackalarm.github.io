@@ -38,7 +38,7 @@ export class RegistrationComponent {
       email: this.form.value.email, 
       password: this.form.value.password};
     this.cashbackService.register(registration).subscribe({ 
-      next: () => this.router.navigateByUrl('/login') 
+      next: () => this.router.navigateByUrl('/login?info=emailconfirmationrequired') 
     });
   }
 

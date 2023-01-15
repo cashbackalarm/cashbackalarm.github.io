@@ -18,7 +18,9 @@ import { MatPaginatorModule, MatPaginatorIntl } from '@angular/material/paginato
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter } from '@angular/material-moment-adapter';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { NgxMatDateAdapter, NgxMatDateFormats, NgxMatDatetimePickerModule, NGX_MAT_DATE_FORMATS } from '@angular-material-components/datetime-picker';
+import { NgxMatMomentAdapter, NgxMatMomentModule, NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular-material-components/moment-adapter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,11 +34,11 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { ParticipationComponent } from './components/participation/participation.component';
 import { ParticipationsComponent } from './components/participations/participations.component';
 import { HourGlassPipe } from './hour-glass-pipe';
+import { CustomMatPaginatorIntl } from './custom-mat-paginator-intl';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { JwtModule } from "@auth0/angular-jwt";
 
 import { LOCALE_ID } from '@angular/core';
@@ -46,22 +48,22 @@ import { registerLocaleData } from '@angular/common';
 import { environment } from '../environments/environment';
 import { NgcCookieConsentConfig, NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { CustomMatPaginatorIntl } from './custom-mat-paginator-intl';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/');
 }
 
-export const MY_DATE_FORMATS = {
+const CUSTOM_DATE_FORMATS: NgxMatDateFormats = {
   parse: {
-    dateInput: 'DD.MM.YYYY',
+    dateInput: "L LT"
   },
   display: {
-    dateInput: 'DD.MM.YYYY',
-    monthYearLabel: 'MMMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY'
-  },
+    dateInput: "L LT",
+    monthYearLabel: "MMM YYYY",
+    dateA11yLabel: "LL",
+    monthYearA11yLabel: "MMMM YYYY"
+  }
 };
 
 export function tokenGetter() {
@@ -138,6 +140,8 @@ registerLocaleData(localeDe);
     MatPaginatorModule,
     MatToolbarModule,
     MatTooltipModule,
+    NgxMatDatetimePickerModule,
+    NgxMatMomentModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
@@ -152,16 +156,19 @@ registerLocaleData(localeDe);
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [{ provide: DateAdapter, useClass: MomentDateAdapter },
-  { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS },
-  { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } },
-    MatDatepickerModule,
-  { provide: 'googleTagManagerId', useValue: environment.googleTagManagerId },
-  { provide: LOCALE_ID, useValue: 'de' },
-  {
-    provide: MatPaginatorIntl,
-    useClass: CustomMatPaginatorIntl,
-  }],
+  providers: [
+    { provide: 'googleTagManagerId', useValue: environment.googleTagManagerId },
+    { provide: LOCALE_ID, useValue: 'de' },
+    {
+      provide: NgxMatDateAdapter,
+      useClass: NgxMatMomentAdapter,
+      deps: [MAT_DATE_LOCALE, NGX_MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+    { provide: NGX_MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
+    {
+      provide: MatPaginatorIntl,
+      useClass: CustomMatPaginatorIntl,
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,10 +7,14 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
-                {{'login.' + error | translate}}
+            <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
+                {{'login.error.' + error | translate}}
                 <br />
-            </div>
+            </p>
+            <p *ngIf="info" class="mat-form-field banner">
+                {{'login.info.' + info | translate}}
+                <br />
+            </p>
             <mat-form-field appearance="fill">
                 <mat-label>{{'user.email' | translate}}</mat-label>
                 <input type="email" matInput name="email" formControlName="email" />

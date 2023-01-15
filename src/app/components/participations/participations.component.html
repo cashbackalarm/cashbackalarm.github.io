@@ -26,9 +26,9 @@
                         <ng-container matColumnDef="reminder">
                             <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'participation.reminder'|translate}}
                             </th>
-                            <td class="{{(element.reminder && element.reminder < moment().unix())? 'warning' : ''}}"
+                            <td class="{{(element.reminder && element.reminder <= moment().unix())? 'warning' : ''}}"
                                 mat-cell *matCellDef="let element">
-                                {{(element.reminder? ((element.reminder * 1000) | date : 'shortDate'):'')}}
+                                {{(element.reminder? ((element.reminder * 1000) | date : 'short'):'')}}
                             </td>
                         </ng-container>
                         <ng-container matColumnDef="completed">

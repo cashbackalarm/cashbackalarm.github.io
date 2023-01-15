@@ -19,7 +19,7 @@ export class PasswordForgottenComponent {
 
   submit(): void {
     this.cashbackService.passwordForgotten(this.form.value.email).subscribe({ 
-      next: () => this.router.navigateByUrl('/login') 
+      next: () => this.router.navigateByUrl('/login?info=passwordresetmailsent') 
     });
   }
 

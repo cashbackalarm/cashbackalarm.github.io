@@ -25,7 +25,7 @@ export class PasswordResetComponent {
   submit(): void {
     let passwordReset: PasswordReset = { email: this.form.value.email, password: this.form.value.password, token: this.form.value.token };
     this.cashbackService.resetPassword(passwordReset).subscribe({
-      next: () => this.router.navigateByUrl('/login')
+      next: () => this.router.navigateByUrl('/login?info=passwordresetted')
     });
   }
 

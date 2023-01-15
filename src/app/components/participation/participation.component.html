@@ -29,17 +29,14 @@
                 <mat-label>{{'participation.amount' | translate}}</mat-label>
                 <input type="number" matInput name="amount" formControlName="amount" />
             </mat-form-field>
-            <mat-form-field appearance="fill" class="example-form-field">
+            <mat-form-field appearance="fill">
                 <mat-label>{{'participation.reminder'|translate}}</mat-label>
-                <input matInput [matDatepicker]="datepicker" name="reminder" formControlName="reminder">
-                <mat-hint>DD.MM.YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
-                <mat-datepicker #datepicker>
-                    <mat-datepicker-actions>
-                        <button mat-button matDatepickerCancel>{{'cancel'|translate}}</button>
-                        <button mat-flat-button color="accent" matDatepickerApply>{{'save'|translate}}</button>
-                    </mat-datepicker-actions>
-                </mat-datepicker>
+                <input matInput [ngxMatDatetimePicker]="picker" name="reminder" formControlName="reminder">
+                <mat-hint>DD.MM.YYYY HH:MM</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false" [stepHour]="1"
+                    [stepMinute]="1" [enableMeridian]="false" [disableMinute]="false" [hideTime]="false">
+                </ngx-mat-datetime-picker>
             </mat-form-field>
             <mat-checkbox name="completed" formControlName="completed">
                 {{'participation.completed' | translate}}
