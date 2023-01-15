@@ -18,6 +18,7 @@ export class ParticipationsComponent extends AbstractComponent implements AfterV
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns: string[] = ['cashback', 'amount', 'reminder', 'completed', 'actions'];
   dataSource = new MatTableDataSource<Participation>();
+  error: string | null = null;
 
   readonly moment = moment;
 
@@ -46,13 +47,15 @@ export class ParticipationsComponent extends AbstractComponent implements AfterV
 
   completeParticipation(participationKey: string): void {
     this.cashbackService.completeParticipation(participationKey).subscribe({
-      next: () => this.refreshParticipations()
+      next: () => this.refreshParticipations(),
+      error: () => this.error = 'error'
     });
   }
 
   deleteParticipation(participationKey: string): void {
     this.cashbackService.deleteParticipation(participationKey).subscribe({
-      next: () => this.refreshParticipations()
+      next: () => this.refreshParticipations(),
+      error: () => this.error = 'error'
     });
   }
 

@@ -16,6 +16,7 @@ import { AbstractComponent } from '../abstract/abstract.component';
 })
 export class ParticipationComponent extends AbstractComponent {
 
+  error: string | null = null;
   form: FormGroup;
   cashbacks: Cashback[] = [];
   participationKey: string;
@@ -84,7 +85,8 @@ export class ParticipationComponent extends AbstractComponent {
         completed: this.form.value.completed
       };
       this.cashbackService.addParticipation(participation).subscribe({
-        next: () => this.router.navigateByUrl('/participations')
+        next: () => this.router.navigateByUrl('/participations'),
+        error: () => this.error = 'error'
       });
     } else {
       let participation: ParticipationUpdate = {
@@ -93,7 +95,8 @@ export class ParticipationComponent extends AbstractComponent {
         completed: this.form.value.completed
       };
       this.cashbackService.updateParticipation(this.participationKey, participation).subscribe({
-        next: () => this.router.navigateByUrl('/participations')
+        next: () => this.router.navigateByUrl('/participations'),
+        error: () => this.error = 'error'
       });
     }
   }
