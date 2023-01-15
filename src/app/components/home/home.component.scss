@@ -4,6 +4,21 @@ div {
     justify-content: center;
 }
 
-h3 {
-    text-align: center;
+p {
+    min-height: 60px;
+}
+
+.cashback {
+    min-height: 40px;
+}
+
+mat-card {
+    width: 300px;
+
+    img {
+        min-width: 300px;
+        min-height: 200px;
+        width: 300px;
+        height: 200px;
+    }
 }

@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use './src/card-theme' as card;
+@use './src/a-theme' as a;
 
 @include mat.core();
 
@@ -18,11 +18,11 @@ $cashback-alarm-dark-theme: mat.define-dark-theme((color: (primary: $cashback-al
             )));
 
 @include mat.all-component-themes($cashback-alarm-light-theme);
-@include card.theme($cashback-alarm-light-theme);
+@include a.theme($cashback-alarm-light-theme);
 
 .dark-theme {
     @include mat.all-component-colors($cashback-alarm-dark-theme);
-    @include card.theme($cashback-alarm-dark-theme);
+    @include a.theme($cashback-alarm-dark-theme);
 }
 
 @import "@fontsource/roboto/latin-400.css";
@@ -38,16 +38,155 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 
+    .theme {
+        height: 100%;
+
+        .mat-app-background {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            main {
+                flex-shrink: 1;
+                flex-grow: 1;
+                position: relative;
+                overflow-y: auto;
+            }
+        }
+    }
+
     .cc-revoke.cc-bottom {
         left: 16px;
         bottom: 16px;
         border-radius: 50%;
         background-color: #ff5722;
+
+        img {
+            min-width: auto;
+            min-height: auto;
+            width: 24px;
+            height: 24px;
+        }
     }
 }
 
-.header div {
+h3 {
     text-align: center;
-    margin-left: 16px;
-    margin-right: 16px;
+}
+
+p {
+    max-width: 400px;
+}
+
+mat-form-field {
+    width: 100%;
+
+    .mdc-fab--mini {
+        margin-right: 4px;
+    }
+}
+
+table {
+    width: 100%;
+    overflow: auto;
+}
+
+td {
+    .mdc-fab--mini {
+        margin-left: 4px;
+    }
+
+    &.warning {
+        background-color: rgba(255, 87, 34, 0.5);
+    }
+}
+
+mat-checkbox {
+    label {
+        max-width: 400px;
+    }
+}
+
+.banner {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mat-app-background {
+
+    form {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        place-content: center;
+        align-items: center;
+    }
+
+    mat-card {
+        min-width: 300px;
+        margin: 8px 8px 8px 8px;
+
+        .mat-mdc-card-header {
+            min-height: 40px;
+            padding: 16px 16px 16px 16px;
+            align-items: center;
+
+            .mat-mdc-card-avatar {
+                height: auto;
+                width: auto;
+                border-radius: 0%;
+                margin-bottom: 0px;
+
+                &.material-icons {
+                    height: 32px;
+                    font-size: 32px;
+                }
+            }
+        }
+
+        .mat-mdc-card-content {
+            display: flex;
+            flex-direction: column;
+
+            @media (max-width: 599px) {
+                img {
+                    display: none;
+                }
+            }
+        }
+
+        .mdc-card__actions {
+            justify-content: center;
+        }
+    }
+}
+
+mat-option {
+    span {
+        display: flex;
+    }
+}
+
+mat-select-trigger {
+    span {
+        display: flex;
+
+        span {
+            white-space: normal;
+        }
+    }
+}
+
+img {
+    min-width: 60px;
+    min-height: 40px;
+    width: 60px;
+    height: 40px;
 }

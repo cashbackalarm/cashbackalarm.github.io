@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { authGuard } from './auth.guard';
+import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
@@ -19,22 +19,22 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [authGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'participations',
     component: ParticipationsComponent,
-    canActivate: [authGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'participations/:participationKey',
     component: ParticipationComponent,
-    canActivate: [authGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'notifications',
     component: NotificationsComponent,
-    canActivate: [authGuard]
+    canActivate: [AuthGuard]
   },
   { path: '**', component: HomeComponent }
 ];

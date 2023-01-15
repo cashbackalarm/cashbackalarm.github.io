@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { Cashback } from 'src/app/models/cashback';
 import { Participation } from 'src/app/models/participation';
+import { ParticipationCreation } from 'src/app/models/participation-creation';
+import { ParticipationUpdate } from 'src/app/models/participation-update';
 import { User } from 'src/app/models/user';
 import { CashbackService } from 'src/app/services/cashback.service';
 import { AbstractComponent } from '../abstract/abstract.component';
@@ -31,7 +33,8 @@ export class ParticipationComponent extends AbstractComponent {
     this.form = formBuilder.group({
       cashback: [null, [Validators.required]],
       amount: [0, [Validators.min(0.01)]],
-      reminder: [null, [Validators.required]]
+      reminder: null,
+      completed: false
     });
   }
 
@@ -49,7 +52,8 @@ export class ParticipationComponent extends AbstractComponent {
         this.form.patchValue({
           cashback: participation.cashback.key,
           amount: participation.amount,
-          reminder: moment.unix(participation.reminder)
+          reminder: participation.reminder ? moment.unix(participation.reminder) : null,
+          completed: participation.completed
         });
       }
     });
@@ -63,13 +67,32 @@ export class ParticipationComponent extends AbstractComponent {
     return this.cashbackByKey.get(key);
   }
 
+  private getReminder(): number | undefined {
+    let reminder = this.form.value.reminder;
+    if (reminder == null) {
+      return undefined;
+    }
+    return reminder.unix();
+  }
+
   submit(): void {
-    if (this.participationKey != 'new') {
-      this.cashbackService.updateParticipation(this.participationKey, this.form.value.amount, this.form.value.reminder.unix()).subscribe({
+    if (this.participationKey == 'new') {
+      let participation: ParticipationCreation = {
+        cashback: this.form.value.cashback,
+        amount: this.form.value.amount,
+        reminder: this.getReminder(),
+        completed: this.form.value.completed
+      };
+      this.cashbackService.addParticipation(participation).subscribe({
         next: () => this.router.navigateByUrl('/participations')
       });
     } else {
-      this.cashbackService.addParticipation(this.form.value.cashback, this.form.value.amount, this.form.value.reminder.unix()).subscribe({
+      let participation: ParticipationUpdate = {
+        amount: this.form.value.amount,
+        reminder: this.getReminder(),
+        completed: this.form.value.completed
+      };
+      this.cashbackService.updateParticipation(this.participationKey, participation).subscribe({
         next: () => this.router.navigateByUrl('/participations')
       });
     }

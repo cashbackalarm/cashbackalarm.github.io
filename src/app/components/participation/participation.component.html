@@ -36,11 +36,14 @@
                 <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
                 <mat-datepicker #datepicker>
                     <mat-datepicker-actions>
-                        <button mat-button matDatepickerCancel>Cancel</button>
-                        <button mat-raised-button color="accent" matDatepickerApply>Apply</button>
+                        <button mat-button matDatepickerCancel>{{'cancel'|translate}}</button>
+                        <button mat-flat-button color="accent" matDatepickerApply>{{'save'|translate}}</button>
                     </mat-datepicker-actions>
                 </mat-datepicker>
             </mat-form-field>
+            <mat-checkbox name="completed" formControlName="completed">
+                {{'participation.completed' | translate}}
+            </mat-checkbox>
         </mat-card-content>
         <mat-card-actions>
             <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">

@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+  $config: mat.get-color-config($theme);
+  $foreground: map.get($config, foreground);
+
+  .mat-app-background {
+
+    a.flex {
+      display: flex;
+      align-items: center;
+    }
+
+    a:not(.mat-mdc-button-base) {
+      color: mat.get-color-from-palette($foreground, text);
+    }
+
+    header a,
+    a.mat-mdc-button-base {
+
+      &,
+      &:visited,
+      &:-webkit-any-link {
+        text-decoration: none;
+      }
+    }
+
+    footer {
+      a {
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+
+  @if $color-config !=null {
+    @include color($theme);
+  }
+}

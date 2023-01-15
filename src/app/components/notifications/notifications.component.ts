@@ -11,8 +11,7 @@ import { Subscription } from 'src/app/models/subscription';
 
 @Component({
   selector: 'app-notifications',
-  templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.scss']
+  templateUrl: './notifications.component.html'
 })
 export class NotificationsComponent extends AbstractComponent {
 

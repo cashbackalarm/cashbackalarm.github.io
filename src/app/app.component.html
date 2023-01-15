@@ -2,8 +2,8 @@
   <div class="mat-app-background">
     <header>
       <mat-toolbar>
-        <a class="logo" routerLink="">
-          <img src="{{'assets/logo' + ((isDarkTheme | async) ? '-light' : '') + '.svg'}}" height="64px" />
+        <a class="flex" routerLink="">
+          <img src="{{'assets/logo' + ((isDarkTheme | async) ? '-light' : '') + '.svg'}}" />
           <div>
             <span><b>Cashback</b></span>
             <span><b>Alarm</b></span>
@@ -53,18 +53,17 @@
     </main>
     <footer>
       <mat-toolbar>
-        <div class="mat-small">
-          <a class="github" mat-button
-            href="https://github.com/cashbackalarm/cashbackalarm.github.io"><img
-              src="{{'assets/GitHub-Mark' + ((isDarkTheme | async) ? '-Light' : '') + '-32px.png'}}" height="24px"
+        <div>
+          <a class="github" href="https://github.com/cashbackalarm/cashbackalarm.github.io"><img
+              src="{{'assets/GitHub-Mark' + ((isDarkTheme | async) ? '-Light' : '') + '-32px.png'}}" 
               matTooltip="{{'source' | translate}}" /></a>
-          <a mat-button routerLink="/termsofuse">
+          <a routerLink="/termsofuse">
             {{'termsofuse'|translate}}
           </a>
-          <a mat-button routerLink="/privacy">
+          <a routerLink="/privacy">
             {{'privacy'|translate}}
           </a>
-          <a mat-button routerLink="/imprint">
+          <a routerLink="/imprint">
             {{'imprint'|translate}}
           </a>
         </div>

@@ -6,21 +6,21 @@ import { CashbackService } from 'src/app/services/cashback.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent {
 
   showPassword = false;
-  error: string|null = null;
+  error: string | null = null;
+  redirectUrl: string | null = null;
   form: FormGroup;
 
   constructor(private route: ActivatedRoute, private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
     this.route.queryParamMap
       .subscribe((paramMap: ParamMap) => {
         this.error = paramMap.get('error')
-      }
-      );
+        this.redirectUrl = paramMap.get('redirect_url')
+      });
     this.form = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(12)]]
@@ -42,7 +42,7 @@ export class LoginComponent {
     };
     this.cashbackService.login(login).subscribe({
       next: () => {
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl(this.redirectUrl ? this.redirectUrl : '/');
       }
     });
   }

@@ -158,19 +158,23 @@ export class CashbackService {
     );
   }
 
-  addParticipation(cashbackKey: string, amount: number, reminder: number): Observable<void> {
+  addParticipation(participation: ParticipationCreation): Observable<void> {
     if (!this.userKey) {
       return of();
     }
-    let participation: ParticipationCreation = { cashback: cashbackKey, amount: amount, reminder: reminder };
     return this.http.post<void>(this.baseUrl + '/users/' + this.userKey + '/participations', participation).pipe(
       catchError((error: HttpErrorResponse) => this.handleError(error))
     );
   }
 
-  updateParticipation(participationKey: string, amount: number, reminder: number): Observable<void> {
-    let participation: ParticipationUpdate = { amount: amount, reminder: reminder };
+  updateParticipation(participationKey: string, participation: ParticipationUpdate): Observable<void> {
     return this.http.put<void>(this.baseUrl + '/participations/' + participationKey, participation).pipe(
+      catchError((error: HttpErrorResponse) => this.handleError(error))
+    );
+  }
+
+  completeParticipation(participationKey: string): Observable<void> {
+    return this.http.put<void>(this.baseUrl + '/participations/' + participationKey + '/completed', null).pipe(
       catchError((error: HttpErrorResponse) => this.handleError(error))
     );
   }

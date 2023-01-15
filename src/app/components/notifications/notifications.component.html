@@ -7,9 +7,8 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <div class="hint">{{'notifications.hint1' | translate}}</div>
-            <div class="hint">{{'notifications.hint2' | translate}}</div>
-            <br />
+            <p>{{'notifications.hint1' | translate}}<br/><br/>
+            {{'notifications.hint2' | translate}}</p>
             <div>{{'notifications.cashbacks' | translate}}</div>
             <div><small>{{'notifications.cashbacks-hint' | translate}}</small></div>
             <label formArrayName="cashbacks"
@@ -32,35 +31,24 @@
                 <mat-icon>add</mat-icon>
                 {{'notifications.add-subscription' | translate}}
             </button>
-            <table formArrayName="subscriptions">
-                <tr>
-                    <th></th>
-                    <th></th>
-                </tr>
-                <tr *ngFor="let subscription of subscriptionsFormArray.controls; let i = index">
-                    <td>
-                        <mat-form-field appearance="fill">
-                            <mat-label>{{'notifications.subscriptionname' | translate}}</mat-label>
-                            <input matInput type="text" [formControlName]="i" />
-                            <mat-error *ngIf="subscription.invalid">
-                                {{'notifications.invalid-subscriptionname'|translate}}
-                            </mat-error>
-                        </mat-form-field>
-                    </td>
-                    <td>
-                        <button mat-mini-fab color="accent" (click)="testSubscription(i)"
-                            matTooltip="{{'notifications.test-subscription' | translate}}">
-                            <mat-icon>send</mat-icon>
-                        </button>
-                    </td>
-                    <td>
-                        <button mat-mini-fab color="accent" (click)="deleteSubscription(i)"
-                            matTooltip="{{'notifications.delete-subscription' | translate}}">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </tr>
-            </table>
+            <ng-container formArrayName="subscriptions">
+                <mat-form-field appearance="fill"
+                    *ngFor="let subscription of subscriptionsFormArray.controls; let i = index">
+                    <mat-label>{{'notifications.subscriptionname' | translate}}</mat-label>
+                    <input matInput type="text" [formControlName]="i" />
+                    <button matSuffix mat-mini-fab color="accent" (click)="testSubscription(i)"
+                        matTooltip="{{'notifications.test-subscription' | translate}}">
+                        <mat-icon>send</mat-icon>
+                    </button>
+                    <button matSuffix mat-mini-fab color="accent" (click)="deleteSubscription(i)"
+                        matTooltip="{{'notifications.delete-subscription' | translate}}">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <mat-error *ngIf="subscription.invalid">
+                        {{'notifications.invalid-subscriptionname'|translate}}
+                    </mat-error>
+                </mat-form-field>
+            </ng-container>
         </mat-card-content>
         <mat-card-actions>
             <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">

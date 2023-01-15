@@ -1,4 +1,5 @@
 export interface ParticipationUpdate {
     amount: number;
-    reminder: number;
+    reminder?: number;
+    completed: boolean;
 }
