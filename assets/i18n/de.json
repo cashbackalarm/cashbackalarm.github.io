@@ -14,9 +14,18 @@
     },
     "login": {
         "title": "Anmelden",
-        "tokenexpired": "Melde dich bitte an.",
-        "wrongcredentials": "Hast du dich vertippt?",
-        "locked": "Warst du böse?",
+        "error": {
+            "tokenexpired": "Melde dich bitte an.",
+            "wrongcredentials": "Hast du dich vertippt?",
+            "userlocked": "Warst du böse?",
+            "emailnotconfirmed": "Bitte bestätige deine Email-Adresse, indem du auf den Link in der Registrierungsbestätigung klickst."
+        },
+        "info": {
+            "emailconfirmationrequired": "Gehe bitte zu deiner Mailbox und bestätige deine Email-Adresse.",
+            "emailconfirmed": "Deine Email-Adresse wurde bestätigt.",
+            "passwordresetmailsent": "Weitere Informationen erhälst du per Mail.",
+            "passwordresetted": "Dein Password wurde zurückgesetzt."
+        },
         "to-registration": "Kein Konto?",
         "to-password-forgotten": "Passwort vergessen?"
     },
