@@ -1,6 +1,9 @@
 {
     "source": "Quellcode",
-    "imprint": "Impressum",
+    "imprint": {
+        "title": "Impressum",
+        "subtitle": "Cashback Alarm"
+    },
     "privacy": "Datenschutz",
     "termsofuse": "AGB",
     "send": "Los geht's!",

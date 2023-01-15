@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './components/home/home.component';
+import { ImprintComponent } from './components/imprint/imprint.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ParticipationComponent } from './components/participation/participation.component';
@@ -35,6 +36,9 @@ const routes: Routes = [
     path: 'notifications',
     component: NotificationsComponent,
     canActivate: [AuthGuard]
+  }, {
+    path: 'imprint',
+    component: ImprintComponent
   },
   { path: '**', component: HomeComponent }
 ];

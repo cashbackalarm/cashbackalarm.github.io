@@ -34,6 +34,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ParticipationComponent } from './components/participation/participation.component';
 import { ParticipationsComponent } from './components/participations/participations.component';
+import { ImprintComponent } from './components/imprint/imprint.component';
 import { HourGlassPipe } from './hour-glass-pipe';
 import { CustomMatPaginatorIntl } from './custom-mat-paginator-intl';
 
@@ -110,6 +111,7 @@ registerLocaleData(localeDe);
     ParticipationsComponent,
     ParticipationComponent,
     NotificationsComponent,
+    ImprintComponent,
     HourGlassPipe
   ],
   imports: [
