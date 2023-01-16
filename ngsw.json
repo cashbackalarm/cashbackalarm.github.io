@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1673809718858,
+  "timestamp": 1673849257306,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,12 +13,12 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.c9d0231a01741c56.js",
+        "/main.edece3fc4cc521fa.js",
         "/manifest.webmanifest",
         "/polyfills.9f262af943bba45d.js",
         "/runtime.3ee6516ec129abab.js",
         "/scripts.8cd3c5059dd14741.js",
-        "/styles.e43b3adf1dc4942c.css"
+        "/styles.255db8b900413c65.css"
       ],
       "patterns": []
     },
@@ -56,7 +56,7 @@
     "/assets/GitHub-Mark-32px.png": "fabe53eb72f9b6d3d47cd95aff31ffc45c2fdbf8",
     "/assets/GitHub-Mark-Light-32px.png": "b2a79b392657b559776ce122c89e42c42970595f",
     "/assets/cookie_white.svg": "7f02b1af1fa25c2584c97e537681b314eed62bc1",
-    "/assets/i18n/de.json": "9c23f6d271b56448c323cfd1dabbe6fc2d542c72",
+    "/assets/i18n/de.json": "e64496ff0519cdcc33ebe8ec3728a28a0a7d9d0d",
     "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -68,8 +68,8 @@
     "/assets/logo-light.svg": "e91f76b042a9aa50baf77227fd9cef88d6a3fac2",
     "/assets/logo.svg": "7b897e74c299fb4683545c8818e5b99153075b08",
     "/favicon.ico": "0d7eabd9a130ff22cd8d4a4ee7aebac51cbbacc7",
-    "/index.html": "fb2be435f6785d75b864ea36034ba52b879e338b",
-    "/main.c9d0231a01741c56.js": "b95a8710d5c2a228b9c2bd6cda9f43553a5e3879",
+    "/index.html": "0b4bf1cb90a83fe7bde025cc9d24e670e8c789bf",
+    "/main.edece3fc4cc521fa.js": "82380dab47c5a2bb043b1242e3569d5764d723bf",
     "/manifest.webmanifest": "568e8565cbba54e2b5282c56c9523f3ec9cde2c5",
     "/material-icons.59322316b3fd6063.woff2": "0bc0c675480d94ec7e8609dda6227f88c5d08d2c",
     "/polyfills.9f262af943bba45d.js": "9d280459b8629144e6d9a7aa123af2fd17b2b5b7",
@@ -77,7 +77,7 @@
     "/roboto-latin-400-normal.f2894edcf7d09d36.woff2": "7ca9c5967f3bb8bffeab24b639b49c1e7d03fa52",
     "/runtime.3ee6516ec129abab.js": "4345119a249d91381e6946406576a564125b2081",
     "/scripts.8cd3c5059dd14741.js": "55f7bc5580c0cdd5384ab486193936b21c24bd67",
-    "/styles.e43b3adf1dc4942c.css": "04fb4adc7006440335b404df4461951e1fd5943d"
+    "/styles.255db8b900413c65.css": "d722805a0695ea5d59e6fb8a47a1d437a8fc1ead"
   },
   "navigationUrls": [
     {
