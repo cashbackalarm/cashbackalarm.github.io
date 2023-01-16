@@ -7,9 +7,15 @@
             </mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <p>{{'name' | translate}}<br/>{{url}}</p>
+            <p>{{'name' | translate}}<br />{{url}}</p>
             <h4>{{'imprint.contact' | translate}}</h4>
             <p>{{'imprint.email' | translate: { email: email } }}</p>
+            <h4>{{'imprint.project.title' | translate}}</h4>
+            <p>{{'imprint.project.description' | translate}}</p>
+            <a style="text-align: center;" href="https://www.buymeacoffee.com/cashbackalarm" target="_blank">
+                <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee"
+                    style="height: 60px !important;width: 217px !important;">
+            </a>
             <h4>{{'imprint.content.title' | translate}}</h4>
             <p>{{'imprint.content.description' | translate}}</p>
             <h4>{{'imprint.links.title' | translate}}</h4>
@@ -17,11 +23,6 @@
             <h4>{{'imprint.copyright.title' | translate}}</h4>
             <p>{{'imprint.copyright.description' | translate}}</p>
             <p>{{'imprint.thirdparty' | translate}}</p>
-            <h4>{{'imprint.hobby.title' | translate}}</h4>
-            <p>{{'imprint.hobby.description' | translate}}</p>
         </mat-card-content>
-        <mat-card-actions>
-            <a href="https://www.buymeacoffee.com/cashbackalarm" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-        </mat-card-actions>
     </mat-card>
 </div>

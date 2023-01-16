@@ -9,11 +9,9 @@
         <mat-card-content>
             <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
                 {{'user.error.' + error | translate}}
-                <br />
             </p>
             <p *ngIf="info" class="mat-form-field banner">
                 {{'user.info.' + info | translate}}
-                <br />
             </p>
             <mat-form-field appearance="fill">
                 <mat-label>{{'user.name' | translate}}</mat-label>
@@ -25,24 +23,24 @@
                     <mat-icon>save</mat-icon>
                 </button>
             </mat-form-field>
-            <div>
+            <p>
                 <span>{{'user.email' | translate}}: </span>
                 <span>{{profile.email}}</span>
-            </div>
-            <div>
+            </p>
+            <p>
+                <span>{{'user.registration' | translate}}: </span>
+                <span>{{(profile.registration * 1000) | date : 'short'}}</span>
+            </p>
+            <p>
                 <span>{{'user.last-login' | translate}}: </span>
                 <span>{{(profile.lastLogin * 1000) | date : 'short'}}</span>
-            </div>
-            <br/>
-            <br/>
-            <div>{{'user.delete' | translate}}</div>
-            <br/>
-            <div>
+            </p>
+            <h4>{{'user.delete' | translate}}</h4>
+            <p>
                 <mat-checkbox name="confirmation" formControlName="confirmation">
                     {{'user.confirmation' | translate}}
                 </mat-checkbox>
-            </div>
-            <br/>
+            </p>
             <div>
                 <button mat-flat-button color="warn" (click)="deleteUser()" [disabled]="confirmation.invalid">
                     <mat-icon>delete</mat-icon><span>{{'user.delete'|translate}}</span>

@@ -9,13 +9,11 @@
         <mat-card-content>
             <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
                 {{'notifications.error.' + error | translate}}
-                <br />
             </p>
             <p *ngIf="info" class="mat-form-field banner">
                 {{'notifications.info.' + info | translate}}
-                <br />
             </p>
-            <div>{{'notifications.cashbacks' | translate}}</div>
+            <h4>{{'notifications.cashbacks' | translate}}</h4>
             <div><small>{{'notifications.cashbacks-hint' | translate}}</small></div>
             <label formArrayName="cashbacks"
                 *ngFor="let notificationType of cashbacksFormArray.controls; let i = index">
@@ -26,8 +24,7 @@
                     </mat-icon>
                 </mat-checkbox>
             </label>
-            <br />
-            <div>{{'notifications.participations' | translate}}</div>
+            <h4>{{'notifications.participations' | translate}}</h4>
             <div><small>{{'notifications.participations-hint' | translate}}</small></div>
             <label formArrayName="participations"
                 *ngFor="let notificationType of participationsFormArray.controls; let i = index">
@@ -38,8 +35,7 @@
                     </mat-icon>
                 </mat-checkbox>
             </label>
-            <br />
-            <div>{{'notifications.subscriptions' | translate}}</div>
+            <h4>{{'notifications.subscriptions' | translate}}</h4>
             <div><small>{{'notifications.subscriptions-hint' | translate}}</small></div>
             <button mat-flat-button color="accent" (click)="addSubscription()">
                 <mat-icon>add</mat-icon>

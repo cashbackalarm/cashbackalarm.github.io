@@ -63,13 +63,13 @@ export class CashbackService {
   }
 
   register(registration: Registration): Observable<void> {
-    return this.http.post<void>(this.baseUrl + '/users', registration).pipe(
+    return this.http.post<void>(this.baseUrl + '/registration', registration).pipe(
       catchError((error: HttpErrorResponse) => this.handleError(error))
     );
   }
 
   confirmRegistration(token: string): Observable<void> {
-    return this.http.post<void>(this.baseUrl + '/users/confirmation', { token: token }).pipe(
+    return this.http.post<void>(this.baseUrl + '/registration-confirmation', { token: token }).pipe(
       catchError((error: HttpErrorResponse) => this.handleError(error))
     );
   }
@@ -126,13 +126,13 @@ export class CashbackService {
   }
 
   passwordForgotten(email: string): Observable<void> {
-    return this.http.post<void>(this.baseUrl + '/tokens', { email: email }).pipe(
+    return this.http.post<void>(this.baseUrl + '/forgotten-password', { email: email }).pipe(
       catchError((error: HttpErrorResponse) => this.handleError(error))
     );
   }
 
   resetPassword(passwordReset: PasswordReset): Observable<void> {
-    return this.http.post<void>(this.baseUrl + '/reset-password', passwordReset).pipe(
+    return this.http.post<void>(this.baseUrl + '/password-reset', passwordReset).pipe(
       catchError((error: HttpErrorResponse) => this.handleError(error))
     );
   }

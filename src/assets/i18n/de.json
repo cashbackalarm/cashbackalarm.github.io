@@ -39,8 +39,8 @@
         "title": "Impressum",
         "contact": "Kontakt",
         "email": "Email: {{email}}",
-        "hobby": {
-            "title": "Entstehung",
+        "project": {
+            "title": "Vorstellung",
             "description": "Diese Webseite ist ein Hobby-Projekt und nutzt aktuell kostenlose Hosting und Mailing Lösungen. Bei genug Interesse, würden wir auf professionelle Lösungen umsteigen."
         },
         "content": {
@@ -169,7 +169,8 @@
         "email": "Email",
         "password": "Password",
         "token": "Token",
-        "last-login": "Letzte Anmeldung",
+        "registration": "Registriert am",
+        "last-login": "Letzte Anmeldung am",
         "delete": "Konto löschen",
         "confirmation": "Ja, ich will mein Konto unwiderruflich löschen. Die damit verbundenen Daten werden umgehend gelöscht. Eine Wiederherstellung der gelöschten Daten is nicht möglich.",
         "logout": "Abmelden",

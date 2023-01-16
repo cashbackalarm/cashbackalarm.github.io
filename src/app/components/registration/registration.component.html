@@ -9,11 +9,9 @@
         <mat-card-content>
             <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
                 {{'registration.error.' + error | translate}}
-                <br />
             </p>
             <p *ngIf="info" class="mat-form-field banner">
                 {{'registration.info.' + info | translate}}
-                <br />
             </p>
             <mat-form-field appearance="fill">
                 <mat-label>{{'user.name' | translate}}</mat-label>
