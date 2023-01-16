@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { Participation } from 'src/app/models/participation';
 import { User } from 'src/app/models/user';
@@ -22,7 +22,7 @@ export class ParticipationsComponent extends AuthenticatedComponent implements A
 
   readonly moment = moment;
 
-  constructor(route: ActivatedRoute, cashbackService: CashbackService, private router: Router) {
+  constructor(route: ActivatedRoute, cashbackService: CashbackService) {
     super(route, cashbackService);
   }
 
@@ -47,15 +47,15 @@ export class ParticipationsComponent extends AuthenticatedComponent implements A
 
   completeParticipation(participationKey: string): void {
     this.cashbackService.completeParticipation(participationKey).subscribe({
-      next: () => { this.error = null; this.refreshParticipations() },
-      error: () => this.router.navigateByUrl('/participations?error=completionfailed')
+      next: () => { this.setInfo(null); this.refreshParticipations() },
+      error: () => this.setError('completionfailed')
     });
   }
 
   deleteParticipation(participationKey: string): void {
     this.cashbackService.deleteParticipation(participationKey).subscribe({
-      next: () => { this.error = null; this.refreshParticipations() },
-      error: () => this.router.navigateByUrl('/participations?error=deletionfailed')
+      next: () => { this.setInfo(null); this.refreshParticipations() },
+      error: () => this.setError('deletionfailed')
     });
   }
 

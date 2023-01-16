@@ -24,8 +24,14 @@ export abstract class ParamMapSubscriberComponent implements OnInit {
     this.error = paramMap.get('error');
   }
 
-  protected getCurrentUrl(): string {
-    return '/' + this.route.snapshot.url.map((seg: UrlSegment) => seg.path).join('/');
+  protected setInfo(info: string | null): void {
+    this.info = info;
+    this.error = null;
+  }
+
+  protected setError(error: string | null): void {
+    this.info = null;
+    this.error = error;
   }
 
 }

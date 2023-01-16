@@ -59,8 +59,8 @@ export class ProfileComponent extends AuthenticatedComponent {
 
   updateName(): void {
     this.cashbackService.updateName(this.form.value.name).subscribe({
-      next: () => this.router.navigateByUrl('/profile?info=updated'),
-      error: () => this.router.navigateByUrl('/profile?error=updatefailed')
+      next: () => this.setInfo('updated'),
+      error: () => this.setError('updatefailed')
     });
     this.edit = undefined;
   }
@@ -68,7 +68,7 @@ export class ProfileComponent extends AuthenticatedComponent {
   deleteUser(): void {
     this.cashbackService.deleteUser().subscribe({
       next: () => this.router.navigateByUrl('/'),
-      error: () => this.router.navigateByUrl('/profile?error=deletionfailed')
+      error: () => this.setError('deletionfailed')
     });
   }
 

@@ -1,7 +1,7 @@
 <form name="notifications" [formGroup]="form">
     <mat-card>
         <mat-card-header>
-            <mat-icon mat-card-avatar>notifications</mat-icon>
+            <mat-icon color="accent" mat-card-avatar>notifications</mat-icon>
             <mat-card-title>
                 {{'notifications.title' | translate}}
             </mat-card-title>
@@ -56,7 +56,7 @@
                     </button>
                     <button matSuffix mat-mini-fab color="accent" (click)="deleteSubscription(i)"
                         matTooltip="{{'notifications.delete-subscription' | translate}}">
-                        <mat-icon>delete</mat-icon>
+                        <mat-icon>clear</mat-icon>
                     </button>
                     <mat-error *ngIf="subscription.invalid">
                         {{'notifications.invalid-subscriptionname'|translate}}

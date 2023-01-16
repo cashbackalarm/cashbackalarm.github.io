@@ -7,7 +7,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ImprintComponent {
 
-  frontend: string = environment.frontend;
+  url: string = environment.url;
+  email: string = environment.email;
 
   constructor() {
   }

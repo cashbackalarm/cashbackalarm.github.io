@@ -34,7 +34,7 @@ export class PasswordResetComponent extends ParamMapSubscriberComponent {
     let passwordReset: PasswordReset = { email: this.form.value.email, password: this.form.value.password, token: this.form.value.token };
     this.cashbackService.resetPassword(passwordReset).subscribe({
       next: () => this.router.navigateByUrl('/login?info=passwordresetted'),
-      error: () => this.router.navigateByUrl('/password-reset?error=passwordresetfailed')
+      error: () => this.setError('passwordresetfailed')
     });
   }
 

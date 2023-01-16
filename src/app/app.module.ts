@@ -75,7 +75,7 @@ export function tokenGetter() {
 const cookieConfig: NgcCookieConsentConfig = {
   animateRevokable: false,
   cookie: {
-    domain: environment.frontend,
+    domain: environment.domain,
     secure: true
   },
   layout: 'basic',

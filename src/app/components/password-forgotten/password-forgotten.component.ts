@@ -12,7 +12,7 @@ export class PasswordForgottenComponent extends ParamMapSubscriberComponent {
 
   form: FormGroup;
 
-  constructor(route: ActivatedRoute, private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
+  constructor(route: ActivatedRoute, private cashbackService: CashbackService, formBuilder: FormBuilder) {
     super(route);
     this.form = formBuilder.group({
       email: ['', [Validators.required, Validators.email]]
@@ -21,8 +21,8 @@ export class PasswordForgottenComponent extends ParamMapSubscriberComponent {
 
   submit(): void {
     this.cashbackService.passwordForgotten(this.form.value.email).subscribe({ 
-      next: () => this.router.navigateByUrl('/password-forgotten?info=mailsent'),
-      error: () => this.router.navigateByUrl('/password-forgotten?error=mailsendfailed')
+      next: () => this.setInfo('mailsent'),
+      error: () => this.setError('mailsendfailed')
     });
   }
 

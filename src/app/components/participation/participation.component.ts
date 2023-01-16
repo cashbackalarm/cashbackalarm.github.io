@@ -108,7 +108,7 @@ export class ParticipationComponent extends AuthenticatedComponent {
       };
       this.cashbackService.addParticipation(participation).subscribe({
         next: () => this.router.navigateByUrl('/participations'),
-        error: () => this.router.navigateByUrl('/participation/new?error=creationfailed')
+        error: () => this.setError('creationfailed')
       });
     } else {
       let participation: ParticipationUpdate = {
@@ -118,7 +118,7 @@ export class ParticipationComponent extends AuthenticatedComponent {
       };
       this.cashbackService.updateParticipation(this.participationKey, participation).subscribe({
         next: () => this.router.navigateByUrl('/participations'),
-        error: () => this.router.navigateByUrl(this.getCurrentUrl() + '?error=updatefailed')
+        error: () => this.setError('updatefailed')
       });
     }
   }

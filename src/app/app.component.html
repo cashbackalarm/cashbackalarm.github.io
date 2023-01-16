@@ -5,8 +5,8 @@
         <a class="flex" routerLink="">
           <img src="{{'assets/logo' + ((isDarkTheme | async) ? '-light' : '') + '.svg'}}" />
           <div>
-            <span><b>Cashback</b></span>
-            <span><b>Alarm</b></span>
+            <span><b>{{'title.1'|translate}}</b></span>
+            <span><b>{{'title.2'|translate}}</b></span>
           </div>
         </a>
         <div>
@@ -58,10 +58,10 @@
               src="{{'assets/GitHub-Mark' + ((isDarkTheme | async) ? '-Light' : '') + '-32px.png'}}" 
               matTooltip="{{'source' | translate}}" /></a>
           <a routerLink="/termsofuse">
-            {{'termsofuse'|translate}}
+            {{'termsofuse.title'|translate}}
           </a>
           <a routerLink="/privacy">
-            {{'privacy'|translate}}
+            {{'privacy.title'|translate}}
           </a>
           <a routerLink="/imprint">
             {{'imprint.title'|translate}}

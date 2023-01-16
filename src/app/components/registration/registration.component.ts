@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Registration } from 'src/app/models/registration';
 import { CashbackService } from 'src/app/services/cashback.service';
 import { ParamMapSubscriberComponent } from '../param-map-subscriber/param-map-subscriber.component';
@@ -13,7 +13,7 @@ export class RegistrationComponent extends ParamMapSubscriberComponent {
 
   form: FormGroup;
 
-  constructor(route: ActivatedRoute, private router: Router, private cashbackService: CashbackService, formBuilder: FormBuilder) {
+  constructor(route: ActivatedRoute, private cashbackService: CashbackService, formBuilder: FormBuilder) {
     super(route);
     this.form = formBuilder.group({
       name: ['', [Validators.required]],
@@ -41,8 +41,8 @@ export class RegistrationComponent extends ParamMapSubscriberComponent {
       password: this.form.value.password
     };
     this.cashbackService.register(registration).subscribe({
-      next: () => this.router.navigateByUrl('/registration?info=emailconfirmationrequired'),
-      error: () => this.router.navigateByUrl('/registration?error=registrationfailed')
+      next: () => this.setInfo('emailconfirmationrequired'),
+      error: () => this.setError('registrationfailed')
     });
   }
 

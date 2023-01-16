@@ -29,8 +29,8 @@ export class LoginComponent extends ParamMapSubscriberComponent {
     let token = paramMap.get('token');
     if (token) {
       this.cashbackService.confirmRegistration(token).subscribe({
-        next: () => this.router.navigateByUrl('/login?info=emailconfirmed'),
-        error: () => this.router.navigateByUrl('/login?error=emailconfirmationfailed')
+        next: () => this.setInfo('emailconfirmed'),
+        error: () => this.setError('emailconfirmationfailed')
       });
     }
   }
@@ -50,7 +50,7 @@ export class LoginComponent extends ParamMapSubscriberComponent {
     };
     this.cashbackService.login(login).subscribe({
       next: () => this.router.navigateByUrl(this.redirectUrl ? this.redirectUrl : '/'),
-      error: () => this.router.navigateByUrl('/login?error=unknown')
+      error: () => this.setError('unknown')
     });
   }
 

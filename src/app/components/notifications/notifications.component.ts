@@ -8,7 +8,7 @@ import { AuthenticatedComponent } from '../authenticated/authenticated.component
 import { environment } from '../../../environments/environment';
 import { SwPush } from '@angular/service-worker';
 import { Subscription } from 'src/app/models/subscription';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-notifications',
@@ -20,7 +20,7 @@ export class NotificationsComponent extends AuthenticatedComponent {
   notificationTypes: NotificationType[] = ['email', 'notification'];
   subscriptions: PushSubscriptionJSON[] = [];
 
-  constructor(private router: Router, route: ActivatedRoute, cashbackService: CashbackService, formBuilder: FormBuilder,
+  constructor(route: ActivatedRoute, cashbackService: CashbackService, formBuilder: FormBuilder,
     private swPush: SwPush) {
     super(route, cashbackService);
     this.form = formBuilder.group({
@@ -82,15 +82,15 @@ export class NotificationsComponent extends AuthenticatedComponent {
       })
       .catch(err => {
         console.error("Could not subscribe to notifications", err);
-        this.router.navigateByUrl('/notifications?error=subscriptionfailed')
+        this.setError('subscriptionfailed')
       });
   }
 
   testSubscription(index: number): void {
     let sub = this.subscriptions[index];
     this.cashbackService.testSubscription(sub).subscribe({
-      next: () => this.router.navigateByUrl('/notifications?info=tested'),
-      error: () => this.router.navigateByUrl('/notifications?error=testfailed')
+      next: () => this.setInfo('tested'),
+      error: () => this.setError('testfailed')
     });
   }
 
@@ -120,8 +120,8 @@ export class NotificationsComponent extends AuthenticatedComponent {
       subscriptions: this.getSubscriptions()
     };
     this.cashbackService.updateNotifications(notifications).subscribe({
-      next: () => this.router.navigateByUrl('/notifications?info=updated'),
-      error: () => this.router.navigateByUrl('/notifications?error=updatefailed')
+      next: () => this.setInfo('updated'),
+      error: () => this.setError('updatefailed')
     });
   }
 
