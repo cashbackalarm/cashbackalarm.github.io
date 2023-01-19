@@ -38,7 +38,7 @@
                 </label>
                 <h4>{{'notifications.subscriptions' | translate}}</h4>
                 <div><small>{{'notifications.subscriptions-hint' | translate}}</small></div>
-                <button mat-flat-button color="accent" (click)="addSubscription()">
+                <button mat-flat-button color="accent" (click)="addSubscription()" aria-label="add subscription">
                     <mat-icon>add</mat-icon>
                     {{'notifications.add-subscription' | translate}}
                 </button>
@@ -48,11 +48,12 @@
                         <mat-label>{{'notifications.subscriptionname' | translate}}</mat-label>
                         <input matInput type="text" [formControlName]="i" />
                         <button matSuffix mat-mini-fab color="accent" (click)="testSubscription(i)"
-                            matTooltip="{{'notifications.test-subscription' | translate}}">
+                            matTooltip="{{'notifications.test-subscription' | translate}}"
+                            aria-label="test subscription">
                             <mat-icon>send</mat-icon>
                         </button>
                         <button matSuffix mat-mini-fab color="accent" (click)="deleteSubscription(i)"
-                            matTooltip="{{'notifications.delete-subscription' | translate}}">
+                            matTooltip="{{'notifications.delete-subscription' | translate}}" aria-label="delete subscription">
                             <mat-icon>clear</mat-icon>
                         </button>
                         <mat-error *ngIf="subscription.invalid">
@@ -62,7 +63,7 @@
                 </ng-container>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
+                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid" aria-label="save settings">
                     {{'save' | translate}}</button>
             </mat-card-actions>
         </mat-card>

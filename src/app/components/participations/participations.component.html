@@ -62,7 +62,8 @@
                                 <a mat-mini-fab color="accent" routerLink="{{'/participations/' + element.key}}">
                                     <mat-icon>edit</mat-icon>
                                 </a>
-                                <button mat-mini-fab color="accent" (click)="deleteParticipation(element.key)">
+                                <button mat-mini-fab color="accent" (click)="deleteParticipation(element.key)"
+                                    aria-label="delete participation">
                                     <mat-icon>delete</mat-icon>
                                 </button>
                             </td>

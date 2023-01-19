@@ -38,7 +38,7 @@
                 </div>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
+                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid" aria-label="login">
                     {{'send' | translate}}</button>
             </mat-card-actions>
         </mat-card>

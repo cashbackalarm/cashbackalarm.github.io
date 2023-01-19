@@ -23,7 +23,7 @@
                             </ng-container>
                             <ng-template #triggerTemplate let-cb>
                                 <span *ngIf="cb">
-                                    <img src="{{cb.img}}" alt="{{cb.title}}"/><span>{{cb.title}}</span>
+                                    <img src="{{cb.img}}" alt="{{cb.title}}" /><span>{{cb.title}}</span>
                                 </span>
                             </ng-template>
                         </mat-select-trigger>
@@ -52,7 +52,8 @@
                 </mat-checkbox>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
+                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid"
+                    aria-label="save participation">
                     {{'save' | translate}}</button>
             </mat-card-actions>
         </mat-card>

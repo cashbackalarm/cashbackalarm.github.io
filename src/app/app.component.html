@@ -10,17 +10,17 @@
         </a>
         <div>
           <button *ngIf="(isDarkTheme | async); else lightTemplate" mat-mini-fab color="accent"
-            (click)="setDarkTheme(false)">
+            (click)="setDarkTheme(false)" aria-label="theme">
             <mat-icon>light_mode</mat-icon>
           </button>
           <ng-template #lightTemplate>
-            <button mat-mini-fab color="accent" (click)="setDarkTheme(true)">
+            <button mat-mini-fab color="accent" (click)="setDarkTheme(true)" aria-label="theme">
               <mat-icon>dark_mode</mat-icon>
             </button>
           </ng-template>
         </div>
         <div>
-          <button *ngIf="me; else loggedOutTemplate" mat-flat-button color="accent" [matMenuTriggerFor]="menu">
+          <button *ngIf="me; else loggedOutTemplate" mat-flat-button color="accent" [matMenuTriggerFor]="menu" aria-label="user menu">
             <mat-icon>face</mat-icon>
             <span>{{me.name}}</span>
           </button>
@@ -40,7 +40,7 @@
             <a mat-menu-item routerLink="/notifications">
               <mat-icon>notifications</mat-icon><span>{{'notifications.title' | translate}}</span>
             </a>
-            <button mat-menu-item (click)="logout()">
+            <button mat-menu-item (click)="logout()" aria-label="logout">
               <mat-icon>logout</mat-icon>{{'user.logout' | translate}}
             </button>
           </mat-menu>
