@@ -9,7 +9,7 @@
         <mat-card-content>
             <h4>{{name}}<br />{{url}}</h4>
             <ng-container *ngFor="let block of blocks">
-                <h4>{{block.title | translate}}</h4>
+                <h4>{{ block.title | translate }}</h4>
                 <ng-container *ngFor="let elem of block.elems">
                     <ng-container [ngTemplateOutlet]="elem.template" [ngTemplateOutletContext]="{$implicit: elem.key}">
                     </ng-container>
@@ -28,4 +28,7 @@
     <a href="{{coffee}}" class="coffee" target="_blank">
         <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" />
     </a>
+</ng-template>
+<ng-template #cookiesTemplate>
+    <app-cookies></app-cookies>
 </ng-template>

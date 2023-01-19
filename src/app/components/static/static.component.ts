@@ -16,10 +16,12 @@ interface Elem {
   template: ''
 })
 export abstract class StaticComponent implements AfterViewInit {
-
+  @ViewChild('h4Template', { read: TemplateRef, static: true }) h4Template!: TemplateRef<any>;
+  @ViewChild('h5Template', { read: TemplateRef, static: true }) h5Template!: TemplateRef<any>;
   @ViewChild('textTemplate', { read: TemplateRef, static: true }) textTemplate!: TemplateRef<any>;
   @ViewChild('interpolTextTemplate', { read: TemplateRef, static: true }) interpolTextTemplate!: TemplateRef<any>;
   @ViewChild('coffeeTemplate', { read: TemplateRef, static: true }) coffeeTemplate!: TemplateRef<any>;
+  @ViewChild('cookiesTemplate', { read: TemplateRef, static: true }) cookiesTemplate!: TemplateRef<any>;
 
   url: string = environment.url;
   email: string = environment.email;
@@ -35,8 +37,9 @@ export abstract class StaticComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     const blocksKey = 'blocks';
     const titleKey = 'title';
-    const paragraphsKey = 'p';
+    const paragraphsKey = 'paragraphs';
     const coffeeKey = 'coffee';
+    const cookiesKey = 'cookies';
     this.translate
       .get(this.prefix + '.' + blocksKey)
       .subscribe(data => {
@@ -48,6 +51,8 @@ export abstract class StaticComponent implements AfterViewInit {
             for (let p of Object.keys(block[paragraphsKey])) {
               if (p == coffeeKey) {
                 elems.push({ template: this.coffeeTemplate });
+              } else if (p == cookiesKey) {
+                elems.push({ template: this.cookiesTemplate });
               } else {
                 let par = block[paragraphsKey][p];
                 elems.push({ key: (this.prefix + '.' + blocksKey + '.' + k + '.' + paragraphsKey + '.' + p), template: par.includes('{{') ? this.interpolTextTemplate : this.textTemplate });

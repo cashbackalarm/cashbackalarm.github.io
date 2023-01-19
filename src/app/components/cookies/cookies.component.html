@@ -1,0 +1,72 @@
+<p>{{ 'cookies.consent' | translate: {url: url} }}</p>
+<p>{{ 'cookies.state' | translate }}
+    <span *ngIf="!answered">{{ 'cookies.states.none' | translate }}</span>
+    <span *ngIf="answered && !consented">{{ 'cookies.states.technical' | translate }}</span>
+    <span *ngIf="answered && consented">{{ 'cookies.states.all' | translate }}</span>
+</p>
+<h5>{{ 'cookies.mandatory.title' | translate }}</h5>
+<p>{{ 'cookies.mandatory.description' | translate }}</p>
+<table class="mat-mdc-table mdc-data-table__table mat-elevation-z8">
+    <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    <tbody class="mdc-data-table__content">
+        <tr class="mat-mdc-row mdc-data-table__row">
+            <td class="mat-mdc-cell mdc-data-table__cell">cookieconsent_status</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{url}}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{ 'cookies.values.cookie' | translate }}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{ 'cookies.values.one-year' | translate }}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">HTTP Cookie</td>
+        </tr>
+        <tr class="mat-mdc-row mdc-data-table__row">
+            <td class="mat-mdc-cell mdc-data-table__cell">theme</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{url}}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{ 'cookies.values.theme' | translate }}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">Session</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">Local Storage</td>
+        </tr>
+        <tr class="mat-mdc-row mdc-data-table__row">
+            <td class="mat-mdc-cell mdc-data-table__cell">access_token</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{url}}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{ 'cookies.values.token' | translate }}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">Local Storage</td>
+        </tr>
+    </tbody>
+</table>
+<h5>{{ 'cookies.statistics.title' | translate }}</h5>
+<p>{{ 'cookies.statistics.description' | translate }}</p>
+<table class="mat-mdc-table mdc-data-table__table mat-elevation-z8">
+    <ng-container *ngTemplateOutlet="headerTemplate"></ng-container>
+    <tbody class="mdc-data-table__content">
+        <tr class="mat-mdc-row mdc-data-table__row">
+            <td class="mat-mdc-cell mdc-data-table__cell">_ga</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">google-analytics.com</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{ 'cookies.values.ga' | translate }}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{ 'cookies.values.two-years' | translate }}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">HTTP Cookie</td>
+        </tr>
+        <tr class="mat-mdc-row mdc-data-table__row">
+            <td class="mat-mdc-cell mdc-data-table__cell">_ga_*</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">google-analytics.com</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{ 'cookies.values.ga_' | translate }}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{ 'cookies.values.two-years' | translate }}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">HTTP Cookie</td>
+        </tr>
+        <tr class="mat-mdc-row mdc-data-table__row">
+            <td class="mat-mdc-cell mdc-data-table__cell">collect</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">google-analytics.com</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">{{ 'cookies.values.collect' | translate }}</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">Session</td>
+            <td class="mat-mdc-cell mdc-data-table__cell">Pixel Tracker</td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #headerTemplate>
+    <thead>
+        <tr class="mat-header-row">
+            <th class="mat-mdc-header-row mdc-data-table__header-row">{{ 'cookies.columns.name' | translate }}</th>
+            <th class="mat-mdc-header-row mdc-data-table__header-row">{{ 'cookies.columns.provider' | translate }}</th>
+            <th class="mat-mdc-header-row mdc-data-table__header-row">{{ 'cookies.columns.purpose' | translate }}</th>
+            <th class="mat-mdc-header-row mdc-data-table__header-row">{{ 'cookies.columns.duration' | translate }}</th>
+            <th class="mat-mdc-header-row mdc-data-table__header-row">{{ 'cookies.columns.type' | translate }}</th>
+        </tr>
+    </thead>
+</ng-template>

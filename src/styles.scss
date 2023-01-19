@@ -94,6 +94,11 @@ td {
     &.warning {
         background-color: rgba(255, 87, 34, 0.5);
     }
+    @media (max-width: 599px) {
+        img {
+            display: none;
+        }
+    }
 }
 
 mat-checkbox {
@@ -151,12 +156,6 @@ mat-checkbox {
         .mat-mdc-card-content {
             display: flex;
             flex-direction: column;
-
-            @media (max-width: 599px) {
-                img {
-                    display: none;
-                }
-            }
         }
 
         .mdc-card__actions {

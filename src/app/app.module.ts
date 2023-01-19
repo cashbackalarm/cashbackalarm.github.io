@@ -37,6 +37,7 @@ import { ParticipationsComponent } from './components/participations/participati
 import { ImprintComponent } from './components/imprint/imprint.component';
 import { TermsOfUseComponent } from './components/termsofuse/termsofuse.component';
 import { PrivacyComponent } from './components/privacy/privacy.component';
+import { CookiesComponent } from './components/cookies/cookies.component';
 import { HourGlassPipe } from './hour-glass-pipe';
 import { CustomMatPaginatorIntl } from './custom-mat-paginator-intl';
 
@@ -116,6 +117,7 @@ registerLocaleData(localeDe);
     ImprintComponent,
     TermsOfUseComponent,
     PrivacyComponent,
+    CookiesComponent,
     HourGlassPipe
   ],
   imports: [
