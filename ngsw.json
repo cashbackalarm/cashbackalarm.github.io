@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1674148170655,
+  "timestamp": 1674148354234,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.0e0991e50f25d18d.js",
+        "/main.7bea294527ff54cc.js",
         "/manifest.webmanifest",
         "/polyfills.9f262af943bba45d.js",
         "/runtime.3ee6516ec129abab.js",
@@ -56,7 +56,7 @@
     "/assets/GitHub-Mark-32px.png": "fabe53eb72f9b6d3d47cd95aff31ffc45c2fdbf8",
     "/assets/GitHub-Mark-Light-32px.png": "b2a79b392657b559776ce122c89e42c42970595f",
     "/assets/cookie_white.svg": "7f02b1af1fa25c2584c97e537681b314eed62bc1",
-    "/assets/i18n/de.json": "85834d8ec2ee031b3f5559c7d34704a0bf442ea2",
+    "/assets/i18n/de.json": "135a12374c3defe77e23698c15a2571ec49e95a6",
     "/assets/icons/icon-128x128.png": "e0284a22bced1dfdc41c37ae0dd9a5f543d18ec0",
     "/assets/icons/icon-144x144.png": "c7bf7e6343b8ea9ccc47cc0e4768bc20ca27ea6e",
     "/assets/icons/icon-152x152.png": "efe3c2b7d4ee8e52c0ee65ce0b67ed743ac2cc6f",
@@ -68,8 +68,8 @@
     "/assets/logo-light.svg": "e91f76b042a9aa50baf77227fd9cef88d6a3fac2",
     "/assets/logo.svg": "7b897e74c299fb4683545c8818e5b99153075b08",
     "/favicon.ico": "0d7eabd9a130ff22cd8d4a4ee7aebac51cbbacc7",
-    "/index.html": "23f2b8d21e442eb10f3a63cf03b500cda9d50cdd",
-    "/main.0e0991e50f25d18d.js": "efae27c03467c7cddf3d315c38cd79ae6ca4debe",
+    "/index.html": "5c7954bd7d4df767f28ad4dfa3ec61a64be2c746",
+    "/main.7bea294527ff54cc.js": "0269b7b2b9079a8630f2fd395f00ff11f2a4f9c9",
     "/manifest.webmanifest": "c733aff4f3c350ad7860066a3ee498f79398fcfc",
     "/material-icons.59322316b3fd6063.woff2": "0bc0c675480d94ec7e8609dda6227f88c5d08d2c",
     "/polyfills.9f262af943bba45d.js": "9d280459b8629144e6d9a7aa123af2fd17b2b5b7",
