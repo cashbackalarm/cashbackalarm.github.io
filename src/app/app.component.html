@@ -5,8 +5,7 @@
         <a class="flex" routerLink="">
           <img src="{{'assets/logo' + ((isDarkTheme | async) ? '-light' : '') + '.svg'}}" />
           <div>
-            <span><b>{{'title.1'|translate}}</b></span>
-            <span><b>{{'title.2'|translate}}</b></span>
+            <span *ngFor="let s of name.split(' ')" ><b>{{s}}</b></span>
           </div>
         </a>
         <div>

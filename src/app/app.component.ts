@@ -10,6 +10,7 @@ import { Moment } from 'moment';
 import { CashbackService } from './services/cashback.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticatedComponent } from './components/authenticated/authenticated.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,7 @@ import { AuthenticatedComponent } from './components/authenticated/authenticated
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent extends AuthenticatedComponent {
+  name = environment.name;
   isDarkTheme: Observable<boolean>;
   private statusChangeSubscription: Subscription;
   private initializedSubscription: Subscription;
