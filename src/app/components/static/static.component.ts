@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
 
@@ -15,7 +15,7 @@ interface Elem {
 @Component({
   template: ''
 })
-export abstract class StaticComponent implements AfterViewInit {
+export abstract class StaticComponent implements OnInit {
   @ViewChild('h4Template', { read: TemplateRef, static: true }) h4Template!: TemplateRef<any>;
   @ViewChild('h5Template', { read: TemplateRef, static: true }) h5Template!: TemplateRef<any>;
   @ViewChild('textTemplate', { read: TemplateRef, static: true }) textTemplate!: TemplateRef<any>;
@@ -34,7 +34,7 @@ export abstract class StaticComponent implements AfterViewInit {
     this.prefix = this.getPageName();
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     const blocksKey = 'blocks';
     const titleKey = 'title';
     const paragraphsKey = 'paragraphs';
@@ -61,7 +61,6 @@ export abstract class StaticComponent implements AfterViewInit {
           }
           blocks.push({ title: (this.prefix + '.' + blocksKey + '.' + k + '.' + titleKey), elems: elems });
         }
-        console.log(blocks)
         this.blocks = blocks;
       });
   }
