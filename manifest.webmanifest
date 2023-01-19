@@ -1,7 +1,7 @@
 {
   "name": "cashback-alarm",
   "short_name": "cashback-alarm",
-  "theme_color": "#1976d2",
+  "theme_color": "#ff5722",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
