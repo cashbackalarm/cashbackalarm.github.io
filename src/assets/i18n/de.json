@@ -22,7 +22,7 @@
     "home": {
         "cashback": {
             "1": "Aktuelle Cashback Aktionen",
-            "2": "Hier hast du den Überblick über aktuelle Cashback Aktionen."
+            "2": "Hier hast Du den Überblick über aktuelle Cashback Aktionen."
         },
         "participation": {
             "1": "Erfassung deiner Teilnahmen",
@@ -30,61 +30,81 @@
         },
         "notification": {
             "1": "Benachrichtigungen",
-            "2": "Auf Wunsch wirst du per Email oder Web-Push-Benachrichtigung über wichtige Erreignisse informiert."
+            "2": "Auf Wunsch wirst Du per E-Mail- oder Web-Push-Benachrichtigung über wichtige Erreignisse informiert."
         },
         "advantages": "Die Vorteile",
         "cashbacks": "Aktuelle Cashback Aktionen"
     },
     "imprint": {
+        "menu": "Impressum",
         "title": "Impressum",
-        "contact": "Kontakt",
-        "email": "Email: {{email}}",
-        "project": {
-            "title": "Vorstellung",
-            "description": "Diese Webseite ist ein Hobby-Projekt und nutzt aktuell kostenlose Hosting und Mailing Lösungen. Bei genug Interesse, würden wir auf professionelle Lösungen umsteigen."
-        },
-        "content": {
-            "title": "Haftung für Inhalte",
-            "description": "Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen."
-        },
-        "copyright": {
-            "title": "Urheberrecht",
-            "description": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen."
-        },
-        "links": {
-            "title": "Haftung für Links",
-            "description": "Die Webseite enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen."
-        },
-        "thirdparty": "Wir verwenden für unser Angebot externe Dienstleister. Dazu zählen Github, Deta und Google."
+        "blocks": {
+            "1": {
+                "title": "Kontakt",
+                "p": {
+                    "1": "E-Mail: {{email}}"
+                }
+            },
+            "2": {
+                "title": "Vorstellung",
+                "p": {
+                    "1": "Diese Webseite ist ein Hobby-Projekt und nutzt aktuell kostenlose Hosting und Mailing Lösungen. Bei genug Interesse, würden wir auf professionelle Lösungen umsteigen.",
+                    "coffee": ""
+                }
+            },
+            "3": {
+                "title": "Haftung für Inhalte",
+                "p": {
+                    "1": "Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen."
+                }
+            },
+            "4": {
+                "title": "Urheberrecht",
+                "p": {
+                    "1": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen."
+                }
+            },
+            "5": {
+                "title": "Haftung für Links",
+                "p": {
+                    "1": "Die Webseite enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen."
+                }
+            },
+            "6": {
+                "title": "Externe Dienstleister",
+                "p": {
+                    "1": "Wir verwenden für unsere Dienste externe Dienstleister. Dazu zählen Github, Deta und Google."
+                }
+            }
+        }
     },
     "login": {
         "title": "Anmelden",
         "error": {
-            "tokenexpired": "Melde dich bitte an.",
+            "tokenexpired": "Melde Dich bitte an.",
             "wrongcredentials": "Die Anmeldedaten sind falsch.",
             "userlocked": "Dein Konto ist gesperrt.",
-            "emailnotconfirmed": "Bitte bestätige deine Email-Adresse, indem du auf den Link in der Registrierungsbestätigung klickst.",
-            "emailconfirmationfailed": "Die Bestätgigung deiner Email-Adresse ist fehlgeschlagen.",
+            "emailnotconfirmed": "Bitte bestätige deine E-Mail-Adresse, indem Du auf den Link in der Registrierungsbestätigung klickst.",
+            "emailconfirmationfailed": "Die Bestätgigung deiner E-Mail-Adresse ist fehlgeschlagen.",
             "unknown": "Ein unerwarteter Fehler ist aufgetreten."
         },
         "info": {
-            "emailconfirmed": "Deine Email-Adresse wurde bestätigt, es kann los gehen! Denke daran Benachrichtigungen in deinem persönlichen Bereich zu konfigurieren, falls du welche erhlaten möchtest.",
+            "emailconfirmed": "Deine E-Mail-Adresse wurde bestätigt, es kann los gehen! Denke daran Benachrichtigungen in deinem persönlichen Bereich zu konfigurieren, falls Du welche erhlaten möchtest.",
             "passwordresetted": "Dein Password wurde zurückgesetzt."
         },
         "to-registration": "Kein Konto?",
         "to-password-forgotten": "Passwort vergessen?"
     },
-    "name": "Cashback Alarm",
     "notifications": {
         "title": "Benachrichtigungen",
         "cashbacks": "Zu Cashback Aktionen",
         "cashbacks-hint": "Veröffentlichung, Aktionstart, baldige Aktionsende",
         "participations": "Zu deinen Teilnahmen",
         "participations-hint": "Erinnerung zu prüfen, ob das Geld erstattet worden ist",
-        "email": "Email",
-        "email-info": "Die Email-Adresse womit du dich registriert hast wird verwendet.",
-        "notification": "Web-Push-Benachrichtigung",
-        "notification-info": "Dafür musst du unter Abonnements Benachrichtigungen für dein Gerät erlauben.",
+        "email": "E-Mail",
+        "email-info": "Die E-Mail-Adresse womit Du Dich registriert hast wird verwendet.",
+        "web-push": "Web-Push",
+        "web-push-info": "Dafür musst Dich mit dem Gerät abonnieren, der die Benachrichtigungen erhalten soll. Dein Browser wird Dich um Erlaubnis fragen.",
         "subscriptions": "Web-Push-Benachrichtigungen Abonnements",
         "subscriptions-hint": "Welche Geräte dürfen Benachrichigungen empfangen?",
         "add-subscription": "Mit diesem Gerät abonnieren",
@@ -93,7 +113,7 @@
         "subscriptionname": "Gerätname",
         "invalid-subscriptionname": "Der Gerätname darf nicht leer sein",
         "error": {
-            "subscriptionfailed": "Es hat leider nicht geklappt. Entweder hast du Benachrichtigungen für diese Seite blockiert oder dein Browser unterstützt Web-Push-Benachrichtigungen noch nicht (Apple Geräte).",
+            "subscriptionfailed": "Es hat leider nicht geklappt. Entweder hast Du Benachrichtigungen für diese Seite blockiert oder dein Browser unterstützt Web-Push-Benachrichtigungen noch nicht (Apple Geräte).",
             "updatefailed": "Deine Änderungen konntent nicht gespeichert werden.",
             "testfailed": "Der Test ist fehlgeschlagen."
         },
@@ -144,6 +164,7 @@
         }
     },
     "privacy": {
+        "menu": "Datenschutz",
         "title": "Datenschutz"
     },
     "registration": {
@@ -152,12 +173,107 @@
             "registrationfailed": "Die Registrierung ist fehlgeschlagen."
         },
         "info": {
-            "emailconfirmationrequired": "Gehe bitte zu deiner Mailbox und bestätige deine Email-Adresse."
+            "emailconfirmationrequired": "Gehe bitte zu deiner Mailbox und bestätige deine E-Mail-Adresse."
         },
-        "to-login": "Hast du schon ein Konto?"
+        "to-login": "Hast Du schon ein Konto?"
     },
     "termsofuse": {
-        "title": "AGB"
+        "menu": "AGB",
+        "title": "Nutzungsbedingungen",
+        "blocks": {
+            "1": {
+                "title": "Anwendungsbereich",
+                "p": {
+                    "1": "Diese Nutzungsbedingungen gelten für die Dienste von {{name}} und regeln die Rechte und Pflichten von {{name}} und den Nutzern.",
+                    "2": "{{name}} ist eine Plattform rund um Cashback Aktionen. Besucher der Webseite können die Übersicht der Cashback Aktionen nutzen. Angemeldete Nutzer erhalten Zugang zu einem persönlichen Bereich, wo sie Profildaten ändern können, Teilnahmen erfassen und nachverfolgen können und E-Mail- und Web-Push-Benachrichtigungen konfigurieren können.",
+                    "3": "Die genauen Angebotskonditionen können je nach Aktion verschieden sein und befinden sich direkt auf der jeweiligen Webseite des Anbieters.",
+                    "4": "Die Nutzung der Dienste von {{name}} setzt voraus, dass Sie diese Nutzungsbedingungen zustimmen."
+                }
+            },
+            "2": {
+                "title": "Registrierung",
+                "p": {
+                    "1": "Die Nutzung mancher unseren Dienste setzt voraus, dass Sie sich registrieren.",
+                    "2": "Im Rahmen des Registrierungsprozesses werden folgende personenbezogene Daten, die Sie in eine Eingabemaske eingeben, von uns verarbeitet: Name, E-Mail Adresse.",
+                    "3": "Für die Registrierung verwenden wir das sog. Double-opt-in-Verfahren. Dabei erhalten Sie eine E-Mail mit einem Link, über den Sie bestätigen können, dass Sie der Inhaber der E-Mail-Adresse sind und einen Nutzer-Account auf {{url}} anlegen möchten. Erfolgt Ihre Bestätigung nicht innerhalb von 24 Stunden, werden Ihre Anmeldung und Ihre dabei bereitgestellten personenbezogenen Daten automatisch gelöscht."
+                }
+            },
+            "3": {
+                "title": "Allgemeine Nutzungsbedingungen",
+                "p": {
+                    "1": "Die Nutzung der über unsere Webseite und aktionsgebundene Landing Pages bereitgestellten Dienste ist kostenfrei. Gegebenenfalls können zusätzliche Verbindungskosten gemäß Ihrer bestehenden Mobilfunk-/Internetanschlussverträge entstehen.",
+                    "2": "Der Nutzer ist zur rechtmäßigen Nutzung unserer Dienste verpflichtet. Er darf weder gegen diese Nutzungsbedingungen oder geltendes deutsches Recht verstoßen noch die Rechte Dritter verletzen. Dies gilt sinngemäß auch, wenn der Nutzer einer weiteren Person in seiner Sphäre die Nutzung seines Zugangs zu unseren Dienste erlaubt.",
+                    "3": "Eine von diesen Nutzungsbedingungen abweichende oder missbräuchliche Nutzung unserer Dienste ist nicht zulässig. Eine missbräuchliche Nutzung liegt insbesondere vor, wenn Sie unsere Dienste in einer Art und Weise nutzen, die zur Überlastung, Schädigung, oder Nichterreichbarkeit unserer Dienste führt, oder die Beschädigung oder Löschung von Daten, Inhalten, oder Angeboten zur Folge hat, oder in anderer Weise in unsere Dienste eingreifen. Wenn Sie hiergegen verstoßen, kann {{name}} Sie von der Nutzung der Dienste zeitweilig oder auf Dauer ausschließen und ggf. rechtliche Schritte einleiten.",
+                    "4": "{{name}} führt ständig Neuerungen ein, um die Dienste noch besser zu machen - so können beispielsweise einzelne Funktionen oder Features hinzugefügt oder entfernt werden.",
+                    "5": "Hiermit bestätigen Sie, dass wir die Form und Art unserer Dienste jederzeit und unangekündigt ändern können. Hierzu kann auch die Einstellung einzelner Dienste oder des kompletten Angebots gehören."
+                }
+            },
+            "4": {
+                "title": " Urheber- und sonstige Leistungsschutzrechte",
+                "p": {
+                    "1": " Die durch {{name}} auf der Webseite integrierten, abgebildeten, veröffentlichten und zur Verfügung gestellten Inhalte, insbesondere Logos sowie Marken- und Produktnamen sind Eigentum der jeweiligen Inhaber und sind ggf. gesetzlich oder vertraglich durch Urheber- und/Lizenzvereinbarungen geschützt.",
+                    "2": "{{name}} behält sämtliche Urheber- und sonstige Rechte an dem Dienst sowie den Datenbanken (nachfolgend \"geschütztes Eigentum\" genannt). Eine Veränderung, Kopie, Wiederveröffentlichung, Übertragung an Dritte, Verbreitung oder Speicherung des geschützten Eigentums ohne vorherige Zustimmung von {{name}} ist ausdrücklich untersagt."
+                }
+            },
+            "5": {
+                "title": "Parsen und automatisches Auslesen von Daten",
+                "p": {
+                    "1": " Speziell für Software, Verzeichnisse, Daten und deren Inhalte gilt: Das Parsen und automatische Auslesen von Daten auf der Webseite {{url}} ist nicht erlaubt. Jegliche kommerzielle Nutzung ist unzulässig. {{name}} behält sich bei Verletzung dieses Verbotes eine Zurückverfolgung und die Einleitung rechtlicher Schritte vor."
+                }
+            },
+            "6": {
+                "title": "Gewährleistung",
+                "p": {
+                    "1": " {{name}} übernimmt keine Gewähr für den Inhalt und die Verfügbarkeit der von den Partnern angebotenen Cashback Aktionen, und zwar sowohl im Hinblick auf die gekauften Produkte oder in Anspruch genommenen Dienstleistungen als auch hinsichtlich der jeweils hinterlegten Bedingungen. Eine Produkt- und/oder Mängelhaftung von {{name}} für bei den Partnern unter Nutzung der Dienste erworbenen Produkte bzw. Dienstleistungen ist ausdrücklich ausgeschlossen.",
+                    "2": "{{name}} ist stets bemüht, alle Angaben und Informationen auf der Webseite {{url}} aktuell zu halten. In regelmäßigen Abständen überprüfen wir alle Inhalte und aktualisieren diese, wenn nötig. Trotz sorgfältiger Kontrolle kann es jedoch zu Irrtümern bzgl. der Angaben kommen. {{name}} übernimmt daher keine Gewähr und gibt auch keine Garantie dafür, dass die Inhalte und Angaben aktuell, korrekt und vollständig sind. Alle Angaben zu den Aktionen sind unverbindlich und vorbehaltlich der Akzeptanz des jeweiligen Partners.",
+                    "3": "Obwohl wir uns bemühen, unseren Dienste ohne technische Störungen anzubieten, können insbesondere Wartungsarbeiten, Weiterentwicklung und/oder andere Störungen die Nutzungsmöglichkeiten einschränken und/oder zeitweise unterbrechen. Unter Umständen kann es hierbei zu Datenverlusten kommen. {{name}} übernimmt daher keine Gewähr für die Verfügbarkeit der Dienste oder das Ausbleiben von technischen Störungen oder Datenverlusten."
+                }
+            },
+            "7": {
+                "title": "Haftung",
+                "p": {
+                    "1": "Sowohl die Haftung von {{name}} als auch von Ihnen ist auf Vorsatz, Arglist und grobe Fahrlässigkeit beschränkt, soweit nicht aufgrund gesetzlicher Bestimmungen eine hiervon abweichende Regelung zwingend vorgeschrieben ist. Eine Haftung für grobe Fahrlässigkeit ist begrenzt auf typische und zum Zeitpunkt der Nutzung der Dienste vorhersehbare Schäden.",
+                    "2": "Eine Haftung für ggf. entstehende mittelbare oder Folgeschäden (u.a. entgangene Erstattung) ist ausgeschlossen. Ferner ist die Geltendmachung von Schäden, die aufgrund folgender Umstände entstehen, ausgeschlossen:",
+                    "3": "- aus Ihrem Vertrauen auf die Vollständigkeit, Richtigkeit oder das Vorhandensein der auf unserer Webseite {{url}} abgebildeten Inhalte,",
+                    "4": "- aufgrund von Änderungen, die {{name}} vornimmt und die zu einer dauerhaften oder vorübergehenden Einstellung der Dienste führen,",
+                    "5": "- mangelhafte Sicherung Ihres Kundenkontos, beispielsweise durch ein unsicheres Passwort, oder unzureichende Geheimhaltung Ihrer Anmeldedaten."
+                }
+            },
+            "8": {
+                "title": "Kündigung bzw. Beendigung des Nutzungsvertrages",
+                "p": {
+                    "1": "Sie können die Nutzung unserer Dienste jederzeit ohne Einhaltung einer Frist beenden.",
+                    "2": "Die Nutzung unserer Dienste endet ferner, ohne dass es einer Kündigung bedarf, wenn das Einverständnis mit der Geltung der Nutzungsbedingungen und der Datenschutzerklärung widerrufen wird.",
+                    "3": "Der Nutzer kann ferner den Nutzungsvertrag auch durch eigenes Löschen des Nutzerkontos mit sofortiger Wirkung beenden. In diesem Fall werden alle dazugehörigen Daten sofort aus dem System entfernt. {{name}} wird den Nutzer vor der Löschung auf die vorgenannten Folgen hinweisen.",
+                    "4": "{{name}} kann den Nutzungsvertrag jederzeit ohne Einhaltung einer Frist kündigen.",
+                    "5": "Das Recht zur Kündigung aus wichtigem Grund, insbesondere bei schuldhafter Verletzung dieser Nutzungsbedingungen, bleibt {{name}} unbenommen. Im Falle einer Kündigung aus wichtigem Grund wird die Nutzung unserer Diente für Sie sofort gesperrt.",
+                    "6": "In jedem Fall der vorgenannten Beendigung des Nutzungsvertrages ist eine Nutzung der Dienste nicht mehr möglich. Spätestens nach 2 Jahren werden sämtliche Nutzerdaten gelöscht."
+                }
+            },
+            "9": {
+                "title": "Datenschutz",
+                "p": {
+                    "1": "Bei Nutzung unserer Webseite {{url}} verarbeiten wir standardmäßig verschiedene, auch personenbezogene, Daten unserer Nutzer. In unserer Datenschutzerklärung erläutern wir Ihnen, wie {{name}} mit Ihren Daten umgeht und diese Daten schützt, wenn Sie unsere Dienste nutzen."
+                }
+            },
+            "10": {
+                "title": "Änderungen dieser Nutzungsbedingungen",
+                "p": {
+                    "1": "{{name}} kann diese Nutzungsbedingungen jederzeit einseitig mit Wirkung für die Zukunft ändern, wenn dies (i) zur Anpassung an eine veränderte Gesetzeslage, oder (ii) zur Anpassung an die höchstrichterliche Rechtsprechung oder Befolgung behördlicher Entscheidungen, oder (iii) zur Regelung neuer Leistungen ohne nachteilige Beeinträchtigung des Nutzers erforderlich ist, sowie (iv) bei allen für den Nutzer rein vorteilhaften Änderungen. {{name}} wird in diesen Fällen die Nutzer mit einer Ankündigungsfrist von mindestens vier Wochen vor dem Zeitpunkt des Inkrafttretens über die Änderung der Nutzungsbedingungen per E-Mail unterrichten und sie auf ihr nachfolgend beschriebenes Widerspruchs- bzw. Kündigungsrecht und seine Folgen hinweisen. Die Änderungsmitteilung muss nicht die geänderte Nutzungsbedingung selbst enthalten; {{name}} muss jedoch mitteilen, wo die geänderten Nutzungsbedingungen vom Nutzer in zumutbarer Weise eingesehen oder erlangt werden können. Eine Änderung dieser Nutzungsbedingungen gilt als vom Nutzer genehmigt, wenn dieser nicht innerhalb von vier Wochen nach Erhalt der Änderungsmitteilung widerspricht oder den Vertrag ordentlich kündigt. Die entsprechenden Änderungen treten mit diesem Zeitpunkt in Kraft, wenn nicht ausdrücklich ein späterer Zeitpunkt für das Inkrafttreten der Änderungen vorgesehen ist. Im Falle eines Widerspruches behält sich {{name}} vor, seinerseits den Vertrag ordentlich zu kündigen.",
+                    "2": "Die jeweils aktuellen Nutzungsbedingungen finden Sie unter {{url}}/termsofservice."
+                }
+            },
+            "11": {
+                "title": "Schlussbestimmungen",
+                "p": {
+                    "1": "Befindet ein zuständiges Gericht oder eine zuständige Behörde eine Bestimmung dieser Nutzungsbedingungen für ungültig, so entfällt diese Bestimmung aus den Nutzungsbedingungen. Die Wirksamkeit und Durchsetzbarkeit der übrigen Bestimmungen bleiben hiervon unberührt.",
+                    "2": "Diese Nutzungsbedingungen sowie Rechtsstreitigkeiten oder Ansprüche aus oder im Zusammenhang mit ihnen oder dem Vertragsgegenstand oder dem Zustandekommen der Bedingungen (einschließlich außervertraglicher Streitigkeiten oder Ansprüche) unterliegen dem Recht der Bundesrepublik Deutschland unter Ausschluss des Internationalen Privatrechts und sind nach diesem Recht auszulegen."
+                }
+            },
+            "12": {
+                "title": "Stand: Januar 2023"
+            }
+        }
     },
     "title": {
         "1": "Cashback",
@@ -166,16 +282,18 @@
     "user": {
         "profile": "Profil",
         "name": "Name",
-        "email": "Email",
-        "password": "Password",
+        "email": "E-Mail-Adresse",
+        "password": "Passwort",
+        "termsofuse-confirmation": "Indem Du ein Konto erstellst, erklärst Du Dich mit der Datenschutzrichtlinie und den Nutzungsbedingungen einverstanden.",
+        "notifications-confirmation": "Ich möchte keine Aktion verpassen und auf dem Laufenden gehalten werden (Web-Push und E-Mail). Ich kann diese Angaben jederzeit in meinen Kontoeinstellungen widerrufen.",
         "token": "Token",
         "registration": "Registriert am",
         "last-login": "Letzte Anmeldung am",
         "delete": "Konto löschen",
-        "confirmation": "Ja, ich will mein Konto unwiderruflich löschen. Die damit verbundenen Daten werden umgehend gelöscht. Eine Wiederherstellung der gelöschten Daten is nicht möglich.",
+        "delete-confirmation": "Ja, ich will mein Konto unwiderruflich löschen. Die damit verbundenen Daten werden umgehend gelöscht. Eine Wiederherstellung der gelöschten Daten is nicht möglich.",
         "logout": "Abmelden",
         "invalid-name": "Der Name ist ungültig",
-        "invalid-email": "Die Email Adresse ist ungültig",
+        "invalid-email": "Die E-Mail-Adresse ist ungültig",
         "invalid-password": "Mindestens 12 Zeichen lang sein",
         "error": {
             "updatefailed": "Deine Änderungen konnten nicht gespeichert werden.",

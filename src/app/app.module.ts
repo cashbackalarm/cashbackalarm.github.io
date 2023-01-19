@@ -35,6 +35,8 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { ParticipationComponent } from './components/participation/participation.component';
 import { ParticipationsComponent } from './components/participations/participations.component';
 import { ImprintComponent } from './components/imprint/imprint.component';
+import { TermsOfUseComponent } from './components/termsofuse/termsofuse.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
 import { HourGlassPipe } from './hour-glass-pipe';
 import { CustomMatPaginatorIntl } from './custom-mat-paginator-intl';
 
@@ -112,6 +114,8 @@ registerLocaleData(localeDe);
     ParticipationComponent,
     NotificationsComponent,
     ImprintComponent,
+    TermsOfUseComponent,
+    PrivacyComponent,
     HourGlassPipe
   ],
   imports: [

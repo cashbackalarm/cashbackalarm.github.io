@@ -17,7 +17,7 @@ import { ActivatedRoute } from '@angular/router';
 export class NotificationsComponent extends AuthenticatedComponent {
 
   form: FormGroup;
-  notificationTypes: NotificationType[] = ['email', 'notification'];
+  notificationTypes: NotificationType[] = ['email', 'web-push'];
   subscriptions: PushSubscriptionJSON[] = [];
 
   constructor(route: ActivatedRoute, cashbackService: CashbackService, formBuilder: FormBuilder,

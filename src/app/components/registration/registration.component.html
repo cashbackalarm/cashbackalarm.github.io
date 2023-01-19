@@ -28,9 +28,19 @@
                 <input type="password" matInput name="password" formControlName="password" />
                 <mat-error *ngIf="password.invalid">{{'user.invalid-password'|translate}}</mat-error>
             </mat-form-field>
-            <div class="mat-form-field links">
+            <p>
+                <mat-checkbox name="confirmation" formControlName="confirmation">
+                    {{'user.termsofuse-confirmation' | translate}}
+                </mat-checkbox>
+            </p>
+            <p>
+                <mat-checkbox name="notifications" formControlName="notifications">
+                    {{'user.notifications-confirmation' | translate}}
+                </mat-checkbox>
+            </p>
+            <p>
                 <a routerLink="/login">{{'registration.to-login' | translate}}</a>
-            </div>
+            </p>
         </mat-card-content>
         <mat-card-actions>
             <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">

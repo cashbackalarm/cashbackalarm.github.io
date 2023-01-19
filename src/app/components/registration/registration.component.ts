@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { SwPush } from '@angular/service-worker';
 import { Registration } from 'src/app/models/registration';
 import { CashbackService } from 'src/app/services/cashback.service';
+import { environment } from 'src/environments/environment';
 import { ParamMapSubscriberComponent } from '../param-map-subscriber/param-map-subscriber.component';
 
 @Component({
@@ -13,12 +15,14 @@ export class RegistrationComponent extends ParamMapSubscriberComponent {
 
   form: FormGroup;
 
-  constructor(route: ActivatedRoute, private cashbackService: CashbackService, formBuilder: FormBuilder) {
+  constructor(route: ActivatedRoute, private cashbackService: CashbackService, private swPush: SwPush, formBuilder: FormBuilder) {
     super(route);
     this.form = formBuilder.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(12)]]
+      password: ['', [Validators.required, Validators.minLength(12)]],
+      confirmation: [false, [Validators.requiredTrue]],
+      notifications: false
     });
   }
 
@@ -34,12 +38,58 @@ export class RegistrationComponent extends ParamMapSubscriberComponent {
     return this.form.controls['password'];
   }
 
+  get confirmation() {
+    return this.form.controls['confirmation'];
+  }
+
   submit(): void {
-    let registration: Registration = {
-      name: this.form.value.name,
-      email: this.form.value.email,
-      password: this.form.value.password
-    };
+    if (this.form.value.notifications) {
+      this.swPush.requestSubscription({
+        serverPublicKey: environment.vapidPublicKey
+      })
+        .then((sub: PushSubscription) => {
+          let registration: Registration = {
+            name: this.form.value.name,
+            email: this.form.value.email,
+            password: this.form.value.password,
+            notifications: {
+              cashbacks: ['email', 'web-push'],
+              participations: ['email', 'web-push'],
+              subscriptions: [{ name: 'Abo-1', subscription: sub }]
+            }
+          };
+          this.register(registration);
+        })
+        .catch(err => {
+          console.error("Could not subscribe to notifications", err);
+          let registration: Registration = {
+            name: this.form.value.name,
+            email: this.form.value.email,
+            password: this.form.value.password,
+            notifications: {
+              cashbacks: ['email'],
+              participations: ['email'],
+              subscriptions: []
+            }
+          };
+          this.register(registration);
+        });
+    } else {
+      let registration: Registration = {
+        name: this.form.value.name,
+        email: this.form.value.email,
+        password: this.form.value.password,
+        notifications: {
+          cashbacks: [],
+          participations: [],
+          subscriptions: []
+        }
+      };
+      this.register(registration);
+    }
+  }
+
+  private register(registration: Registration): void {
     this.cashbackService.register(registration).subscribe({
       next: () => this.setInfo('emailconfirmationrequired'),
       error: () => this.setError('registrationfailed')

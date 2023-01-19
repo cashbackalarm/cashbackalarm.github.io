@@ -11,6 +11,8 @@ import { PasswordForgottenComponent } from './components/password-forgotten/pass
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { TermsOfUseComponent } from './components/termsofuse/termsofuse.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
@@ -36,9 +38,18 @@ const routes: Routes = [
     path: 'notifications',
     component: NotificationsComponent,
     canActivate: [AuthGuard]
-  }, {
+  },
+  {
     path: 'imprint',
     component: ImprintComponent
+  },
+  {
+    path: 'termsofuse',
+    component: TermsOfUseComponent
+  },
+  {
+    path: 'privacy',
+    component: PrivacyComponent
   },
   { path: '**', component: HomeComponent }
 ];

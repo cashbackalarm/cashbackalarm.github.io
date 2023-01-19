@@ -1,1 +1,1 @@
-export type NotificationType = 'email' | 'notification';
+export type NotificationType = 'email' | 'web-push';
