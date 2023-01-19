@@ -1,51 +1,53 @@
-<form name="profile" [formGroup]="form">
-    <mat-card *ngIf="me && profile">
-        <mat-card-header>
-            <mat-icon color="accent" mat-card-avatar>face</mat-icon>
-            <mat-card-title>
-                {{'user.profile' | translate}}
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
-                {{'user.error.' + error | translate}}
-            </p>
-            <p *ngIf="info" class="mat-form-field banner">
-                {{'user.info.' + info | translate}}
-            </p>
-            <mat-form-field appearance="fill">
-                <mat-label>{{'user.name' | translate}}</mat-label>
-                <input type="text" matInput name="name" formControlName="name" />
-                <button matSuffix mat-mini-fab color="primary" (click)="cancelEdit('name')">
-                    <mat-icon>cancel</mat-icon>
-                </button>
-                <button matSuffix mat-mini-fab color="accent" (click)="updateName()" [disabled]="name.invalid">
-                    <mat-icon>save</mat-icon>
-                </button>
-            </mat-form-field>
-            <p>
-                <span>{{'user.email' | translate}}: </span>
-                <span>{{profile.email}}</span>
-            </p>
-            <p>
-                <span>{{'user.registration' | translate}}: </span>
-                <span>{{(profile.registration * 1000) | date : 'short'}}</span>
-            </p>
-            <p>
-                <span>{{'user.last-login' | translate}}: </span>
-                <span>{{(profile.lastLogin * 1000) | date : 'short'}}</span>
-            </p>
-            <h4>{{'user.delete' | translate}}</h4>
-            <p>
-                <mat-checkbox name="confirmation" formControlName="confirmation">
-                    {{'user.delete-confirmation' | translate}}
-                </mat-checkbox>
-            </p>
-            <div>
-                <button mat-flat-button color="warn" (click)="deleteUser()" [disabled]="confirmation.invalid">
-                    <mat-icon>delete</mat-icon><span>{{'user.delete'|translate}}</span>
-                </button>
-            </div>
-        </mat-card-content>
-    </mat-card>
-</form>
+<div class="centered-content">
+    <form name="profile" [formGroup]="form">
+        <mat-card *ngIf="me && profile">
+            <mat-card-header>
+                <mat-icon color="accent" mat-card-avatar>face</mat-icon>
+                <mat-card-title>
+                    {{'user.profile' | translate}}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
+                    {{'user.error.' + error | translate}}
+                </p>
+                <p *ngIf="info" class="mat-form-field banner">
+                    {{'user.info.' + info | translate}}
+                </p>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'user.name' | translate}}</mat-label>
+                    <input type="text" matInput name="name" formControlName="name" />
+                    <button matSuffix mat-mini-fab color="primary" (click)="cancelEdit('name')">
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                    <button matSuffix mat-mini-fab color="accent" (click)="updateName()" [disabled]="name.invalid">
+                        <mat-icon>save</mat-icon>
+                    </button>
+                </mat-form-field>
+                <p>
+                    <span>{{'user.email' | translate}}: </span>
+                    <span>{{profile.email}}</span>
+                </p>
+                <p>
+                    <span>{{'user.registration' | translate}}: </span>
+                    <span>{{(profile.registration * 1000) | date : 'short'}}</span>
+                </p>
+                <p>
+                    <span>{{'user.last-login' | translate}}: </span>
+                    <span>{{(profile.lastLogin * 1000) | date : 'short'}}</span>
+                </p>
+                <h4>{{'user.delete' | translate}}</h4>
+                <p>
+                    <mat-checkbox name="confirmation" formControlName="confirmation">
+                        {{'user.delete-confirmation' | translate}}
+                    </mat-checkbox>
+                </p>
+                <div>
+                    <button mat-flat-button color="warn" (click)="deleteUser()" [disabled]="confirmation.invalid">
+                        <mat-icon>delete</mat-icon><span>{{'user.delete'|translate}}</span>
+                    </button>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </form>
+</div>

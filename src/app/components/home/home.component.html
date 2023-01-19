@@ -1,60 +1,62 @@
-<h3>{{'home.advantages' | translate}}</h3>
-<div>
-    <mat-card>
-        <mat-card-header>
-            <mat-icon color="accent" mat-card-avatar>grid_view</mat-icon>
-            <mat-card-title>{{'home.cashback.1' | translate}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p>{{'home.cashback.2' | translate}}</p>
-        </mat-card-content>
-    </mat-card>
-    <mat-card>
-        <mat-card-header>
-            <mat-icon color="accent" mat-card-avatar>view_list</mat-icon>
-            <mat-card-title>{{'home.participation.1' | translate}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p>{{'home.participation.2' | translate}}</p>
-        </mat-card-content>
-    </mat-card>
-    <mat-card>
-        <mat-card-header>
-            <mat-icon color="accent" mat-card-avatar>notifications</mat-icon>
-            <mat-card-title>{{'home.notification.1' | translate}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p>{{'home.notification.2' | translate}}</p>
-        </mat-card-content>
-    </mat-card>
-</div>
-<h3>{{'home.cashbacks' | translate}}</h3>
-<div>
-    <mat-card *ngFor="let cashback of cashbacks">
-        <mat-card-header>
-            <mat-icon mat-card-avatar color="accent">{{cashback|toHourGlass}}</mat-icon>
-            <mat-card-title>{{cashback.title}}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="{{cashback.img}}">
-        <mat-card-content>
-            <div class="cashback">
-                <div *ngIf="cashback.start">
-                    {{'cashback.period' | translate: {
-                    start: ((cashback.start * 1000) | date : 'shortDate'),
-                    end: ((cashback.end * 1000) | date : 'shortDate')
-                    } }}</div>
-                <div *ngIf="!cashback.start">{{'cashback.end' | translate: {
-                    end: ((cashback.end * 1000) | date : 'shortDate')
-                    } }}</div>
-                <div *ngIf="cashback.upload">{{'cashback.upload' | translate: {
-                    upload: ((cashback.upload * 1000) | date : 'shortDate')
-                    } }}</div>
-            </div>
-        </mat-card-content>
-        <mat-card-actions>
-            <a mat-flat-button color="accent" href="{{cashback.link}}">
-                {{'cashback.open-page' | translate}}
-            </a>
-        </mat-card-actions>
-    </mat-card>
+<div class="centered-content">
+    <h3>{{'home.advantages' | translate}}</h3>
+    <div>
+        <mat-card>
+            <mat-card-header>
+                <mat-icon color="accent" mat-card-avatar>grid_view</mat-icon>
+                <mat-card-title>{{'home.cashback.1' | translate}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{'home.cashback.2' | translate}}</p>
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <mat-card-header>
+                <mat-icon color="accent" mat-card-avatar>view_list</mat-icon>
+                <mat-card-title>{{'home.participation.1' | translate}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{'home.participation.2' | translate}}</p>
+            </mat-card-content>
+        </mat-card>
+        <mat-card>
+            <mat-card-header>
+                <mat-icon color="accent" mat-card-avatar>notifications</mat-icon>
+                <mat-card-title>{{'home.notification.1' | translate}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{'home.notification.2' | translate}}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <h3>{{'home.cashbacks' | translate}}</h3>
+    <div>
+        <mat-card *ngFor="let cashback of cashbacks">
+            <mat-card-header>
+                <mat-icon mat-card-avatar color="accent">{{cashback|toHourGlass}}</mat-icon>
+                <mat-card-title>{{cashback.title}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="{{cashback.img}}">
+            <mat-card-content>
+                <div class="cashback">
+                    <div *ngIf="cashback.start">
+                        {{'cashback.period' | translate: {
+                        start: ((cashback.start * 1000) | date : 'shortDate'),
+                        end: ((cashback.end * 1000) | date : 'shortDate')
+                        } }}</div>
+                    <div *ngIf="!cashback.start">{{'cashback.end' | translate: {
+                        end: ((cashback.end * 1000) | date : 'shortDate')
+                        } }}</div>
+                    <div *ngIf="cashback.upload">{{'cashback.upload' | translate: {
+                        upload: ((cashback.upload * 1000) | date : 'shortDate')
+                        } }}</div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-flat-button color="accent" href="{{cashback.link}}">
+                    {{'cashback.open-page' | translate}}
+                </a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </div>

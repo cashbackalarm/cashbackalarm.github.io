@@ -1,43 +1,46 @@
-<form name="login" [formGroup]="form">
-    <mat-card>
-        <mat-card-header>
-            <mat-icon color="accent" mat-card-avatar>login</mat-icon>
-            <mat-card-title>
-                {{'login.title' | translate}}
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
-                {{'login.error.' + error | translate}}
-            </p>
-            <p *ngIf="info" class="mat-form-field banner">
-                {{'login.info.' + info | translate}}
-            </p>
-            <mat-form-field appearance="fill">
-                <mat-label>{{'user.email' | translate}}</mat-label>
-                <input type="email" matInput name="email" formControlName="email" />
-                <mat-error *ngIf="email.invalid">{{'user.invalid-email'|translate}}</mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>{{'user.password' | translate}}</mat-label>
-                <input [type]="showPassword? 'text' : 'password'" matInput name="password" formControlName="password" />
-                <mat-icon matSuffix (click)="showPassword = !showPassword">{{showPassword ? 'visibility' :
-                    'visibility_off'}}
-                </mat-icon>
-                <mat-error *ngIf="password.invalid">{{'user.invalid-password'|translate}}</mat-error>
-            </mat-form-field>
-            <div class="mat-form-field links">
-                <a routerLink="/registration">
-                    {{'login.to-registration' | translate}}
-                </a>
-                <a routerLink="/password-forgotten">
-                    {{'login.to-password-forgotten' | translate}}
-                </a>
-            </div>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
-                {{'send' | translate}}</button>
-        </mat-card-actions>
-    </mat-card>
-</form>
+<div class="centered-content">
+    <form name="login" [formGroup]="form">
+        <mat-card>
+            <mat-card-header>
+                <mat-icon color="accent" mat-card-avatar>login</mat-icon>
+                <mat-card-title>
+                    {{'login.title' | translate}}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
+                    {{'login.error.' + error | translate}}
+                </p>
+                <p *ngIf="info" class="mat-form-field banner">
+                    {{'login.info.' + info | translate}}
+                </p>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'user.email' | translate}}</mat-label>
+                    <input type="email" matInput name="email" formControlName="email" />
+                    <mat-error *ngIf="email.invalid">{{'user.invalid-email'|translate}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'user.password' | translate}}</mat-label>
+                    <input [type]="showPassword? 'text' : 'password'" matInput name="password"
+                        formControlName="password" />
+                    <mat-icon matSuffix (click)="showPassword = !showPassword">{{showPassword ? 'visibility' :
+                        'visibility_off'}}
+                    </mat-icon>
+                    <mat-error *ngIf="password.invalid">{{'user.invalid-password'|translate}}</mat-error>
+                </mat-form-field>
+                <div class="mat-form-field links">
+                    <a routerLink="/registration">
+                        {{'login.to-registration' | translate}}
+                    </a>
+                    <a routerLink="/password-forgotten">
+                        {{'login.to-password-forgotten' | translate}}
+                    </a>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
+                    {{'send' | translate}}</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>

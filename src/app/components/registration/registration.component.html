@@ -1,50 +1,52 @@
-<form name="registration" [formGroup]="form">
-    <mat-card>
-        <mat-card-header>
-            <mat-icon color="accent" mat-card-avatar>app_registration</mat-icon>
-            <mat-card-title>
-                {{'registration.title' | translate}}
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
-                {{'registration.error.' + error | translate}}
-            </p>
-            <p *ngIf="info" class="mat-form-field banner">
-                {{'registration.info.' + info | translate}}
-            </p>
-            <mat-form-field appearance="fill">
-                <mat-label>{{'user.name' | translate}}</mat-label>
-                <input type="text" matInput name="name" formControlName="name" />
-                <mat-error *ngIf="name.invalid">{{'user.invalid-name'|translate}}</mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>{{'user.email' | translate}}</mat-label>
-                <input type="email" matInput name="email" formControlName="email" />
-                <mat-error *ngIf="email.invalid">{{'user.invalid-email'|translate}}</mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>{{'user.password' | translate}}</mat-label>
-                <input type="password" matInput name="password" formControlName="password" />
-                <mat-error *ngIf="password.invalid">{{'user.invalid-password'|translate}}</mat-error>
-            </mat-form-field>
-            <p>
-                <mat-checkbox name="confirmation" formControlName="confirmation">
-                    {{'user.termsofuse-confirmation' | translate}}
-                </mat-checkbox>
-            </p>
-            <p>
-                <mat-checkbox name="notifications" formControlName="notifications">
-                    {{'user.notifications-confirmation' | translate}}
-                </mat-checkbox>
-            </p>
-            <p>
-                <a routerLink="/login">{{'registration.to-login' | translate}}</a>
-            </p>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
-                {{'send' | translate}}</button>
-        </mat-card-actions>
-    </mat-card>
-</form>
+<div class="centered-content">
+    <form name="registration" [formGroup]="form">
+        <mat-card>
+            <mat-card-header>
+                <mat-icon color="accent" mat-card-avatar>app_registration</mat-icon>
+                <mat-card-title>
+                    {{'registration.title' | translate}}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
+                    {{'registration.error.' + error | translate}}
+                </p>
+                <p *ngIf="info" class="mat-form-field banner">
+                    {{'registration.info.' + info | translate}}
+                </p>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'user.name' | translate}}</mat-label>
+                    <input type="text" matInput name="name" formControlName="name" />
+                    <mat-error *ngIf="name.invalid">{{'user.invalid-name'|translate}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'user.email' | translate}}</mat-label>
+                    <input type="email" matInput name="email" formControlName="email" />
+                    <mat-error *ngIf="email.invalid">{{'user.invalid-email'|translate}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'user.password' | translate}}</mat-label>
+                    <input type="password" matInput name="password" formControlName="password" />
+                    <mat-error *ngIf="password.invalid">{{'user.invalid-password'|translate}}</mat-error>
+                </mat-form-field>
+                <p>
+                    <mat-checkbox name="confirmation" formControlName="confirmation">
+                        {{'user.termsofuse-confirmation' | translate}}
+                    </mat-checkbox>
+                </p>
+                <p>
+                    <mat-checkbox name="notifications" formControlName="notifications">
+                        {{'user.notifications-confirmation' | translate}}
+                    </mat-checkbox>
+                </p>
+                <p>
+                    <a routerLink="/login">{{'registration.to-login' | translate}}</a>
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
+                    {{'send' | translate}}</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>

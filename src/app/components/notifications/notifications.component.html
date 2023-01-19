@@ -1,68 +1,70 @@
-<form name="notifications" [formGroup]="form">
-    <mat-card>
-        <mat-card-header>
-            <mat-icon color="accent" mat-card-avatar>notifications</mat-icon>
-            <mat-card-title>
-                {{'notifications.title' | translate}}
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
-                {{'notifications.error.' + error | translate}}
-            </p>
-            <p *ngIf="info" class="mat-form-field banner">
-                {{'notifications.info.' + info | translate}}
-            </p>
-            <h4>{{'notifications.cashbacks' | translate}}</h4>
-            <div><small>{{'notifications.cashbacks-hint' | translate}}</small></div>
-            <label formArrayName="cashbacks"
-                *ngFor="let notificationType of cashbacksFormArray.controls; let i = index">
-                <mat-checkbox [formControlName]="i">
-                    {{'notifications.' + notificationTypes[i] | translate}}
-                    <mat-icon color="accent"
-                        matTooltip="{{'notifications.' + notificationTypes[i] + '-info' | translate}}">info
-                    </mat-icon>
-                </mat-checkbox>
-            </label>
-            <h4>{{'notifications.participations' | translate}}</h4>
-            <div><small>{{'notifications.participations-hint' | translate}}</small></div>
-            <label formArrayName="participations"
-                *ngFor="let notificationType of participationsFormArray.controls; let i = index">
-                <mat-checkbox [formControlName]="i">
-                    {{'notifications.' + notificationTypes[i] | translate}}
-                    <mat-icon color="accent"
-                        matTooltip="{{'notifications.' + notificationTypes[i] + '-info' | translate}}">info
-                    </mat-icon>
-                </mat-checkbox>
-            </label>
-            <h4>{{'notifications.subscriptions' | translate}}</h4>
-            <div><small>{{'notifications.subscriptions-hint' | translate}}</small></div>
-            <button mat-flat-button color="accent" (click)="addSubscription()">
-                <mat-icon>add</mat-icon>
-                {{'notifications.add-subscription' | translate}}
-            </button>
-            <ng-container formArrayName="subscriptions">
-                <mat-form-field appearance="fill"
-                    *ngFor="let subscription of subscriptionsFormArray.controls; let i = index">
-                    <mat-label>{{'notifications.subscriptionname' | translate}}</mat-label>
-                    <input matInput type="text" [formControlName]="i" />
-                    <button matSuffix mat-mini-fab color="accent" (click)="testSubscription(i)"
-                        matTooltip="{{'notifications.test-subscription' | translate}}">
-                        <mat-icon>send</mat-icon>
-                    </button>
-                    <button matSuffix mat-mini-fab color="accent" (click)="deleteSubscription(i)"
-                        matTooltip="{{'notifications.delete-subscription' | translate}}">
-                        <mat-icon>clear</mat-icon>
-                    </button>
-                    <mat-error *ngIf="subscription.invalid">
-                        {{'notifications.invalid-subscriptionname'|translate}}
-                    </mat-error>
-                </mat-form-field>
-            </ng-container>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
-                {{'save' | translate}}</button>
-        </mat-card-actions>
-    </mat-card>
-</form>
+<div class="centered-content">
+    <<form name="notifications" [formGroup]="form">
+        <mat-card>
+            <mat-card-header>
+                <mat-icon color="accent" mat-card-avatar>notifications</mat-icon>
+                <mat-card-title>
+                    {{'notifications.title' | translate}}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
+                    {{'notifications.error.' + error | translate}}
+                </p>
+                <p *ngIf="info" class="mat-form-field banner">
+                    {{'notifications.info.' + info | translate}}
+                </p>
+                <h4>{{'notifications.cashbacks' | translate}}</h4>
+                <div><small>{{'notifications.cashbacks-hint' | translate}}</small></div>
+                <label formArrayName="cashbacks"
+                    *ngFor="let notificationType of cashbacksFormArray.controls; let i = index">
+                    <mat-checkbox [formControlName]="i">
+                        {{'notifications.' + notificationTypes[i] | translate}}
+                        <mat-icon color="accent"
+                            matTooltip="{{'notifications.' + notificationTypes[i] + '-info' | translate}}">info
+                        </mat-icon>
+                    </mat-checkbox>
+                </label>
+                <h4>{{'notifications.participations' | translate}}</h4>
+                <div><small>{{'notifications.participations-hint' | translate}}</small></div>
+                <label formArrayName="participations"
+                    *ngFor="let notificationType of participationsFormArray.controls; let i = index">
+                    <mat-checkbox [formControlName]="i">
+                        {{'notifications.' + notificationTypes[i] | translate}}
+                        <mat-icon color="accent"
+                            matTooltip="{{'notifications.' + notificationTypes[i] + '-info' | translate}}">info
+                        </mat-icon>
+                    </mat-checkbox>
+                </label>
+                <h4>{{'notifications.subscriptions' | translate}}</h4>
+                <div><small>{{'notifications.subscriptions-hint' | translate}}</small></div>
+                <button mat-flat-button color="accent" (click)="addSubscription()">
+                    <mat-icon>add</mat-icon>
+                    {{'notifications.add-subscription' | translate}}
+                </button>
+                <ng-container formArrayName="subscriptions">
+                    <mat-form-field appearance="fill"
+                        *ngFor="let subscription of subscriptionsFormArray.controls; let i = index">
+                        <mat-label>{{'notifications.subscriptionname' | translate}}</mat-label>
+                        <input matInput type="text" [formControlName]="i" />
+                        <button matSuffix mat-mini-fab color="accent" (click)="testSubscription(i)"
+                            matTooltip="{{'notifications.test-subscription' | translate}}">
+                            <mat-icon>send</mat-icon>
+                        </button>
+                        <button matSuffix mat-mini-fab color="accent" (click)="deleteSubscription(i)"
+                            matTooltip="{{'notifications.delete-subscription' | translate}}">
+                            <mat-icon>clear</mat-icon>
+                        </button>
+                        <mat-error *ngIf="subscription.invalid">
+                            {{'notifications.invalid-subscriptionname'|translate}}
+                        </mat-error>
+                    </mat-form-field>
+                </ng-container>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
+                    {{'save' | translate}}</button>
+            </mat-card-actions>
+        </mat-card>
+        </form>
+</div>

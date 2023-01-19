@@ -1,58 +1,60 @@
-<form name="participation" [formGroup]="form">
-    <mat-card>
-        <mat-card-header>
-            <mat-icon color="accent" mat-card-avatar>attach_money</mat-icon>
-            <mat-card-title>
-                {{'participation.' + (participationKey == 'new'? 'add' : 'edit') | translate}}
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
-                {{'participation.error.' + error | translate}}
-            </p>
-            <p *ngIf="info" class="mat-form-field banner">
-                {{'participation.info.' + info | translate}}
-            </p>
-            <mat-form-field appearance="fill">
-                <mat-label>{{'participation.cashback' | translate}}</mat-label>
-                <mat-select formControlName="cashback">
-                    <mat-select-trigger>
-                        <ng-container [ngTemplateOutlet]="triggerTemplate"
-                            [ngTemplateOutletContext]="{$implicit: getCashback()}">
-                        </ng-container>
-                        <ng-template #triggerTemplate let-cb>
-                            <span *ngIf="cb">
-                                <img src="{{cb.img}}" /><span>{{cb.title}}</span>
-                            </span>
-                        </ng-template>
-                    </mat-select-trigger>
-                    <mat-option *ngFor="let cashback of cashbacks" [value]="cashback.key">
-                        <img src="{{cashback.img}}" /><span>{{cashback.title}}</span>
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>{{'participation.amount' | translate}}</mat-label>
-                <input type="number" matInput name="amount" formControlName="amount" />
-                <mat-error *ngIf="amount.invalid">{{'participation.invalid-amount'|translate}}</mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="fill">
-                <mat-label>{{'participation.reminder'|translate}}</mat-label>
-                <input matInput [ngxMatDatetimePicker]="picker" name="reminder" formControlName="reminder">
-                <mat-hint>DD.MM.YYYY HH:MM</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="$any(picker)"></mat-datepicker-toggle>
-                <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false" [stepHour]="1"
-                    [stepMinute]="1" [enableMeridian]="false" [disableMinute]="false" [hideTime]="false">
-                </ngx-mat-datetime-picker>
-                <mat-error *ngIf="reminder.invalid">{{'participation.invalid-reminder'|translate}}</mat-error>
-            </mat-form-field>
-            <mat-checkbox name="completed" formControlName="completed">
-                {{'participation.completed' | translate}}
-            </mat-checkbox>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
-                {{'save' | translate}}</button>
-        </mat-card-actions>
-    </mat-card>
-</form>
+<div class="centered-content">
+    <form name="participation" [formGroup]="form">
+        <mat-card>
+            <mat-card-header>
+                <mat-icon color="accent" mat-card-avatar>attach_money</mat-icon>
+                <mat-card-title>
+                    {{'participation.' + (participationKey == 'new'? 'add' : 'edit') | translate}}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p *ngIf="error" class="mat-form-field banner mat-mdc-form-field-error">
+                    {{'participation.error.' + error | translate}}
+                </p>
+                <p *ngIf="info" class="mat-form-field banner">
+                    {{'participation.info.' + info | translate}}
+                </p>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'participation.cashback' | translate}}</mat-label>
+                    <mat-select formControlName="cashback">
+                        <mat-select-trigger>
+                            <ng-container [ngTemplateOutlet]="triggerTemplate"
+                                [ngTemplateOutletContext]="{$implicit: getCashback()}">
+                            </ng-container>
+                            <ng-template #triggerTemplate let-cb>
+                                <span *ngIf="cb">
+                                    <img src="{{cb.img}}" /><span>{{cb.title}}</span>
+                                </span>
+                            </ng-template>
+                        </mat-select-trigger>
+                        <mat-option *ngFor="let cashback of cashbacks" [value]="cashback.key">
+                            <img src="{{cashback.img}}" /><span>{{cashback.title}}</span>
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'participation.amount' | translate}}</mat-label>
+                    <input type="number" matInput name="amount" formControlName="amount" />
+                    <mat-error *ngIf="amount.invalid">{{'participation.invalid-amount'|translate}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'participation.reminder'|translate}}</mat-label>
+                    <input matInput [ngxMatDatetimePicker]="picker" name="reminder" formControlName="reminder">
+                    <mat-hint>DD.MM.YYYY HH:MM</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #picker [showSpinners]="true" [showSeconds]="false" [stepHour]="1"
+                        [stepMinute]="1" [enableMeridian]="false" [disableMinute]="false" [hideTime]="false">
+                    </ngx-mat-datetime-picker>
+                    <mat-error *ngIf="reminder.invalid">{{'participation.invalid-reminder'|translate}}</mat-error>
+                </mat-form-field>
+                <mat-checkbox name="completed" formControlName="completed">
+                    {{'participation.completed' | translate}}
+                </mat-checkbox>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid">
+                    {{'save' | translate}}</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>
