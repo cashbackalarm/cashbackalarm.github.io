@@ -56,15 +56,15 @@
     "home": {
         "cashback": {
             "1": "Aktuelle Cashback Aktionen",
-            "2": "Hier hast Du den Überblick über aktuelle Cashback Aktionen."
+            "2": "Hier hast Du den Überblick über aktuelle Cashback Aktionen. An der Sanduhr erkennst du wie viel Zeit übrig ist."
         },
         "participation": {
             "1": "Erfassung deiner Teilnahmen",
-            "2": "In deinem persönlichen Bereich kannst deine Teilnahmen erfassen und nachverfolgen."
+            "2": "In deinem persönlichen Bereich kannst deine Teilnahmen erfassen, Erinnerungen dafür setzen und bequem Kontakt mit dem Anbieter aufnehmen."
         },
         "notification": {
             "1": "Benachrichtigungen",
-            "2": "Auf Wunsch wirst Du per E-Mail- oder Web-Push-Benachrichtigung über wichtige Erreignisse informiert."
+            "2": "Auf Wunsch wirst Du per E-Mail- oder Web-Push-Benachrichtigung über neue Cashback Aktionen informiert oder daran erinnert dein Kontoauszug zu kontrollieren."
         },
         "advantages": "Die Vorteile",
         "cashbacks": "Aktuelle Cashback Aktionen"
