@@ -86,14 +86,6 @@ const cookieConfig: NgcCookieConsentConfig = {
     countryCode: 'DE',
     regionalLaw: false
   },
-  palette: {
-    popup: {
-      background: '#000'
-    },
-    button: {
-      background: '#ff5722'
-    }
-  },
   revokable: true,
   revokeBtn: '<div class="cc-revoke {{classes}}"><img src="assets/cookie_white.svg" role="button" onclick="this.parentNode.click()" alt="cookie" /></div>',
   theme: 'block',

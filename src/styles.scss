@@ -67,9 +67,18 @@ body {
             height: 24px;
         }
     }
+
+    .cc-window {
+        background-color: #000000;
+        color: #ffffff;
+
+        .cc-btn.cc-allow {
+            background-color: #ff5722;
+            border-width: 0px;
+            border-radius: var(--mdc-filled-button-container-shape, var(--mdc-shape-small, 4px));
+        }
+    }
 }
-
-
 
 mat-form-field {
     width: 100%;
@@ -82,19 +91,20 @@ mat-form-field {
 table {
     width: 100%;
     overflow: auto;
-}
 
-td {
-    .mdc-fab--mini {
-        margin-left: 4px;
-    }
+    td {
+        .mdc-fab--mini {
+            margin-left: 4px;
+        }
 
-    &.warning {
-        background-color: rgba(255, 87, 34, 0.5);
-    }
-    @media (max-width: 599px) {
-        img {
-            display: none;
+        &.warning {
+            background-color: rgba(255, 87, 34, 0.5);
+        }
+
+        @media (max-width: 599px) {
+            img {
+                display: none;
+            }
         }
     }
 }
