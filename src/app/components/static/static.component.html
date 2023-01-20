@@ -9,26 +9,19 @@
         <mat-card-content>
             <h4>{{name}}<br />{{url}}</h4>
             <ng-container *ngFor="let block of blocks">
-                <h4>{{ block.title | translate }}</h4>
-                <ng-container *ngFor="let elem of block.elems">
-                    <ng-container [ngTemplateOutlet]="elem.template" [ngTemplateOutletContext]="{$implicit: elem.key}">
+                <h4>{{ prefix + '.blocks.' + block.key + '.title' | translate }}</h4>
+                <ng-container *ngFor="let parKey of block.parKeys">
+                    <ng-container [ngSwitch]="parKey">
+                        <app-cookies *ngSwitchCase="'cookies'"></app-cookies>
+                        <a *ngSwitchCase="'coffee'" href="{{coffee}}" class="coffee" target="_blank">
+                            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                                alt="Buy Me A Coffee" />
+                        </a>
+                        <p *ngSwitchDefault>{{ prefix + '.blocks.' + block.key +
+                            '.paragraphs.' + parKey | translate: {name: name, url: url, email: email} }}</p>
                     </ng-container>
                 </ng-container>
             </ng-container>
         </mat-card-content>
     </mat-card>
 </div>
-<ng-template #textTemplate let-key>
-    <p>{{ key | translate }}</p>
-</ng-template>
-<ng-template #interpolTextTemplate let-key>
-    <p>{{ key | translate: {name: name, url: url, email: email} }}</p>
-</ng-template>
-<ng-template #coffeeTemplate>
-    <a href="{{coffee}}" class="coffee" target="_blank">
-        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" />
-    </a>
-</ng-template>
-<ng-template #cookiesTemplate>
-    <app-cookies></app-cookies>
-</ng-template>
