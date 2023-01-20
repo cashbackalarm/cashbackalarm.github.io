@@ -63,9 +63,7 @@ body {
         background-color: #ff5722;
 
         img {
-            min-width: auto;
-            min-height: auto;
-            width: 24px;
+            width: auto;
             height: 24px;
         }
     }
@@ -166,12 +164,14 @@ mat-checkbox {
 mat-option {
     span {
         display: flex;
+        align-items: center;
     }
 }
 
 mat-select-trigger {
     span {
         display: flex;
+        align-items: center;
 
         span {
             white-space: normal;
@@ -180,10 +180,10 @@ mat-select-trigger {
 }
 
 img {
-    min-width: 60px;
-    min-height: 40px;
-    width: 60px;
-    height: 40px;
+    width: auto;
+    height: auto;
+    max-height: 40px;
+    max-width: 60px;
 }
 
 h3 {
@@ -198,7 +198,8 @@ h4 {
 
 p {
     max-width: 400px;
-    margin-block-start: 0.5em;
+    margin-block-start: 0em;
     margin-block-end: 0.5em;
+    margin-top: 0em;
     margin-bottom: 0.5em;
 }

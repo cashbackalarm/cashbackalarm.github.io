@@ -1,5 +1,5 @@
 <div class="centered-content">
-    <<form name="notifications" [formGroup]="form">
+    <form name="notifications" [formGroup]="form">
         <mat-card>
             <mat-card-header>
                 <mat-icon color="accent" mat-card-avatar>notifications</mat-icon>
@@ -38,10 +38,12 @@
                 </label>
                 <h4>{{'notifications.subscriptions' | translate}}</h4>
                 <div><small>{{'notifications.subscriptions-hint' | translate}}</small></div>
-                <button mat-flat-button color="accent" (click)="addSubscription()" aria-label="add subscription">
-                    <mat-icon>add</mat-icon>
-                    {{'notifications.add-subscription' | translate}}
-                </button>
+                <div class="mdc-card__actions">
+                    <button mat-flat-button color="accent" (click)="addSubscription()" aria-label="add subscription">
+                        <mat-icon>add</mat-icon>
+                        {{'notifications.add-subscription' | translate}}
+                    </button>
+                </div>
                 <ng-container formArrayName="subscriptions">
                     <mat-form-field appearance="fill"
                         *ngFor="let subscription of subscriptionsFormArray.controls; let i = index">
@@ -53,7 +55,8 @@
                             <mat-icon>send</mat-icon>
                         </button>
                         <button matSuffix mat-mini-fab color="accent" (click)="deleteSubscription(i)"
-                            matTooltip="{{'notifications.delete-subscription' | translate}}" aria-label="delete subscription">
+                            matTooltip="{{'notifications.delete-subscription' | translate}}"
+                            aria-label="delete subscription">
                             <mat-icon>clear</mat-icon>
                         </button>
                         <mat-error *ngIf="subscription.invalid">
@@ -63,7 +66,8 @@
                 </ng-container>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid" aria-label="save settings">
+                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid"
+                    aria-label="save settings">
                     {{'save' | translate}}</button>
             </mat-card-actions>
         </mat-card>

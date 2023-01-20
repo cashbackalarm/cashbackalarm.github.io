@@ -12,10 +12,10 @@ header {
         a {
 
             img {
-                min-width: auto;
-                min-height: 64px;
                 width: auto;
                 height: 64px;
+                max-width: none;
+                max-height: none;
                 margin-right: 16px;
 
                 @media (max-width: 599px) {
@@ -61,8 +61,6 @@ footer {
 
                 .github {
                     img {
-                        min-height: auto;
-                        min-width: auto;
                         height: 24px;
                         width: auto;
                     }
