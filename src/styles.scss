@@ -77,6 +77,11 @@ body {
             border-width: 0px;
             border-radius: var(--mdc-filled-button-container-shape, var(--mdc-shape-small, 4px));
         }
+
+        .cc-link:active,
+        .cc-link:visited {
+            color: #ffffff;
+        }
     }
 }
 

@@ -21,6 +21,7 @@
 
       &,
       &:visited,
+      &:-webkit-link,
       &:-webkit-any-link {
         text-decoration: none;
       }
