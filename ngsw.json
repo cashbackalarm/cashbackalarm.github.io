@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1674241681097,
+  "timestamp": 1674243353432,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -18,7 +18,7 @@
         "/polyfills.9f262af943bba45d.js",
         "/runtime.3ee6516ec129abab.js",
         "/scripts.8cd3c5059dd14741.js",
-        "/styles.9c563d590c92b69d.css"
+        "/styles.65f95ee75822daf2.css"
       ],
       "patterns": []
     },
@@ -68,7 +68,7 @@
     "/assets/logo-light.svg": "e91f76b042a9aa50baf77227fd9cef88d6a3fac2",
     "/assets/logo.svg": "7b897e74c299fb4683545c8818e5b99153075b08",
     "/favicon.ico": "0d7eabd9a130ff22cd8d4a4ee7aebac51cbbacc7",
-    "/index.html": "0e735044853dc8e552a9297770212ddc710920f0",
+    "/index.html": "d5e31ce13eb56704dbc9e4e4c124899e3ea8abae",
     "/main.f5df8750f7d8a55e.js": "0c136143e025727dc350e2f00849611f9d5add7b",
     "/manifest.webmanifest": "c733aff4f3c350ad7860066a3ee498f79398fcfc",
     "/material-icons.59322316b3fd6063.woff2": "0bc0c675480d94ec7e8609dda6227f88c5d08d2c",
@@ -77,7 +77,7 @@
     "/roboto-latin-400-normal.f2894edcf7d09d36.woff2": "7ca9c5967f3bb8bffeab24b639b49c1e7d03fa52",
     "/runtime.3ee6516ec129abab.js": "4345119a249d91381e6946406576a564125b2081",
     "/scripts.8cd3c5059dd14741.js": "55f7bc5580c0cdd5384ab486193936b21c24bd67",
-    "/styles.9c563d590c92b69d.css": "800aa6ef0e98fcf4a3e0f7e0b8f4b71367b94c66"
+    "/styles.65f95ee75822daf2.css": "601817bc426ec19c23b265cbc5326cfd1a8f1c44"
   },
   "navigationUrls": [
     {
