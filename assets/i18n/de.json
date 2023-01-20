@@ -27,30 +27,62 @@
             "mandatory": "Nur notwendige Cookies zulassen.",
             "all": "Alle Cookies zulassen."
         },
-        "mandatory": {
-            "title": "Notwendig (3)",
-            "description": "Notwendige Cookies helfen dabei, eine Webseite nutzbar zu machen, indem sie Grundfunktionen wie Seitennavigation und Zugriff auf sichere Bereiche der Webseite ermöglichen. Die Webseite kann ohne diese Cookies nicht richtig funktionieren."
-        },
-        "statistics": {
-            "title": "Statistiken (3)",
-            "description": "Statistik-Cookies helfen Webseiten-Besitzern zu verstehen, wie Besucher mit Webseiten interagieren, indem Informationen anonym gesammelt und gemeldet werden."
-        },
-        "columns": {
-            "name": "Name",
-            "provider": "Anbieter",
-            "purpose": "Zweck",
-            "duration": "Ablauf",
-            "type": "Typ"
-        },
-        "values": {
-            "one-year": "1 Jahr",
-            "two-years": "2 Jahre",
-            "cookie": "Speichert den Zustimmungsstatus des Nutzers für Cookies auf der aktuellen Domäne.",
-            "theme": "Speichert den ausgewähltem Theme des Nutzers.",
-            "token": "Identifiziert die Sitzung des eingeloggten Benutzers.",
-            "ga": "Dient zur Unterscheidung einzelner Nutzer",
-            "ga_": "Dient zur Speicherung des Sitzungsstatus",
-            "collect": "Wird verwendet, um Daten zu Google Analytics über das Gerät und das Verhalten des Besuchers zu senden."
+        "tables": {
+            "columns": {
+                "name": "Name",
+                "provider": "Anbieter",
+                "purpose": "Zweck",
+                "duration": "Ablauf",
+                "type": "Typ"
+            },
+            "mandatory": {
+                "title": "Notwendig ({{count}})",
+                "description": "Notwendige Cookies helfen dabei, eine Webseite nutzbar zu machen, indem sie Grundfunktionen wie Seitennavigation und Zugriff auf sichere Bereiche der Webseite ermöglichen. Die Webseite kann ohne diese Cookies nicht richtig funktionieren.",
+                "rows": {
+                    "cookieconsent_status": {
+                        "provider": "{{url}}",
+                        "purpose": "Speichert den Zustimmungsstatus des Nutzers für Cookies auf der aktuellen Domäne.",
+                        "duration": "1 Jahr",
+                        "type": "HTTP Cookie"
+                    },
+                    "theme": {
+                        "provider": "{{url}}",
+                        "purpose": "Speichert den ausgewähltem Theme des Nutzers.",
+                        "duration": "Session",
+                        "type": "Local Storage"
+                    },
+                    "access_token": {
+                        "provider": "{{url}}",
+                        "purpose": "Identifiziert die Sitzung des eingeloggten Benutzers.",
+                        "duration": "2 Monate",
+                        "type": "Local Storage"
+                    }
+                }
+            },
+            "statistics": {
+                "title": "Statistiken ({{count}})",
+                "description": "Statistik-Cookies helfen Webseiten-Besitzern zu verstehen, wie Besucher mit Webseiten interagieren, indem Informationen anonym gesammelt und gemeldet werden.",
+                "rows": {
+                    "_ga": {
+                        "provider": "google-analytics.com",
+                        "purpose": "Dient zur Unterscheidung einzelner Nutzer",
+                        "duration": "2 Jahre",
+                        "type": "HTTP Cookie"
+                    },
+                    "_ga_*": {
+                        "provider": "google-analytics.com",
+                        "purpose": "Dient zur Speicherung des Sitzungsstatus",
+                        "duration": "2 Jahre",
+                        "type": "HTTP Cookie"
+                    },
+                    "collect": {
+                        "provider": "google-analytics.com",
+                        "purpose": "Dient zur Unterscheidung einzelner Nutzer",
+                        "duration": "Session",
+                        "type": "Pixel Tracker"
+                    }
+                }
+            }
         }
     },
     "home": {
