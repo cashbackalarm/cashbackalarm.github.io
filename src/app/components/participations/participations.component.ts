@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { Participation } from 'src/app/models/participation';
 import { User } from 'src/app/models/user';
 import { CashbackService } from 'src/app/services/cashback.service';
+import { environment } from 'src/environments/environment';
 import { AuthenticatedComponent } from '../authenticated/authenticated.component';
 
 @Component({
@@ -20,6 +21,7 @@ export class ParticipationsComponent extends AuthenticatedComponent implements A
   displayedColumns: string[] = ['cashback', 'amount', 'reminder', 'completed', 'actions'];
   dataSource = new MatTableDataSource<Participation>();
 
+  cdn = environment.cdn;
   readonly moment = moment;
 
   constructor(route: ActivatedRoute, cashbackService: CashbackService) {

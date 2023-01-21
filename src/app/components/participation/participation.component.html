@@ -23,12 +23,12 @@
                             </ng-container>
                             <ng-template #triggerTemplate let-cb>
                                 <span *ngIf="cb">
-                                    <img src="{{cb.img}}" alt="{{cb.title}}" /><span>{{cb.title}}</span>
+                                    <img src="{{cdn + '/60x40/' + cb.img }}" alt="{{cb.title}}" /><span>{{cb.title}}</span>
                                 </span>
                             </ng-template>
                         </mat-select-trigger>
                         <mat-option *ngFor="let cashback of cashbacks" [value]="cashback.key">
-                            <img src="{{cashback.img}}" alt="{{cashback.title}}" /><span>{{cashback.title}}</span>
+                            <img src="{{cdn + '/60x40/' + cashback.img }}" alt="{{cashback.title}}" /><span>{{cashback.title}}</span>
                         </mat-option>
                     </mat-select>
                 </mat-form-field>

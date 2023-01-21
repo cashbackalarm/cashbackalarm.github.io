@@ -1,7 +1,7 @@
 export interface Cashback {
     key: string;
-    title: string;
     img: string;
+    title: string;
     link: string;
     start?: number;
     end: number;

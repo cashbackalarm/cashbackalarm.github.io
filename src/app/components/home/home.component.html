@@ -38,7 +38,7 @@
             </mat-card-header>
             <mat-card-content>
                 <div class="image">
-                    <img mat-card-image src="{{cashback.img}}" alt="{{cashback.title}}" />
+                    <img mat-card-image src="{{ cdn + '/300x200/' + cashback.img }}" alt="{{cashback.title}}" />
                 </div>
                 <div class="dates">
                     <div *ngIf="cashback.start">

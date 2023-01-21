@@ -106,11 +106,21 @@ table {
             background-color: rgba(255, 87, 34, 0.5);
         }
 
-        @media (max-width: 599px) {
-            img {
-                display: none;
+        a:not(.mat-mdc-button-base) {
+            span {
+                margin-left: 8px;
+            }
+
+            @media (max-width: 599px) {
+                span {
+                    margin-left: 0px;
+                }
+                img {
+                    display: none;
+                }
             }
         }
+
     }
 }
 
@@ -180,6 +190,10 @@ mat-option {
     span {
         display: flex;
         align-items: center;
+
+        span {
+            margin-left: 8px;
+        }
     }
 }
 
@@ -190,6 +204,7 @@ mat-select-trigger {
 
         span {
             white-space: normal;
+            margin-left: 8px;
         }
     }
 }

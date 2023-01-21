@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cashback } from 'src/app/models/cashback';
 import { CashbackService } from 'src/app/services/cashback.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -9,6 +10,7 @@ import { CashbackService } from 'src/app/services/cashback.service';
 })
 export class HomeComponent implements OnInit {
 
+  cdn = environment.cdn;
   cashbacks: Cashback[] = [];
 
   constructor(private cashbackService: CashbackService) {

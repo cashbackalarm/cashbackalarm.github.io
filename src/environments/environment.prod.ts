@@ -1,6 +1,7 @@
 export const environment = {
   production: true,
   backend: 'cashbackalarm.deta.dev',
+  cdn: 'https://cdn-cashbackalarm.deta.dev',
   domain: 'cashbackalarm.github.io',
   name: 'Cashback Alarm',
   email: 'cashbackalarm@gmail.com',

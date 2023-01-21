@@ -8,6 +8,7 @@ import { ParticipationCreation } from 'src/app/models/participation-creation';
 import { ParticipationUpdate } from 'src/app/models/participation-update';
 import { User } from 'src/app/models/user';
 import { CashbackService } from 'src/app/services/cashback.service';
+import { environment } from 'src/environments/environment';
 import { AuthenticatedComponent } from '../authenticated/authenticated.component';
 
 @Component({
@@ -19,6 +20,7 @@ export class ParticipationComponent extends AuthenticatedComponent {
   form: FormGroup;
   cashbacks: Cashback[] = [];
   participationKey: string;
+  cdn = environment.cdn;
   private cashbackByKey = new Map<string, Cashback>();
 
   constructor(route: ActivatedRoute, private router: Router, cashbackService: CashbackService, formBuilder: FormBuilder) {
