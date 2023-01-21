@@ -3,7 +3,7 @@
     <header>
       <mat-toolbar>
         <a class="flex" routerLink="">
-          <img src="{{'assets/logo' + ((isDarkTheme | async) ? '-light' : '') + '.svg'}}" alt="logo" />
+          <img src="{{'assets/logo' + ((isDarkTheme | async) ? '-light' : '') + '.svg'}}" alt="logo" width="64px" height="64px" />
           <div>
             <span *ngFor="let s of name.split(' ')" ><b>{{s}}</b></span>
           </div>
@@ -53,9 +53,10 @@
     <footer>
       <mat-toolbar>
         <div>
-          <a class="github" href="https://github.com/cashbackalarm/cashbackalarm.github.io"><img
-              src="{{'assets/GitHub-Mark' + ((isDarkTheme | async) ? '-Light' : '') + '-32px.png'}}" 
-              matTooltip="{{'source' | translate}}" alt="github" /></a>
+          <a class="github" href="https://github.com/cashbackalarm/cashbackalarm.github.io">
+            <img src="{{'assets/GitHub-Mark' + ((isDarkTheme | async) ? '-Light' : '') + '-32px.png'}}" 
+              matTooltip="{{'source' | translate}}" alt="github"  width="24px" height="24px" />
+          </a>
           <a routerLink="/termsofuse">
             {{'termsofuse.menu'|translate}}
           </a>

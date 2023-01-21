@@ -12,10 +12,6 @@ header {
         a {
 
             img {
-                width: auto;
-                height: 64px;
-                max-width: none;
-                max-height: none;
                 margin-right: 16px;
 
                 @media (max-width: 599px) {
@@ -60,10 +56,6 @@ footer {
                 align-items: center;
 
                 .github {
-                    img {
-                        height: 24px;
-                        width: auto;
-                    }
 
                     @media (max-width: 599px) {
                         display: none;

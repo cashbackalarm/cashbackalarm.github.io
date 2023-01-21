@@ -87,7 +87,7 @@ const cookieConfig: NgcCookieConsentConfig = {
     regionalLaw: false
   },
   revokable: true,
-  revokeBtn: '<div class="cc-revoke {{classes}}"><img src="assets/cookie_white.svg" role="button" onclick="this.parentNode.click()" alt="cookie" /></div>',
+  revokeBtn: '<div class="cc-revoke {{classes}}"><img src="assets/cookie_white.svg" role="button" onclick="this.parentNode.click()" alt="cookie" width="24px" height="24px" /></div>',
   theme: 'block',
   type: 'opt-in'
 };

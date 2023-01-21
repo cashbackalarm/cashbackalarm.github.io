@@ -15,7 +15,7 @@
                         <app-cookies *ngSwitchCase="'cookies'"></app-cookies>
                         <a *ngSwitchCase="'coffee'" href="{{coffee}}" class="coffee" target="_blank">
                             <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
-                                alt="Buy Me A Coffee" />
+                                alt="Buy Me A Coffee" width="171px" height="48px" />
                         </a>
                         <p *ngSwitchDefault>{{ prefix + '.blocks.' + block.key +
                             '.paragraphs.' + parKey | translate: {name: name, url: url, email: email} }}</p>

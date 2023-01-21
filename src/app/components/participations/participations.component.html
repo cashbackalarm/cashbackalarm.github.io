@@ -19,7 +19,7 @@
                             <th mat-header-cell *matHeaderCellDef>{{'participation.cashback'|translate}}</th>
                             <td mat-cell *matCellDef="let element">
                                 <a class="flex" href="{{element.cashback.link}}">
-                                    <img src="{{cdn + '/60x40/' + element.cashback.img}}" />
+                                    <img src="{{cdn + '/60x40/' + element.cashback.img}}" width="60px" height="40px" />
                                     <span>{{element.cashback.title}}</span>
                                 </a>
                             </td>
