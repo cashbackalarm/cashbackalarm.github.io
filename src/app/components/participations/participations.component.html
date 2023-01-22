@@ -46,24 +46,28 @@
                             <th mat-header-cell *matHeaderCellDef></th>
                             <td mat-cell *matCellDef="let element">
                                 <ng-container *ngIf="!element.completed">
-                                    <a mat-mini-fab color="accent" (click)="completeParticipation(element.key)">
+                                    <a mat-mini-fab color="accent" (click)="completeParticipation(element.key)"
+                                        matTooltip="{{'participations.complete' | translate}}">
                                         <mat-icon>check_circle</mat-icon>
                                     </a>
                                     <a *ngIf="element.cashback.contact.includes('@')" mat-mini-fab color="accent"
                                         href="{{'mailto:' + element.cashback.contact}}" target="_blank"
-                                        rel="noopener noreferrer">
+                                        rel="noopener noreferrer" matTooltip="{{'participations.contact' | translate}}">
                                         <mat-icon>mail</mat-icon>
                                     </a>
                                     <a *ngIf="element.cashback.contact.startsWith('https://')" mat-mini-fab
-                                        color="accent" href="{{element.cashback.contact}}">
+                                        color="accent" href="{{element.cashback.contact}}"
+                                        matTooltip="{{'participations.contact' | translate}}">
                                         <mat-icon>open_in_new</mat-icon>
                                     </a>
                                 </ng-container>
-                                <a mat-mini-fab color="accent" routerLink="{{'/participations/' + element.key}}">
+                                <a mat-mini-fab color="accent" routerLink="{{'/participations/' + element.key}}"
+                                    matTooltip="{{'participations.edit' | translate}}">
                                     <mat-icon>edit</mat-icon>
                                 </a>
                                 <button mat-mini-fab color="accent" (click)="deleteParticipation(element.key)"
-                                    aria-label="delete participation">
+                                    aria-label="delete participation"
+                                    matTooltip="{{'participations.delete' | translate}}">
                                     <mat-icon>delete</mat-icon>
                                 </button>
                             </td>

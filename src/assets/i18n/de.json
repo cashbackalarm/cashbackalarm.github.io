@@ -195,6 +195,10 @@
     },
     "participations": {
         "title": "Teilnahmen",
+        "complete": "Teilnahme als abgeschlossen markieren",
+        "contact": "Anbieter kontaktieren",
+        "delete": "Teilnahme löschen",
+        "edit": "Teilnahme editieren",
         "error": {
             "completionfailed": "Das Markieren als abgeschlossen ist fehlgeschlagen.",
             "deletionfailed": "Das Löschen ist fehlgeschlagen."
@@ -206,7 +210,7 @@
         "cashback": "Cashback Aktion",
         "amount": "Betrag (Euro)",
         "reminder": "Erinnerung am",
-        "completed": "Geld erhalten",
+        "completed": "Erstattung erhalten",
         "invalid-amount": "muss positiv sein",
         "invalid-reminder": "muss in der Zukunft liegen",
         "error": {
