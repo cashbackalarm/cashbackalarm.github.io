@@ -43,49 +43,53 @@ export class RegistrationComponent extends ParamMapSubscriberComponent {
   }
 
   submit(): void {
-    if (this.form.value.notifications) {
-      this.swPush.requestSubscription({
-        serverPublicKey: environment.vapidPublicKey
-      })
-        .then((sub: PushSubscription) => {
-          let registration: Registration = {
-            name: this.form.value.name,
-            email: this.form.value.email,
-            password: this.form.value.password,
-            notifications: {
-              cashbacks: ['email', 'web-push'],
-              participations: ['email', 'web-push'],
-              subscriptions: [{ name: 'Abo-1', subscription: sub }]
-            }
-          };
-          this.register(registration);
+    try {
+      if (this.form.value.notifications) {
+        this.swPush.requestSubscription({
+          serverPublicKey: environment.vapidPublicKey
         })
-        .catch(err => {
-          console.error("Could not subscribe to notifications", err);
-          let registration: Registration = {
-            name: this.form.value.name,
-            email: this.form.value.email,
-            password: this.form.value.password,
-            notifications: {
-              cashbacks: ['email'],
-              participations: ['email'],
-              subscriptions: []
-            }
-          };
-          this.register(registration);
-        });
-    } else {
-      let registration: Registration = {
-        name: this.form.value.name,
-        email: this.form.value.email,
-        password: this.form.value.password,
-        notifications: {
-          cashbacks: [],
-          participations: [],
-          subscriptions: []
-        }
-      };
-      this.register(registration);
+          .then((sub: PushSubscription) => {
+            let registration: Registration = {
+              name: this.form.value.name,
+              email: this.form.value.email,
+              password: this.form.value.password,
+              notifications: {
+                cashbacks: ['email', 'web-push'],
+                participations: ['email', 'web-push'],
+                subscriptions: [{ name: 'Abo-1', subscription: sub }]
+              }
+            };
+            this.register(registration);
+          })
+          .catch(err => {
+            console.error("Could not subscribe to notifications", err);
+            let registration: Registration = {
+              name: this.form.value.name,
+              email: this.form.value.email,
+              password: this.form.value.password,
+              notifications: {
+                cashbacks: ['email'],
+                participations: ['email'],
+                subscriptions: []
+              }
+            };
+            this.register(registration);
+          });
+      } else {
+        let registration: Registration = {
+          name: this.form.value.name,
+          email: this.form.value.email,
+          password: this.form.value.password,
+          notifications: {
+            cashbacks: [],
+            participations: [],
+            subscriptions: []
+          }
+        };
+        this.register(registration);
+      }
+    } catch (ex) {
+      console.error("Help me", ex);
     }
   }
 
