@@ -18,7 +18,7 @@
                 <div><small>{{'notifications.cashbacks-hint' | translate}}</small></div>
                 <label formArrayName="cashbacks"
                     *ngFor="let notificationType of cashbacksFormArray.controls; let i = index">
-                    <mat-checkbox [formControlName]="i">
+                    <mat-checkbox [formControlName]="i" (click)="setInfo(null)">
                         {{'notifications.' + notificationTypes[i] | translate}}
                         <mat-icon color="accent"
                             matTooltip="{{'notifications.' + notificationTypes[i] + '-info' | translate}}">info
@@ -29,7 +29,7 @@
                 <div><small>{{'notifications.participations-hint' | translate}}</small></div>
                 <label formArrayName="participations"
                     *ngFor="let notificationType of participationsFormArray.controls; let i = index">
-                    <mat-checkbox [formControlName]="i">
+                    <mat-checkbox [formControlName]="i" (click)="setInfo(null)">
                         {{'notifications.' + notificationTypes[i] | translate}}
                         <mat-icon color="accent"
                             matTooltip="{{'notifications.' + notificationTypes[i] + '-info' | translate}}">info

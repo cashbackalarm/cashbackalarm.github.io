@@ -73,6 +73,7 @@ export class NotificationsComponent extends AuthenticatedComponent {
   }
 
   addSubscription(): void {
+    this.setInfo(null)
     this.swPush.requestSubscription({
       serverPublicKey: environment.vapidPublicKey
     })
