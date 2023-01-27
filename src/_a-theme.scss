@@ -16,15 +16,9 @@
       color: mat.get-color-from-palette($foreground, text);
     }
 
-    header a,
-    a.mat-mdc-button-base {
-
-      &,
-      &:visited,
-      &:-webkit-link,
-      &:-webkit-any-link {
-        text-decoration: none;
-      }
+    header a:-webkit-any-link,
+    a.mat-mdc-button-base:-webkit-any-link {
+      text-decoration-line: none;
     }
 
     footer {
