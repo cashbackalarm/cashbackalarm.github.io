@@ -14,19 +14,18 @@
                 <p *ngIf="info" class="mat-form-field banner">
                     {{'user.info.' + info | translate}}
                 </p>
-                <p>
-                    <mat-form-field appearance="fill">
-                        <mat-label>{{'user.name' | translate}}</mat-label>
-                        <input type="text" matInput name="name" formControlName="name" />
-                    </mat-form-field>
-                    <button mat-mini-fab color="primary" (click)="cancelEdit('name')" aria-label="cancel name edit">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{'user.name' | translate}}</mat-label>
+                    <input type="text" matInput name="name" formControlName="name" />
+                    <button matSuffix mat-mini-fab color="primary" (click)="cancelEdit('name')"
+                        aria-label="cancel name edit">
                         <mat-icon>cancel</mat-icon>
                     </button>
-                    <button mat-mini-fab color="accent" (click)="updateName()" [disabled]="name.invalid"
+                    <button matSuffix mat-mini-fab color="accent" (click)="updateName()" [disabled]="name.invalid"
                         aria-label="save name">
                         <mat-icon>save</mat-icon>
                     </button>
-                </p>
+                </mat-form-field>
                 <p>
                     <span>{{'user.email' | translate}}: </span>
                     <span>{{profile.email}}</span>
