@@ -45,30 +45,29 @@
                     </button>
                 </div>
                 <ng-container formArrayName="subscriptions">
-                    <mat-form-field appearance="fill"
-                        *ngFor="let subscription of subscriptionsFormArray.controls; let i = index">
-                        <mat-label>{{'notifications.subscriptionname' | translate}}</mat-label>
-                        <input matInput type="text" [formControlName]="i" />
-                        <button matSuffix mat-mini-fab color="accent" (click)="submit()" 
-                            matTooltip="{{'save' | translate}}"
-                            [disabled]="subscription.invalid"
-                            aria-label="save name">
+                    <p *ngFor="let subscription of subscriptionsFormArray.controls; let i = index">
+                        <mat-form-field appearance="fill">
+                            <mat-label>{{'notifications.subscriptionname' | translate}}</mat-label>
+                            <input matInput type="text" [formControlName]="i" />
+                            <mat-error *ngIf="subscription.invalid">
+                                {{'notifications.invalid-subscriptionname'|translate}}
+                            </mat-error>
+                        </mat-form-field>
+                        <button mat-mini-fab color="accent" (click)="submit()" matTooltip="{{'save' | translate}}"
+                            [disabled]="subscription.invalid" aria-label="save name">
                             <mat-icon>save</mat-icon>
                         </button>
-                        <button matSuffix mat-mini-fab color="accent" (click)="testSubscription(i)"
+                        <button mat-mini-fab color="accent" (click)="testSubscription(i)"
                             matTooltip="{{'notifications.test-subscription' | translate}}"
                             aria-label="test subscription">
                             <mat-icon>send</mat-icon>
                         </button>
-                        <button matSuffix mat-mini-fab color="accent" (click)="deleteSubscription(i)"
+                        <button mat-mini-fab color="accent" (click)="deleteSubscription(i)"
                             matTooltip="{{'notifications.delete-subscription' | translate}}"
                             aria-label="delete subscription">
                             <mat-icon>clear</mat-icon>
                         </button>
-                        <mat-error *ngIf="subscription.invalid">
-                            {{'notifications.invalid-subscriptionname'|translate}}
-                        </mat-error>
-                    </mat-form-field>
+                    </p>
                 </ng-container>
             </mat-card-content>
         </mat-card>
