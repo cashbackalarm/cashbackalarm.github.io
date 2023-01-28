@@ -97,7 +97,7 @@ export class NotificationsComponent extends AuthenticatedComponent {
 
   deleteSubscription(index: number): void {
     this.subscriptionsFormArray.removeAt(index);
-    delete this.subscriptions[index];
+    this.subscriptions.splice(index, 1);
     this.submit();
   }
 
