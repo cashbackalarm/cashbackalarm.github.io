@@ -183,7 +183,6 @@
             "testfailed": "Der Test ist fehlgeschlagen."
         },
         "info": {
-            "updated": "Deine Änderungen wurden gespeichert.",
             "tested": "Der Test wurde gestartet."
         }
     },
@@ -547,9 +546,6 @@
         "error": {
             "updatefailed": "Deine Änderungen konnten nicht gespeichert werden.",
             "deletionfailed": "Das Löschen ist fehlgeschlagen."
-        },
-        "info": {
-            "updated": "Deine Änderungen wurden gespeichert."
         }
     }
 }
