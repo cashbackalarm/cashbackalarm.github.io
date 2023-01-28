@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1674927050436,
+  "timestamp": 1674927552856,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -72,7 +72,7 @@
     "/favicon.ico": "0d7eabd9a130ff22cd8d4a4ee7aebac51cbbacc7",
     "/index.html": "8b14df680fc2b400a0d21e22dc15b2df0c809fc6",
     "/main.cf89901e7322c0ea.js": "ebaab8a14154f8d5b2f9dd3b22179fb08ccbb9ea",
-    "/manifest.webmanifest": "c733aff4f3c350ad7860066a3ee498f79398fcfc",
+    "/manifest.webmanifest": "a729c75d1e2e398c41f7633743d3c7f965068e7b",
     "/material-icons.59322316b3fd6063.woff2": "0bc0c675480d94ec7e8609dda6227f88c5d08d2c",
     "/polyfills.9f262af943bba45d.js": "9d280459b8629144e6d9a7aa123af2fd17b2b5b7",
     "/roboto-latin-400-normal.224e95b0e84110d8.woff": "d9cfe6b477b49d47b6241b4281f4858d98eaca65",
