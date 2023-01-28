@@ -73,13 +73,13 @@ export class NotificationsComponent extends AuthenticatedComponent {
   }
 
   addSubscription(): void {
-    this.setInfo(null)
     this.swPush.requestSubscription({
       serverPublicKey: environment.vapidPublicKey
     })
       .then((sub: PushSubscription) => {
-        this.subscriptionsFormArray.push(new FormControl('', Validators.required));
-        this.subscriptions.push(sub);
+        this.subscriptionsFormArray.push(new FormControl('Gerät ' + (this.subscriptionsFormArray.length + 1), Validators.required));
+        this.subscriptions.push(sub);       
+        this.submit();
       })
       .catch(err => {
         console.error("Could not subscribe to notifications", err);
@@ -98,6 +98,7 @@ export class NotificationsComponent extends AuthenticatedComponent {
   deleteSubscription(index: number): void {
     this.subscriptionsFormArray.removeAt(index);
     delete this.subscriptions[index];
+    this.submit();
   }
 
   private getNotificationTypes(values: boolean[]): NotificationType[] {
@@ -121,7 +122,7 @@ export class NotificationsComponent extends AuthenticatedComponent {
       subscriptions: this.getSubscriptions()
     };
     this.cashbackService.updateNotifications(notifications).subscribe({
-      next: () => this.setInfo('updated'),
+      next: () => {},
       error: () => this.setError('updatefailed')
     });
   }

@@ -18,7 +18,7 @@
                 <div><small>{{'notifications.cashbacks-hint' | translate}}</small></div>
                 <label formArrayName="cashbacks"
                     *ngFor="let notificationType of cashbacksFormArray.controls; let i = index">
-                    <mat-checkbox [formControlName]="i" (click)="setInfo(null)">
+                    <mat-checkbox [formControlName]="i" (click)="submit()">
                         {{'notifications.' + notificationTypes[i] | translate}}
                         <mat-icon color="accent"
                             matTooltip="{{'notifications.' + notificationTypes[i] + '-info' | translate}}">info
@@ -29,7 +29,7 @@
                 <div><small>{{'notifications.participations-hint' | translate}}</small></div>
                 <label formArrayName="participations"
                     *ngFor="let notificationType of participationsFormArray.controls; let i = index">
-                    <mat-checkbox [formControlName]="i" (click)="setInfo(null)">
+                    <mat-checkbox [formControlName]="i" (click)="submit()">
                         {{'notifications.' + notificationTypes[i] | translate}}
                         <mat-icon color="accent"
                             matTooltip="{{'notifications.' + notificationTypes[i] + '-info' | translate}}">info
@@ -65,11 +65,6 @@
                     </mat-form-field>
                 </ng-container>
             </mat-card-content>
-            <mat-card-actions>
-                <button mat-flat-button color="accent" (click)="submit()" [disabled]="form.invalid"
-                    aria-label="save settings">
-                    {{'save' | translate}}</button>
-            </mat-card-actions>
         </mat-card>
         </form>
 </div>

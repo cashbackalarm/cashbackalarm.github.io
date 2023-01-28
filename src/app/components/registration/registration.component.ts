@@ -56,7 +56,7 @@ export class RegistrationComponent extends ParamMapSubscriberComponent {
               notifications: {
                 cashbacks: ['email', 'web-push'],
                 participations: ['email', 'web-push'],
-                subscriptions: [{ name: 'Abo-1', subscription: sub }]
+                subscriptions: [{ name: 'Gerät 1', subscription: sub }]
               }
             };
             this.register(registration);
