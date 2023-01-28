@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1674902239409,
+  "timestamp": 1674926546541,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -44,6 +44,7 @@
         "/assets/icons/icon-96x96.png",
         "/assets/logo-light.svg",
         "/assets/logo.svg",
+        "/assets/notification.svg",
         "/material-icons.59322316b3fd6063.woff2",
         "/roboto-latin-400-normal.224e95b0e84110d8.woff",
         "/roboto-latin-400-normal.f2894edcf7d09d36.woff2"
@@ -67,6 +68,7 @@
     "/assets/icons/icon-96x96.png": "4c75ae9bb532a2774192095bbe9d42a831570854",
     "/assets/logo-light.svg": "e91f76b042a9aa50baf77227fd9cef88d6a3fac2",
     "/assets/logo.svg": "7b897e74c299fb4683545c8818e5b99153075b08",
+    "/assets/notification.svg": "2a39a60c22dd286deb3c5025bf26bb34b6c144b1",
     "/favicon.ico": "0d7eabd9a130ff22cd8d4a4ee7aebac51cbbacc7",
     "/index.html": "8b14df680fc2b400a0d21e22dc15b2df0c809fc6",
     "/main.cf89901e7322c0ea.js": "ebaab8a14154f8d5b2f9dd3b22179fb08ccbb9ea",
