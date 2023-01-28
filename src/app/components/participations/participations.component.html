@@ -51,7 +51,7 @@
                                         <mat-icon>check_circle</mat-icon>
                                     </a>
                                     <a *ngIf="element.cashback.contact.includes('@')" mat-mini-fab color="accent"
-                                        href="{{'mailto:' + element.cashback.contact}}" target="_blank"
+                                        href="{{'mailto:' + element.cashback.contact + '?subject=' + element.cashback.title}}" target="_blank"
                                         rel="noopener noreferrer" matTooltip="{{'participations.contact' | translate}}">
                                         <mat-icon>mail</mat-icon>
                                     </a>
