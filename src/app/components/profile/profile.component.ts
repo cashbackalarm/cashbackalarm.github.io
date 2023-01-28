@@ -13,7 +13,6 @@ import { AuthenticatedComponent } from '../authenticated/authenticated.component
 export class ProfileComponent extends AuthenticatedComponent {
 
   profile?: Profile;
-  edit?: string;
   form: FormGroup;
 
   constructor(route: ActivatedRoute, cashbackService: CashbackService, private formBuilder: FormBuilder, private router: Router) {
@@ -46,23 +45,17 @@ export class ProfileComponent extends AuthenticatedComponent {
   get name() { return this.form.get('name')!; }
   get confirmation() { return this.form.get('confirmation')!; }
 
-  editField(field: keyof User): void {
-    this.edit = field
-  }
-
   cancelEdit(field: keyof User): void {
     if (this.me) {
       this.form.get(field)?.setValue(this.me[field] as string);
     }
-    this.edit = undefined;
   }
 
   updateName(): void {
     this.cashbackService.updateName(this.form.value.name).subscribe({
-      next: () => this.setInfo('updated'),
+      next: () => {},
       error: () => this.setError('updatefailed')
     });
-    this.edit = undefined;
   }
 
   deleteUser(): void {
