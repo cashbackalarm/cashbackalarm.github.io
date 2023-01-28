@@ -19,8 +19,8 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent extends AuthenticatedComponent {
   name = environment.name;
-  isDarkTheme: Observable<boolean>;
   github: string = environment.github;
+  isDarkTheme: Observable<boolean>;
   private statusChangeSubscription: Subscription;
   private initializedSubscription: Subscription;
   private gtmEnabled: boolean = false;
