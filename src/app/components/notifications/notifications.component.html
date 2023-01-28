@@ -49,7 +49,9 @@
                         *ngFor="let subscription of subscriptionsFormArray.controls; let i = index">
                         <mat-label>{{'notifications.subscriptionname' | translate}}</mat-label>
                         <input matInput type="text" [formControlName]="i" />
-                        <button matSuffix mat-mini-fab color="accent" (click)="submit()" [disabled]="subscription.invalid"
+                        <button matSuffix mat-mini-fab color="accent" (click)="submit()" 
+                            matTooltip="{{'save' | translate}}"
+                            [disabled]="subscription.invalid"
                             aria-label="save name">
                             <mat-icon>save</mat-icon>
                         </button>
