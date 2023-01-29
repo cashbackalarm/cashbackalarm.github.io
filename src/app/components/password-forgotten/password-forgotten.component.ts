@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CashbackService } from 'src/app/services/cashback.service';
 import { ParamMapSubscriberComponent } from '../param-map-subscriber/param-map-subscriber.component';
 
